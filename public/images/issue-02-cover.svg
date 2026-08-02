@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" fill="#e8e4dc"/>
+  <!-- Abstract typographic composition -->
+  <text x="60" y="100" font-family="Georgia, serif" font-size="140" font-weight="700" fill="#d8d3c8" opacity="0.9">II</text>
+  <text x="180" y="220" font-family="Georgia, serif" font-size="72" font-weight="400" font-style="italic" fill="#c8c2b4" opacity="0.7">Memory</text>
+  <text x="60" y="320" font-family="Georgia, serif" font-size="72" font-weight="400" font-style="italic" fill="#b8b2a4" opacity="0.5">& Forgetting</text>
+  <!-- Thin horizontal rule -->
+  <line x1="60" y1="140" x2="540" y2="140" stroke="#c8c2b4" stroke-width="1" opacity="0.6"/>
+  <!-- Small label -->
+  <text x="60" y="375" font-family="Georgia, serif" font-size="11" fill="#8a877f" letter-spacing="3">AUTUMN 2024</text>
+</svg>

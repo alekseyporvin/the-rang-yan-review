@@ -1,0 +1,371 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const allMembers = (await getCollection('editorial-board'))
+  .sort((a, b) => a.data.order - b.data.order);
+
+// Editor-in-Chief: first member with featured: true (sorted by order)
+const featuredMembers = allMembers.filter(m => m.data.featured);
+const editorInChief = featuredMembers[0];
+const team = allMembers.filter(m => !m.data.featured);
+---
+
+<Layout
+  title="Editorial Board | The Rangzen Review"
+  description="The editorial board of The Rangzen Review — the editors, translators, and collaborators who make the journal possible."
+>
+  <Header />
+
+  <main id="main-content">
+    <div class="container editorial-page">
+      <header class="editorial-header">
+        <p class="category-label">The Journal</p>
+        <h1 class="editorial-title">Editorial Board</h1>
+      </header>
+
+      <!-- Editor-in-Chief profile -->
+      {editorInChief && (
+        <section class="eic-section" aria-labelledby="eic-heading">
+          <div class="eic-inner">
+            {editorInChief.data.photo && (
+              <div class="eic-photo">
+                <img
+                  src={editorInChief.data.photo}
+                  alt={`Portrait of ${editorInChief.data.name}`}
+                  width="320"
+                  height="400"
+                  class="eic-photo-img"
+                />
+              </div>
+            )}
+            <div class="eic-content">
+              <p class="eic-role">{editorInChief.data.role}</p>
+              <h2 id="eic-heading" class="eic-name">{editorInChief.data.name}</h2>
+              {editorInChief.data.location && (
+                <p class="eic-location">{editorInChief.data.location}</p>
+              )}
+              {editorInChief.data.shortBio && (
+                <p class="eic-short-bio">{editorInChief.data.shortBio}</p>
+              )}
+              {editorInChief.data.fullBio && (
+                <div class="eic-full-bio">
+                  <p>{editorInChief.data.fullBio}</p>
+                </div>
+              )}
+              <div class="eic-contact">
+                {editorInChief.data.email && (
+                  <a href={`mailto:${editorInChief.data.email}`} class="eic-email">
+                    {editorInChief.data.email}
+                  </a>
+                )}
+                {editorInChief.data.links && editorInChief.data.links.length > 0 && (
+                  <ul class="eic-links" role="list">
+                    {editorInChief.data.links.map((link: { label: string; url: string }) => (
+                      <li>
+                        <a href={link.url} target="_blank" rel="noopener noreferrer">
+                          {link.label} ↗
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- Team section -->
+      {team.length > 0 && (
+        <section class="team-section" aria-labelledby="team-heading">
+          <h2 id="team-heading" class="team-heading">Contributors and Editorial Team</h2>
+          <div class="team-list">
+            {team.map(member => (
+              <div class="team-member">
+                {member.data.photo && (
+                  <div class="team-member-photo">
+                    <img
+                      src={member.data.photo}
+                      alt={`Portrait of ${member.data.name}`}
+                      width="80"
+                      height="80"
+                    />
+                  </div>
+                )}
+                <div class="team-member-info">
+                  <h3 class="team-member-name">{member.data.name}</h3>
+                  <p class="team-member-role">{member.data.role}</p>
+                  {member.data.location && (
+                    <p class="team-member-location">{member.data.location}</p>
+                  )}
+                  {member.data.shortBio && (
+                    <p class="team-member-bio">{member.data.shortBio}</p>
+                  )}
+                  {member.data.fullBio && (
+                    <p class="team-member-full-bio">{member.data.fullBio}</p>
+                  )}
+                  {member.data.links && member.data.links.length > 0 && (
+                    <ul class="team-member-links" role="list">
+                      {member.data.links.map((link: { label: string; url: string }) => (
+                        <li>
+                          <a href={link.url} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .editorial-page {
+    padding: 4rem 0 0;
+  }
+
+  .editorial-header {
+    margin-bottom: 3.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--color-ink);
+  }
+
+  .editorial-header .category-label {
+    margin-bottom: 0.5rem;
+  }
+
+  .editorial-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  /* EIC */
+  .eic-section {
+    margin-bottom: 5rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .eic-inner {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .eic-photo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 3px;
+    filter: grayscale(15%);
+    box-shadow: 0 4px 20px rgba(26, 25, 22, 0.12);
+  }
+
+  .eic-role {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-burgundy);
+    margin: 0 0 0.5rem;
+  }
+
+  .eic-name {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+  }
+
+  .eic-location {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-ink-muted);
+    margin: 0 0 1.5rem;
+  }
+
+  .eic-short-bio {
+    font-family: var(--font-serif-body);
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--color-ink);
+    font-style: italic;
+    margin: 0 0 1.5rem;
+  }
+
+  .eic-full-bio p {
+    font-family: var(--font-serif-body);
+    font-size: 0.975rem;
+    line-height: 1.85;
+    color: var(--color-ink-secondary);
+    margin: 0;
+  }
+
+  .eic-contact {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .eic-email {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-burgundy);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .eic-email:hover {
+    text-decoration: underline;
+  }
+
+  .eic-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .eic-links a {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-ink-secondary);
+    text-decoration: none;
+  }
+
+  .eic-links a:hover {
+    color: var(--color-burgundy);
+  }
+
+  /* Team */
+  .team-heading {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-ink);
+  }
+
+  .team-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .team-member {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .team-member:last-child {
+    border-bottom: none;
+  }
+
+  .team-member-photo img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
+  }
+
+  .team-member-name {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.2rem;
+  }
+
+  .team-member-role {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-burgundy);
+    margin: 0 0 0.4rem;
+  }
+
+  .team-member-location {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+    margin: 0 0 0.6rem;
+  }
+
+  .team-member-bio {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-ink-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .team-member-full-bio {
+    font-family: var(--font-serif-body);
+    font-size: 0.9rem;
+    color: var(--color-ink-secondary);
+    line-height: 1.75;
+    margin: 0.5rem 0 0;
+  }
+
+  .team-member-links {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .team-member-links a {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: var(--color-burgundy);
+    text-decoration: none;
+  }
+
+  .team-member-links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .eic-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .eic-photo-img {
+      max-width: 240px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .team-member {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,271 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+// Sort issues newest first
+const allIssues = (await getCollection('issues'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Find the current issue (newest with status: current)
+const currentIssues = allIssues.filter(i => i.data.status === 'current');
+const currentIssue = currentIssues[0];
+
+// All issues for archive display (all issues, newest first)
+// An issue appears in the archive list regardless of status
+const archiveIssues = allIssues;
+
+// Get all articles grouped by issue slug
+const allArticles = [
+  ...(await getCollection('essays', e => !e.data.draft)),
+  ...(await getCollection('poetry', e => !e.data.draft)),
+  ...(await getCollection('prose', e => !e.data.draft)),
+  ...(await getCollection('reading-room', e => !e.data.draft)),
+].sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function getIssueArticles(issueSlug: string) {
+  return allArticles.filter(a => a.data.issue === issueSlug);
+}
+
+function articleHref(a: { collection: string; slug: string }) {
+  return `/${a.collection}/${a.slug}/`;
+}
+---
+
+<Layout
+  title="Archive | The Rangzen Review"
+  description="All issues of The Rangzen Review, from the current issue to the archive."
+>
+  <Header />
+
+  <main id="main-content">
+    <div class="container archive-page">
+      <header class="archive-header">
+        <p class="category-label">Archive</p>
+        <h1 class="archive-title">All Issues</h1>
+        <p class="archive-desc">
+          Every issue of <em>The Rangzen Review</em>, from the most recent to the first. The archive grows with each publication; no issue is ever removed.
+        </p>
+      </header>
+
+      {archiveIssues.map(issue => {
+        const isCurrent = currentIssue && issue.id === currentIssue.id;
+        const issueArticles = getIssueArticles(issue.slug);
+
+        return (
+          <section class="issue-block" id={`issue-${issue.data.number}`} aria-labelledby={`issue-title-${issue.data.number}`}>
+            <div class="issue-block__meta">
+              {isCurrent && <span class="issue-current-badge">Current Issue</span>}
+              <h2 id={`issue-title-${issue.data.number}`} class="issue-number">
+                Issue {issue.data.number}
+              </h2>
+              <h3 class="issue-title">{issue.data.title}</h3>
+              <p class="issue-season">
+                {issue.data.season} {issue.data.year}
+              </p>
+            </div>
+
+            <div class="issue-block__body">
+              <div class="issue-cover-editorial">
+                {issue.data.coverImage && (
+                  <div class="issue-cover">
+                    <img
+                      src={issue.data.coverImage}
+                      alt={`Cover of Issue ${issue.data.number}: ${issue.data.title}`}
+                      width="280"
+                      height="200"
+                      class="issue-cover-img"
+                    />
+                  </div>
+                )}
+                <div class="issue-editorial">
+                  <p class="issue-editorial__label">From the editors</p>
+                  <p class="issue-editorial__text">{issue.data.editorial}</p>
+                </div>
+              </div>
+
+              {issueArticles.length > 0 && (
+                <div class="issue-contents">
+                  <h4 class="issue-contents__heading">Contents</h4>
+                  <div class="issue-articles">
+                    {issueArticles.map(a => (
+                      <ArticleCard
+                        category={a.data.category}
+                        title={a.data.title}
+                        author={a.data.author}
+                        authorSlug={a.data.authorSlug}
+                        date={a.data.date}
+                        excerpt={a.data.excerpt}
+                        href={articleHref(a)}
+                        tags={a.data.tags}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
+        );
+      })}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .archive-page {
+    padding: 4rem 0 0;
+  }
+
+  .archive-header {
+    max-width: 60ch;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--color-ink);
+  }
+
+  .archive-header .category-label {
+    margin-bottom: 0.5rem;
+  }
+
+  .archive-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .archive-desc {
+    font-family: var(--font-sans);
+    font-size: 0.975rem;
+    color: var(--color-ink-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .archive-desc em {
+    font-style: italic;
+    color: var(--color-ink);
+  }
+
+  .issue-block {
+    padding: 3rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .issue-current-badge {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-paper);
+    background: var(--color-burgundy);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .issue-number {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    margin: 0 0 0.4rem;
+  }
+
+  .issue-title {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.35rem;
+    color: var(--color-ink);
+  }
+
+  .issue-season {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-ink-muted);
+    margin: 0 0 2rem;
+  }
+
+  .issue-block__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .issue-cover-editorial {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .issue-cover-img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 2px 12px rgba(26, 25, 22, 0.1);
+    display: block;
+  }
+
+  .issue-editorial__label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .issue-editorial__text {
+    font-family: var(--font-serif-body);
+    font-size: 0.975rem;
+    line-height: 1.8;
+    color: var(--color-ink-secondary);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .issue-contents__heading {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    margin-bottom: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .issue-articles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .issue-cover-editorial {
+      grid-template-columns: 1fr;
+    }
+
+    .issue-cover {
+      max-width: 240px;
+    }
+
+    .issue-articles {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

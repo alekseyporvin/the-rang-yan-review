@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-paper: #f9f7f3;
+  --color-paper-dark: #f0ede6;
+  --color-ink: #1a1916;
+  --color-ink-secondary: #4a4840;
+  --color-ink-muted: #8a877f;
+  --color-burgundy: #7c2d3e;
+  --color-border: #e4e0d8;
+  --color-border-light: #eeebe4;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-serif-body: 'Lora', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-burgundy);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+/* Article body typography */
+.prose-journal {
+  font-family: var(--font-serif-body);
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: var(--color-ink);
+}
+.prose-journal p {
+  margin-bottom: 1.5em;
+}
+.prose-journal h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  color: var(--color-ink);
+}
+.prose-journal h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+.prose-journal blockquote {
+  border-left: 2px solid var(--color-burgundy);
+  padding-left: 1.5rem;
+  margin-left: 0;
+  color: var(--color-ink-secondary);
+  font-style: italic;
+}
+.prose-journal a {
+  color: var(--color-burgundy);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.prose-journal a:hover {
+  color: var(--color-ink);
+}
+.prose-journal hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2.5em auto;
+  width: 8rem;
+}
+.prose-journal em {
+  font-style: italic;
+}
+.prose-journal strong {
+  font-weight: 600;
+}
+
+/* Poetry specific */
+.prose-poetry {
+  font-family: var(--font-serif-body);
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
+.prose-poetry p {
+  margin-bottom: 0.5em;
+}
+.prose-poetry hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2em auto;
+  width: 4rem;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* Category labels */
+.category-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-burgundy);
+}
+
+/* Smooth transitions */
+a {
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Selection color */
+::selection {
+  background: #e8c4ca;
+  color: var(--color-ink);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-muted);
+}

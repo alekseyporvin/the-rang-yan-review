@@ -1,0 +1,221 @@
+# ============================================================
+# DECAP CMS — конфигурация для The Rangzen Review
+# ============================================================
+#
+# ВАЖНО: Перед запуском замените два значения:
+#
+#   1. repo: ЗАМЕНИТЬ_НА_GITHUB_USERNAME/ЗАМЕНИТЬ_НА_REPOSITORY
+#      Пример: repo: ivanova/rangzen-review
+#
+#   2. base_url: ЗАМЕНИТЬ_НА_URL_OAUTH_WORKER
+#      Пример: base_url: https://rangzen-oauth.your-account.workers.dev
+#
+#      base_url — это ваш Cloudflare Workers или другой OAuth proxy.
+#      Как настроить — смотрите README.md, раздел 6.
+# ============================================================
+
+backend:
+  name: github
+  branch: main
+  # ЗАМЕНИТЕ: ваш GitHub username и название репозитория
+  repo: ЗАМЕНИТЬ_НА_GITHUB_USERNAME/ЗАМЕНИТЬ_НА_REPOSITORY
+  # ЗАМЕНИТЕ: URL вашего OAuth proxy (Cloudflare Worker)
+  base_url: ЗАМЕНИТЬ_НА_URL_OAUTH_WORKER
+  auth_endpoint: auth
+
+# Папки для загрузки изображений
+media_folder: "public/images"
+public_folder: "/images"
+
+# Locale (язык интерфейса Decap)
+locale: ru
+
+# ============================================================
+# КОЛЛЕКЦИИ
+# ============================================================
+
+collections:
+
+  # ----------------------------------------------------------
+  # ЭССЕ
+  # ----------------------------------------------------------
+  - name: essays
+    label: "Эссе (Essays)"
+    label_singular: "Эссе"
+    folder: "src/content/essays"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: "Заголовок", name: title, widget: string }
+      - { label: "Автор", name: author, widget: string }
+      - { label: "Slug автора (латиницей, через дефис)", name: authorSlug, widget: string }
+      - { label: "Дата публикации", name: date, widget: datetime, format: "YYYY-MM-DD" }
+      - { label: "Краткое описание (excerpt)", name: excerpt, widget: text }
+      - { label: "Теги", name: tags, widget: list, default: [] }
+      - { label: "Рубрика", name: category, widget: string, default: "Essays", required: false }
+      - { label: "Выпуск (slug, например issue-02)", name: issue, widget: string, required: false }
+      - { label: "Рекомендованный материал", name: featured, widget: boolean, default: false }
+      - { label: "Черновик (не публиковать)", name: draft, widget: boolean, default: false }
+      - { label: "Обложка (изображение)", name: coverImage, widget: image, required: false }
+      - { label: "Текст", name: body, widget: markdown }
+
+  # ----------------------------------------------------------
+  # ПОЭЗИЯ
+  # ----------------------------------------------------------
+  - name: poetry
+    label: "Поэзия (Poetry)"
+    label_singular: "Стихотворение"
+    folder: "src/content/poetry"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: "Заголовок", name: title, widget: string }
+      - { label: "Автор", name: author, widget: string }
+      - { label: "Slug автора", name: authorSlug, widget: string }
+      - { label: "Дата публикации", name: date, widget: datetime, format: "YYYY-MM-DD" }
+      - { label: "Краткое описание", name: excerpt, widget: text }
+      - { label: "Теги", name: tags, widget: list, default: [] }
+      - { label: "Рубрика", name: category, widget: string, default: "Poetry", required: false }
+      - { label: "Выпуск (slug)", name: issue, widget: string, required: false }
+      - { label: "Рекомендованный", name: featured, widget: boolean, default: false }
+      - { label: "Черновик", name: draft, widget: boolean, default: false }
+      - { label: "Обложка", name: coverImage, widget: image, required: false }
+      - { label: "Текст", name: body, widget: markdown }
+
+  # ----------------------------------------------------------
+  # ПРОЗА
+  # ----------------------------------------------------------
+  - name: prose
+    label: "Проза (Prose)"
+    label_singular: "Рассказ / текст"
+    folder: "src/content/prose"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: "Заголовок", name: title, widget: string }
+      - { label: "Автор", name: author, widget: string }
+      - { label: "Slug автора", name: authorSlug, widget: string }
+      - { label: "Дата публикации", name: date, widget: datetime, format: "YYYY-MM-DD" }
+      - { label: "Краткое описание", name: excerpt, widget: text }
+      - { label: "Теги", name: tags, widget: list, default: [] }
+      - { label: "Рубрика", name: category, widget: string, default: "Prose", required: false }
+      - { label: "Выпуск (slug)", name: issue, widget: string, required: false }
+      - { label: "Рекомендованный", name: featured, widget: boolean, default: false }
+      - { label: "Черновик", name: draft, widget: boolean, default: false }
+      - { label: "Обложка", name: coverImage, widget: image, required: false }
+      - { label: "Текст", name: body, widget: markdown }
+
+  # ----------------------------------------------------------
+  # ЧИТАЛЬНЫЙ ЗАЛ
+  # ----------------------------------------------------------
+  - name: reading-room
+    label: "Читальный зал (Reading Room)"
+    label_singular: "Текст для читального зала"
+    folder: "src/content/reading-room"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: "Заголовок", name: title, widget: string }
+      - { label: "Автор", name: author, widget: string }
+      - { label: "Slug автора", name: authorSlug, widget: string }
+      - { label: "Дата публикации", name: date, widget: datetime, format: "YYYY-MM-DD" }
+      - { label: "Краткое описание", name: excerpt, widget: text }
+      - { label: "Теги", name: tags, widget: list, default: [] }
+      - { label: "Рубрика", name: category, widget: string, default: "Reading Room", required: false }
+      - { label: "Выпуск (slug)", name: issue, widget: string, required: false }
+      - { label: "Рекомендованный", name: featured, widget: boolean, default: false }
+      - { label: "Черновик", name: draft, widget: boolean, default: false }
+      - { label: "Обложка", name: coverImage, widget: image, required: false }
+      - { label: "Текст", name: body, widget: markdown }
+
+  # ----------------------------------------------------------
+  # ВЫПУСКИ
+  # ----------------------------------------------------------
+  - name: issues
+    label: "Выпуски (Issues)"
+    label_singular: "Выпуск"
+    folder: "src/content/issues"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: "Название выпуска", name: title, widget: string }
+      - { label: "Номер выпуска", name: number, widget: number }
+      - { label: "Сезон (например, Autumn)", name: season, widget: string, required: false }
+      - { label: "Год", name: year, widget: number }
+      - { label: "Дата выпуска", name: date, widget: datetime, format: "YYYY-MM-DD" }
+      - { label: "Редакторское введение", name: editorial, widget: text }
+      - { label: "Обложка выпуска", name: coverImage, widget: image, required: false }
+      - label: "Статус"
+        name: status
+        widget: select
+        options:
+          - { label: "Текущий выпуск", value: current }
+          - { label: "Архивный выпуск", value: archive }
+        default: archive
+      - { label: "Показать на главной странице", name: featured, widget: boolean, default: false }
+      - { label: "Описание (необязательно)", name: body, widget: markdown, required: false }
+
+  # ----------------------------------------------------------
+  # АВТОРЫ
+  # ----------------------------------------------------------
+  - name: authors
+    label: "Авторы (Authors)"
+    label_singular: "Автор"
+    folder: "src/content/authors"
+    create: true
+    slug: "{{fields.slug}}"
+    extension: md
+    identifier_field: slug
+    fields:
+      - { label: "Полное имя", name: name, widget: string }
+      - { label: "Slug (латиницей, через дефис)", name: slug, widget: string }
+      - { label: "Краткая биография", name: shortBio, widget: text, required: false }
+      - { label: "Полная биография", name: fullBio, widget: text, required: false }
+      - { label: "Город / страна", name: location, widget: string, required: false }
+      - label: "Ссылки (профиль, сайт и т.д.)"
+        name: links
+        widget: list
+        required: false
+        fields:
+          - { label: "Название ссылки", name: label, widget: string }
+          - { label: "URL", name: url, widget: string }
+      - { label: "Портрет (фото)", name: portrait, widget: image, required: false }
+
+  # ----------------------------------------------------------
+  # РЕДАКЦИЯ
+  # ----------------------------------------------------------
+  - name: editorial-board
+    label: "Редакция (Editorial Board)"
+    label_singular: "Член редакции"
+    folder: "src/content/editorial-board"
+    create: true
+    slug: "{{fields.slug}}"
+    extension: md
+    identifier_field: slug
+    fields:
+      - { label: "Полное имя", name: name, widget: string }
+      - { label: "Slug (латиницей, через дефис)", name: slug, widget: string }
+      - { label: "Должность / роль", name: role, widget: string }
+      - { label: "Порядок отображения (1 — первый)", name: order, widget: number, default: 99 }
+      - { label: "Краткая биография", name: shortBio, widget: text, required: false }
+      - { label: "Полная биография", name: fullBio, widget: text, required: false }
+      - { label: "Фотография", name: photo, widget: image, required: false }
+      - { label: "Город / страна", name: location, widget: string, required: false }
+      - { label: "Email", name: email, widget: string, required: false }
+      - label: "Ссылки"
+        name: links
+        widget: list
+        required: false
+        fields:
+          - { label: "Название", name: label, widget: string }
+          - { label: "URL", name: url, widget: string }
+      - label: "Главный редактор (Editor-in-Chief)"
+        name: featured
+        widget: boolean
+        default: false
+        hint: "Отметьте, если это главный редактор — его профиль будет показан первым и крупным планом."

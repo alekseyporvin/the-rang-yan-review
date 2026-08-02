@@ -1,0 +1,245 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+export async function getStaticPaths() {
+  // Gather all author slugs from publications
+  const essays = await getCollection('essays', e => !e.data.draft);
+  const poetry = await getCollection('poetry', e => !e.data.draft);
+  const prose = await getCollection('prose', e => !e.data.draft);
+  const readingRoom = await getCollection('reading-room', e => !e.data.draft);
+  const allArticles = [...essays, ...poetry, ...prose, ...readingRoom];
+
+  const authorSlugs = [...new Set(allArticles.map(a => a.data.authorSlug))];
+  const authorBios = await getCollection('authors');
+  // Use entry.slug (= filename, e.g. "eleanor-voss") as key
+  const authorBioMap = new Map(authorBios.map(a => [a.slug, a]));
+
+  return authorSlugs.map(slug => {
+    const bio = authorBioMap.get(slug);
+    const publications = allArticles
+      .filter(a => a.data.authorSlug === slug)
+      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+    const name = bio?.data.name ?? publications[0]?.data.author ?? slug;
+
+    return {
+      params: { slug },
+      props: { slug, name, bio: bio?.data ?? null, publications },
+    };
+  });
+}
+
+const { slug, name, bio, publications } = Astro.props;
+
+function articleHref(a: { collection: string; slug: string }) {
+  return `/${a.collection}/${a.slug}/`;
+}
+---
+
+<Layout
+  title={`${name} | Authors | The Rangzen Review`}
+  description={bio?.shortBio ?? `Writings by ${name} in The Rangzen Review.`}
+>
+  <Header />
+
+  <main id="main-content">
+    <div class="container author-page">
+      <header class="author-header">
+        {bio?.portrait && (
+          <div class="author-portrait">
+            <img
+              src={bio.portrait}
+              alt={`Portrait of ${name}`}
+              width="160"
+              height="160"
+            />
+          </div>
+        )}
+        <div class="author-info">
+          <p class="category-label">Author</p>
+          <h1 class="author-name">{name}</h1>
+          {bio?.location && (
+            <p class="author-location">{bio.location}</p>
+          )}
+          {bio?.shortBio ? (
+            <p class="author-short-bio">{bio.shortBio}</p>
+          ) : (
+            <p class="author-short-bio author-short-bio--placeholder">Biography forthcoming.</p>
+          )}
+          {bio?.fullBio && (
+            <div class="author-full-bio">
+              <p>{bio.fullBio}</p>
+            </div>
+          )}
+          {bio?.links && bio.links.length > 0 && (
+            <ul class="author-links" role="list">
+              {bio.links.map((link: { label: string; url: string }) => (
+                <li>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer">
+                    {link.label} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </header>
+
+      <section class="author-publications" aria-labelledby="publications-heading">
+        <h2 id="publications-heading" class="publications-heading">
+          Publications in <em>The Rangzen Review</em>
+        </h2>
+        {publications.length === 0 ? (
+          <p class="no-publications">No publications found.</p>
+        ) : (
+          <div class="publications-list">
+            {publications.map(a => (
+              <ArticleCard
+                category={a.data.category}
+                title={a.data.title}
+                author={a.data.author}
+                date={a.data.date}
+                excerpt={a.data.excerpt}
+                href={articleHref(a)}
+                tags={a.data.tags}
+                size="large"
+              />
+            ))}
+          </div>
+        )}
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .author-page {
+    padding: 4rem 0 0;
+  }
+
+  .author-header {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .author-portrait img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
+  }
+
+  .author-info .category-label {
+    margin-bottom: 0.5rem;
+  }
+
+  .author-name {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .author-location {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-ink-muted);
+    margin: 0 0 1rem;
+  }
+
+  .author-short-bio {
+    font-family: var(--font-sans);
+    font-size: 0.975rem;
+    color: var(--color-ink-secondary);
+    line-height: 1.7;
+    margin: 0 0 1rem;
+  }
+
+  .author-short-bio--placeholder {
+    font-style: italic;
+    color: var(--color-ink-muted);
+  }
+
+  .author-full-bio {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .author-full-bio p {
+    font-family: var(--font-serif-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-ink-secondary);
+    margin: 0;
+  }
+
+  .author-links {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .author-links a {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-burgundy);
+    text-decoration: none;
+  }
+
+  .author-links a:hover {
+    text-decoration: underline;
+  }
+
+  .publications-heading {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-ink);
+  }
+
+  .publications-heading em {
+    font-style: italic;
+  }
+
+  .publications-list {
+    max-width: 72ch;
+  }
+
+  .no-publications {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-ink-muted);
+    padding: 2rem 0;
+  }
+
+  @media (max-width: 640px) {
+    .author-header {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .author-portrait img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+</style>

@@ -1,0 +1,261 @@
+---
+const navLinks = [
+  { href: '/essays/', label: 'Essays' },
+  { href: '/poetry/', label: 'Poetry' },
+  { href: '/prose/', label: 'Prose' },
+  { href: '/reading-room/', label: 'Reading Room' },
+  { href: '/archive/', label: 'Archive' },
+  { href: '/authors/', label: 'Authors' },
+  { href: '/editorial-board/', label: 'Editorial Board' },
+  { href: '/about/', label: 'About' },
+];
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-brand">
+        <a href="/" class="brand-link" aria-label="The Rangzen Review — home">
+          <span class="brand-name">The Rangzen Review</span>
+          <span class="brand-tagline">Literature · Philosophy · Solidarity</span>
+        </a>
+      </div>
+
+      <!-- Desktop nav -->
+      <nav class="header-nav" aria-label="Main navigation">
+        <ul role="list">
+          {navLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class={`nav-link${pathname.startsWith(link.href) ? ' nav-link--active' : ''}`}
+                aria-current={pathname.startsWith(link.href) ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button
+        class="mobile-menu-btn"
+        id="mobile-menu-btn"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <ul role="list">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class={`mobile-nav-link${pathname.startsWith(link.href) ? ' mobile-nav-link--active' : ''}`}
+              aria-current={pathname.startsWith(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--color-paper);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 4.5rem;
+  }
+
+  .brand-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .brand-name {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .brand-tagline {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    line-height: 1;
+  }
+
+  .header-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-ink-secondary);
+    text-decoration: none;
+    padding: 0.35rem 0.65rem;
+    border-radius: 3px;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .nav-link:hover {
+    color: var(--color-ink);
+    background: var(--color-paper-dark);
+  }
+
+  .nav-link--active {
+    color: var(--color-burgundy);
+    font-weight: 600;
+  }
+
+  /* Mobile button */
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .mobile-menu-btn:hover {
+    background: var(--color-paper-dark);
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-ink);
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  /* Open state */
+  .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile nav panel */
+  .mobile-nav {
+    display: none;
+    background: var(--color-paper);
+    border-top: 1px solid var(--color-border);
+    padding: 1rem 0 1.5rem;
+  }
+
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0 1.25rem;
+    margin: 0;
+  }
+
+  .mobile-nav-link {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink-secondary);
+    text-decoration: none;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .mobile-nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-nav-link--active {
+    color: var(--color-burgundy);
+  }
+
+  .mobile-nav[aria-hidden="false"] {
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .header-nav {
+      display: none;
+    }
+    .mobile-menu-btn {
+      display: flex;
+    }
+    .mobile-nav {
+      display: none;
+    }
+    .mobile-nav[aria-hidden="false"] {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const nav = document.getElementById('mobile-nav');
+
+  if (btn && nav) {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      nav.setAttribute('aria-hidden', String(isOpen));
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!btn.contains(e.target as Node) && !nav.contains(e.target as Node)) {
+        btn.setAttribute('aria-expanded', 'false');
+        nav.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+</script>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" fill="#e0dbd2"/>
+  <text x="60" y="100" font-family="Georgia, serif" font-size="140" font-weight="700" fill="#d0cbbe" opacity="0.9">I</text>
+  <text x="160" y="200" font-family="Georgia, serif" font-size="64" font-weight="400" font-style="italic" fill="#bab4a6" opacity="0.7">Labor</text>
+  <text x="60" y="300" font-family="Georgia, serif" font-size="64" font-weight="400" font-style="italic" fill="#aaa49a" opacity="0.5">& Language</text>
+  <line x1="60" y1="130" x2="540" y2="130" stroke="#bab4a6" stroke-width="1" opacity="0.6"/>
+  <text x="60" y="375" font-family="Georgia, serif" font-size="11" fill="#8a877f" letter-spacing="3">SPRING 2024</text>
+</svg>

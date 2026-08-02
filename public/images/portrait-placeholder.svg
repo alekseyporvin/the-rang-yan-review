@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" fill="none">
+  <rect width="400" height="500" fill="#e4e0d8"/>
+  <circle cx="200" cy="185" r="75" fill="#c8c3b8"/>
+  <path d="M60 500 C60 380 340 380 340 500Z" fill="#c8c3b8"/>
+  <text x="200" y="460" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#8a877f">Photo forthcoming</text>
+</svg>

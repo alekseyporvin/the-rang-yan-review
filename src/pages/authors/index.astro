@@ -1,0 +1,273 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Collect all articles from all content collections
+const essays = await getCollection('essays', e => !e.data.draft);
+const poetry = await getCollection('poetry', e => !e.data.draft);
+const prose = await getCollection('prose', e => !e.data.draft);
+const readingRoom = await getCollection('reading-room', e => !e.data.draft);
+
+const allArticles = [...essays, ...poetry, ...prose, ...readingRoom];
+
+// Build a map of authorSlug -> { name, publications }
+const authorMap = new Map<string, { name: string; slug: string; publications: typeof allArticles }>();
+
+for (const article of allArticles) {
+  const slug = article.data.authorSlug;
+  const name = article.data.author;
+  if (!authorMap.has(slug)) {
+    authorMap.set(slug, { name, slug, publications: [] });
+  }
+  authorMap.get(slug)!.publications.push(article);
+}
+
+// Build list of authors with optional bio file
+const authorEntries = await getCollection('authors');
+// Use entry.slug (= filename) as the key, not a.data.slug
+const authorBioMap = new Map(authorEntries.map(a => [a.slug, a]));
+
+// Combine: use bio data if available, otherwise just use name + slug from publications
+const authors = [...authorMap.entries()].map(([slug, data]) => {
+  const bio = authorBioMap.get(slug) ?? authorEntries.find(a => a.slug === slug);
+  return {
+    slug,
+    name: bio?.data.name ?? data.name,
+    shortBio: bio?.data.shortBio,
+    location: bio?.data.location,
+    publicationCount: data.publications.length,
+  };
+}).sort((a, b) => a.name.localeCompare(b.name));
+
+// Group by first letter
+const grouped = new Map<string, typeof authors>();
+for (const author of authors) {
+  const letter = author.name[0].toUpperCase();
+  if (!grouped.has(letter)) grouped.set(letter, []);
+  grouped.get(letter)!.push(author);
+}
+
+const alphabet = [...grouped.keys()].sort();
+---
+
+<Layout
+  title="Authors | The Rangzen Review"
+  description="All authors published in The Rangzen Review, with biographical notes and lists of their work."
+>
+  <Header />
+
+  <main id="main-content">
+    <div class="container authors-page">
+      <header class="authors-header">
+        <p class="category-label">Directory</p>
+        <h1 class="authors-title">Authors</h1>
+        <p class="authors-desc">
+          Contributors to <em>The Rangzen Review</em>. An author appears automatically after their first published work.
+        </p>
+      </header>
+
+      <!-- Alphabet index -->
+      <nav class="alpha-index" aria-label="Jump to letter">
+        {['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'].map(letter => (
+          grouped.has(letter) ? (
+            <a href={`#letter-${letter}`} class="alpha-index__link">{letter}</a>
+          ) : (
+            <span class="alpha-index__disabled" aria-hidden="true">{letter}</span>
+          )
+        ))}
+      </nav>
+
+      <div class="authors-list">
+        {alphabet.map(letter => (
+          <section id={`letter-${letter}`} class="authors-letter-group" aria-labelledby={`letter-heading-${letter}`}>
+            <h2 id={`letter-heading-${letter}`} class="letter-heading">{letter}</h2>
+            <ul role="list" class="authors-letter-list">
+              {grouped.get(letter)!.map(author => (
+                <li class="author-item">
+                  <a href={`/authors/${author.slug}/`} class="author-item__name">
+                    {author.name}
+                  </a>
+                  {author.location && (
+                    <span class="author-item__location">{author.location}</span>
+                  )}
+                  {author.shortBio && (
+                    <p class="author-item__bio">{author.shortBio}</p>
+                  )}
+                  <span class="author-item__count">
+                    {author.publicationCount} {author.publicationCount === 1 ? 'publication' : 'publications'}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .authors-page {
+    padding: 4rem 0 0;
+  }
+
+  .authors-header {
+    max-width: 60ch;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--color-ink);
+  }
+
+  .authors-header .category-label {
+    margin-bottom: 0.5rem;
+  }
+
+  .authors-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .authors-desc {
+    font-family: var(--font-sans);
+    font-size: 0.975rem;
+    color: var(--color-ink-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .authors-desc em {
+    font-style: italic;
+    color: var(--color-ink);
+  }
+
+  /* Alpha index */
+  .alpha-index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 3rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .alpha-index__link {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-burgundy);
+    text-decoration: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 2px;
+    min-width: 2rem;
+    text-align: center;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .alpha-index__link:hover {
+    background: var(--color-burgundy);
+    color: var(--color-paper);
+  }
+
+  .alpha-index__disabled {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-border);
+    padding: 0.3rem 0.5rem;
+    min-width: 2rem;
+    text-align: center;
+  }
+
+  /* Author groups */
+  .authors-letter-group {
+    margin-bottom: 2.5rem;
+  }
+
+  .letter-heading {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-ink-muted);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .authors-letter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .author-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border-light);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0.25rem 1rem;
+    align-items: start;
+  }
+
+  .author-item__name {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    text-decoration: none;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .author-item__name:hover {
+    color: var(--color-burgundy);
+  }
+
+  .author-item__location {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    white-space: nowrap;
+  }
+
+  .author-item__bio {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-ink-secondary);
+    line-height: 1.6;
+    margin: 0;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .author-item__count {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--color-ink-muted);
+    grid-column: 2;
+    grid-row: 2;
+    white-space: nowrap;
+    align-self: end;
+  }
+
+  @media (max-width: 600px) {
+    .author-item {
+      grid-template-columns: 1fr;
+    }
+    .author-item__location,
+    .author-item__count {
+      grid-column: 1;
+      grid-row: auto;
+    }
+  }
+</style>

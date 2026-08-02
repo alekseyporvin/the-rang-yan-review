@@ -1,0 +1,165 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="About | The Rangzen Review"
+  description="About The Rangzen Review — our mission, principles, and commitment to independent literary culture."
+>
+  <Header />
+
+  <main id="main-content">
+    <div class="container about-page">
+      <header class="about-header">
+        <p class="category-label">The Journal</p>
+        <h1 class="about-title">About <em>The Rangzen Review</em></h1>
+      </header>
+
+      <div class="about-body">
+        <section class="about-section" aria-labelledby="mission-heading">
+          <h2 id="mission-heading">Mission</h2>
+          <p>
+            <em>The Rangzen Review</em> is an independent literary and philosophical journal committed to critical thought, humanist culture, and the life of language. We publish essays, poetry, and prose that take seriously both aesthetic and political questions — that understand form and commitment to be not opposed but deeply entangled.
+          </p>
+          <p>
+            We believe that literature and philosophy occupy an irreplaceable position in the public life of ideas: not the academy, not the market, but something between — a space for thinking that is too serious for entertainment and too committed for neutrality. We are not a party organ and we have no party line. We are, however, not without convictions.
+          </p>
+          <p>
+            We are committed to the traditions of critical theory, anti-authoritarian humanism, international solidarity, and the serious study of culture, labor, memory, and emancipation. We read these as traditions worth arguing about and arguing from, not as dogmas to be transmitted.
+          </p>
+        </section>
+
+        <section class="about-section" aria-labelledby="principles-heading">
+          <h2 id="principles-heading">Editorial Principles</h2>
+          <p>
+            We publish work that is rigorous without being academic, engaged without being sectarian, and attentive to the lives of people who do not always find themselves in the pages of literary journals. We are interested in work that takes form seriously — that understands the question of how something is written as inseparable from what it is saying.
+          </p>
+          <p>
+            We do not have a house style in the conventional sense, but we value clarity, density, and the willingness to stay with a difficult question long enough to say something true about it. We are suspicious of easy conclusions and easy consolations in equal measure.
+          </p>
+          <p>
+            We publish in English, and we are committed to translation — to bringing into English voices that would otherwise remain inaccessible to our readers, and to thinking about what is lost and gained in that passage.
+          </p>
+        </section>
+
+        <section class="about-section" aria-labelledby="independence-heading">
+          <h2 id="independence-heading">Independence</h2>
+          <p>
+            <em>The Rangzen Review</em> is published independently, without institutional affiliation, corporate sponsorship, or donor conditions. This independence is not merely formal; it is the condition of our ability to say what we think.
+          </p>
+          <p>
+            The journal is supported by its readers. We do not have a paywall, and we are committed to keeping our content freely accessible. If you would like to support the journal, the best way to do so is to read it, share it, and — if you are a writer — submit to it.
+          </p>
+        </section>
+
+        <section class="about-section" aria-labelledby="submissions-heading">
+          <h2 id="submissions-heading">Submissions</h2>
+          <p>
+            We welcome submissions of essays, poetry, and fiction. Before submitting, please read several issues of the journal to understand what we publish. We read all submissions carefully and respond to every submission, though this may take several weeks.
+          </p>
+          <p>
+            Please send submissions and queries to <a href="mailto:submissions@rangzenreview.org">submissions@rangzenreview.org</a>. We prefer work that has not been published elsewhere, but we will consider simultaneous submissions if notified.
+          </p>
+        </section>
+
+        <section class="about-section" aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Contact</h2>
+          <p>
+            General correspondence: <a href="mailto:editors@rangzenreview.org">editors@rangzenreview.org</a><br />
+            Submissions: <a href="mailto:submissions@rangzenreview.org">submissions@rangzenreview.org</a>
+          </p>
+          <p>
+            Editorial Board: <a href="/editorial-board/">Editorial Board page</a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .about-page {
+    padding: 4rem 0 0;
+  }
+
+  .about-header {
+    margin-bottom: 3.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--color-ink);
+    max-width: 60ch;
+  }
+
+  .about-header .category-label {
+    margin-bottom: 0.5rem;
+  }
+
+  .about-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .about-title em {
+    font-style: italic;
+  }
+
+  .about-body {
+    max-width: 68ch;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .about-section {
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .about-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .about-section h2 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 1.25rem;
+    color: var(--color-ink);
+  }
+
+  .about-section p {
+    font-family: var(--font-serif-body);
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--color-ink-secondary);
+    margin-bottom: 1em;
+  }
+
+  .about-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-section em {
+    font-style: italic;
+    color: var(--color-ink);
+  }
+
+  .about-section a {
+    color: var(--color-burgundy);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .about-section a:hover {
+    color: var(--color-ink);
+  }
+</style>

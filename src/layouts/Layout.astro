@@ -1,0 +1,67 @@
+---
+import '../styles/globals.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  canonical?: string;
+  articleDate?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'The Rangzen Review — a literary and philosophical journal of critical thought, culture, and human solidarity.',
+  ogTitle,
+  ogDescription,
+  ogImage,
+  canonical,
+  articleDate,
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = 'https://rangzenreview.org';
+const resolvedCanonical = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+const resolvedOgTitle = ogTitle || title;
+const resolvedOgDescription = ogDescription || description;
+const resolvedOgImage = ogImage || `${siteUrl}/images/og-default.svg`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={resolvedCanonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={articleDate ? 'article' : 'website'} />
+    <meta property="og:site_name" content="The Rangzen Review" />
+    <meta property="og:title" content={resolvedOgTitle} />
+    <meta property="og:description" content={resolvedOgDescription} />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:image" content={resolvedOgImage} />
+    {articleDate && <meta property="article:published_time" content={articleDate} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={resolvedOgTitle} />
+    <meta name="twitter:description" content={resolvedOgDescription} />
+    <meta name="twitter:image" content={resolvedOgImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="The Rangzen Review" href="/rss.xml" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <slot />
+  </body>
+</html>
