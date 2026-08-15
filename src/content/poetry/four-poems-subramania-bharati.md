@@ -12,8 +12,6 @@ category: Poetry
 featured: true
 ---
 
-⁂
-
 Everything changed suddenly.  
 Now laws are made for the people's advancement,  
 according to the people's desire.  
@@ -25,7 +23,7 @@ Like a wall knocked down,
 Kali Yuga collapsed,  
 And the Golden Age has dawned
 
-⁂
+* * *
 
 ## Out, Out, Old India! And Welcome! New-India!
 
@@ -51,7 +49,7 @@ go, go, go away.
 You who always wallow in meanness —  
 go, go, go away.
 
-⁂
+* * *
 
 We shall destroy the foolish custom of  
 humiliating women.  
@@ -59,7 +57,7 @@ No more shall there be any servitude or subordination.
 Men and women will live as equals in this country.  
 Liberation! Liberation! Liberation!
 
-⁂
+* * *
 
 ## In Praise of the Goddess of Learning
 
