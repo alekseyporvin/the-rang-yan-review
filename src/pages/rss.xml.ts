@@ -16,7 +16,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: 'The Rang Yan Review',
     description: 'A literary and philosophical journal of critical thought, culture, and human solidarity.',
-    site: context.site ?? 'https://rangyanreview.org',
+    site: context.site ?? 'https://therangyanreview.org',
     items: allArticles.map(article => ({
       title: article.data.title,
       pubDate: article.data.date,
