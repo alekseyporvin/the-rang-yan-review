@@ -144,7 +144,7 @@ Decap CMS — это визуальный редактор контента. П�
 https://your-site.pages.dev/admin/
 ```
 
-Или на вашем собственном домене: `https://rangyanreview.org/admin/`
+Или на вашем собственном домене: `https://therangyanreview.org/admin/`
 
 Вход — через кнопку **"Login with GitHub"**. Нужны права на запись в репозиторий.
 
