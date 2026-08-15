@@ -1,0 +1,46 @@
+---
+title: "Tasting the Earth"
+author: "James Oppenheim"
+authorSlug: "james-oppenheim"
+date: 1914-01-01
+excerpt: "In a dark hour, tasting the Earth — a poem of grief turned toward the ancient heart of the world."
+tags:
+  - poetry
+  - grief
+  - earth
+category: Poetry
+featured: true
+---
+
+In a dark hour, tasting the Earth.  
+As I lay on my couch in the muffled night, and the rain lashed my window,  
+And my forsaken heart would give me no rest, no pause and no peace,  
+Though I turned my face far from the wailing of my bereavement….  
+Then I said: I will eat of this sorrow to its last shred,  
+I will take it unto me utterly,  
+I will see if I be not strong enough to contain it….  
+What do I fear? Discomfort?  
+How can it hurt me, this bitterness?
+
+The miracle, then!  
+Turning toward it, and giving up to it,  
+I found it deeper than my own self….  
+O dark great mother-globe so close beneath me…  
+It was she with her inexhaustible grief,  
+Ages of blood-drenched jungles, and the smoking of craters, and the roar of tempests,  
+And moan of the forsaken seas,  
+It was she with the hills beginning to walk in the shapes of the dark-hearted animals,  
+It was she risen, dashing away tears and praying to dumb skies, in the pomp-crumbling tragedy of man…  
+It was she, container of all griefs, and the buried dust of broken hearts,
+
+Cry of the christs and the lovers and the child-stripped mothers,  
+And ambition gone down to defeat, and the battle overborne,  
+And the dreams that have no waking….
+
+My heart became her ancient heart:  
+On the food of the strong I fed, on dark strange life itself:  
+Wisdom-giving and sombre with the unremitting love of ages….
+
+There was dank soil in my mouth,  
+And bitter sea on my lips,  
+In a dark hour, tasting the Earth.

@@ -2,16 +2,20 @@
 import Layout from './Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { plainInline, plainTitle, withJournalItalics, withTitleItalics } from '../lib/journal';
 
 interface Props {
   title: string;
   author: string;
   authorSlug?: string;
-  date: Date;
+  authorRole?: string;
+  date?: Date;
   excerpt?: string;
   tags?: string[];
   category?: string;
   issue?: string;
+  coverImage?: string;
+  coverCredit?: string;
   isPoetry?: boolean;
 }
 
@@ -19,64 +23,103 @@ const {
   title,
   author,
   authorSlug,
+  authorRole,
   date,
   excerpt,
   tags = [],
   category,
   issue,
+  coverImage,
+  coverCredit,
   isPoetry = false,
 } = Astro.props;
 
-const formattedDate = date.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const formattedDate = date
+  ? date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  : null;
 
-const pageTitle = `${title} — ${author} | The Rangzen Review`;
+const displayTitle = plainTitle(title);
+const pageTitle = `${displayTitle} — ${author} | The Rang Yan Review`;
 ---
 
 <Layout
   title={pageTitle}
-  description={excerpt}
-  ogTitle={title}
-  ogDescription={excerpt}
-  articleDate={date.toISOString()}
+  description={excerpt ? plainInline(excerpt) : undefined}
+  ogTitle={displayTitle}
+  ogDescription={excerpt ? plainInline(excerpt) : undefined}
+  articleDate={date?.toISOString()}
 >
   <Header />
 
   <main id="main-content">
     <article class="article-page">
       <header class="article-header container">
-        {category && <p class="category-label">{category}</p>}
-        <h1 class="article-title">{title}</h1>
-        <div class="article-byline">
-          {authorSlug ? (
-            <a href={`/authors/${authorSlug}/`} class="article-byline__author">{author}</a>
-          ) : (
-            <span class="article-byline__author">{author}</span>
-          )}
-          <span aria-hidden="true">·</span>
-          <time datetime={date.toISOString()}>{formattedDate}</time>
-          {issue && (
-            <>
-              <span aria-hidden="true">·</span>
-              <a href={`/archive/`} class="article-byline__issue">{issue}</a>
-            </>
+        <div class={`article-header__main${coverImage ? ' article-header__main--with-cover' : ''}`}>
+          <div class="article-header__text">
+            {category && <p class="category-label">{category}</p>}
+            <h1 class="article-title" set:html={withTitleItalics(title)} />
+            <div class="article-byline">
+              {authorSlug ? (
+                <a href={`/authors/${authorSlug}/`} class="article-byline__author">{author}</a>
+              ) : (
+                <span class="article-byline__author">{author}</span>
+              )}
+              {authorRole && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span class="article-byline__role">{authorRole}</span>
+                </>
+              )}
+              {formattedDate && date && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <time datetime={date.toISOString()}>{formattedDate}</time>
+                </>
+              )}
+              {issue && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <a href={`/archive/`} class="article-byline__issue">{issue}</a>
+                </>
+              )}
+            </div>
+
+            {excerpt && (
+              <p
+                class={`article-standfirst${excerpt.includes('*') ? ' article-standfirst--mixed' : ''}`}
+                set:html={withJournalItalics(excerpt)}
+              />
+            )}
+
+            {tags.length > 0 && (
+              <ul class="article-tags" role="list" aria-label="Tags">
+                {tags.map(tag => (
+                  <li class="article-tag">{tag}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {coverImage && (
+            <figure class="article-cover">
+              <img
+                class="article-cover__img"
+                src={coverImage}
+                alt=""
+                width="420"
+                height="560"
+                decoding="async"
+              />
+              {coverCredit && (
+                <figcaption class="article-cover__credit">Photo by {coverCredit}</figcaption>
+              )}
+            </figure>
           )}
         </div>
-
-        {excerpt && (
-          <p class="article-standfirst">{excerpt}</p>
-        )}
-
-        {tags.length > 0 && (
-          <ul class="article-tags" role="list" aria-label="Tags">
-            {tags.map(tag => (
-              <li class="article-tag">{tag}</li>
-            ))}
-          </ul>
-        )}
       </header>
 
       <div class="article-body container">
@@ -110,6 +153,58 @@ const pageTitle = `${title} — ${author} | The Rangzen Review`;
     margin-bottom: 3rem;
   }
 
+  .article-header:has(.article-header__main--with-cover) {
+    max-width: min(100%, 68rem);
+  }
+
+  .article-header__main--with-cover {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+
+  .article-header__text {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 72ch;
+  }
+
+  .article-cover {
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  .article-cover__img {
+    display: block;
+    width: 26.25rem;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+  }
+
+  .article-cover__credit {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--color-ink-muted);
+    margin-top: 0.55rem;
+    line-height: 1.35;
+  }
+
+  @media (max-width: 900px) {
+    .article-header__main--with-cover {
+      flex-direction: column;
+    }
+
+    .article-cover__img {
+      width: min(100%, 26.25rem);
+    }
+  }
+
   .article-header .category-label {
     margin-bottom: 1rem;
   }
@@ -141,6 +236,11 @@ const pageTitle = `${title} — ${author} | The Rangzen Review`;
     text-decoration: none;
   }
 
+  .article-byline__role {
+    color: var(--color-ink-muted);
+    font-weight: 500;
+  }
+
   a.article-byline__author:hover,
   .article-byline__issue:hover {
     color: var(--color-burgundy);
@@ -161,6 +261,14 @@ const pageTitle = `${title} — ${author} | The Rangzen Review`;
     padding-top: 1.25rem;
     margin-top: 0.5rem;
     margin-bottom: 0;
+  }
+
+  .article-standfirst--mixed {
+    font-style: normal;
+  }
+
+  .article-standfirst--mixed em {
+    font-style: italic;
   }
 
   .article-tags {

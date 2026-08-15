@@ -6,13 +6,20 @@ const currentYear = new Date().getFullYear();
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="/" class="footer-brand-link">The Rangzen Review</a>
+        <a href="/" class="footer-brand-link" aria-label="The Rang Yan Review — home">
+          <span class="footer-logo" aria-hidden="true">
+            <span>The</span>
+            <span>Rang</span>
+            <span>Yan</span>
+            <span>Review</span>
+          </span>
+        </a>
         <p class="footer-desc">
           A journal of literature, philosophy, and critical thought.
           Published independently.
         </p>
         <p class="footer-email">
-          <a href="mailto:editors@rangzenreview.org">editors@rangzenreview.org</a>
+          <a href="mailto:editors@rangyanreview.org">editors@rangyanreview.org</a>
         </p>
       </div>
 
@@ -20,10 +27,11 @@ const currentYear = new Date().getFullYear();
         <div class="footer-nav-col">
           <span class="footer-nav-heading">Sections</span>
           <ul role="list">
-            <li><a href="/essays/">Essays</a></li>
+            <li><a href="/essays/">Essays and Philosophy</a></li>
             <li><a href="/poetry/">Poetry</a></li>
             <li><a href="/prose/">Prose</a></li>
-            <li><a href="/reading-room/">Reading Room</a></li>
+            <li><a href="/interviews/">Interviews</a></li>
+            <li><a href="/criticism/">Criticism</a></li>
           </ul>
         </div>
         <div class="footer-nav-col">
@@ -33,6 +41,7 @@ const currentYear = new Date().getFullYear();
             <li><a href="/authors/">Authors</a></li>
             <li><a href="/editorial-board/">Editorial Board</a></li>
             <li><a href="/about/">About</a></li>
+            <li><a href="/submissions/">Submissions</a></li>
           </ul>
         </div>
         <div class="footer-nav-col">
@@ -46,7 +55,7 @@ const currentYear = new Date().getFullYear();
 
     <div class="footer-bottom">
       <p class="footer-copyright">
-        &copy; {currentYear} The Rangzen Review. All rights reserved.
+        &copy; {currentYear} <em>The Rang Yan Review</em>. All rights reserved.
       </p>
       <p class="footer-note">
         Published under a commitment to independent, non-commercial literary culture.
@@ -72,17 +81,42 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-brand-link {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-ink);
     text-decoration: none;
-    display: block;
-    margin-bottom: 0.75rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--color-ink);
+  }
+
+  .footer-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.55em;
+    font-family: var(--font-serif);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: 0.07em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: inherit;
+    white-space: nowrap;
+  }
+
+  .footer-logo > span {
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
   }
 
   .footer-brand-link:hover {
     color: var(--color-burgundy);
+  }
+
+  .footer-copyright em {
+    font-style: normal;
+    font-weight: inherit;
+    font-family: var(--font-serif);
   }
 
   .footer-desc {

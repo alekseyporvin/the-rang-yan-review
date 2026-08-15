@@ -4,25 +4,30 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import { withJournalItalics } from '../../lib/journal';
 
 export async function getStaticPaths() {
   // Gather all author slugs from publications
   const essays = await getCollection('essays', e => !e.data.draft);
   const poetry = await getCollection('poetry', e => !e.data.draft);
   const prose = await getCollection('prose', e => !e.data.draft);
-  const readingRoom = await getCollection('reading-room', e => !e.data.draft);
-  const allArticles = [...essays, ...poetry, ...prose, ...readingRoom];
+  const interviews = await getCollection('interviews', e => !e.data.draft);
+  const criticism = await getCollection('criticism', e => !e.data.draft);
+  const allArticles = [...essays, ...poetry, ...prose, ...interviews, ...criticism];
 
-  const authorSlugs = [...new Set(allArticles.map(a => a.data.authorSlug))];
   const authorBios = await getCollection('authors');
   // Use entry.slug (= filename, e.g. "eleanor-voss") as key
   const authorBioMap = new Map(authorBios.map(a => [a.slug, a]));
+  const authorSlugs = [...new Set([
+    ...allArticles.map(a => a.data.authorSlug),
+    ...authorBios.map(a => a.slug),
+  ])];
 
   return authorSlugs.map(slug => {
     const bio = authorBioMap.get(slug);
     const publications = allArticles
       .filter(a => a.data.authorSlug === slug)
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+      .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
     const name = bio?.data.name ?? publications[0]?.data.author ?? slug;
 
     return {
@@ -40,8 +45,8 @@ function articleHref(a: { collection: string; slug: string }) {
 ---
 
 <Layout
-  title={`${name} | Authors | The Rangzen Review`}
-  description={bio?.shortBio ?? `Writings by ${name} in The Rangzen Review.`}
+  title={`${name} | Authors | The Rang Yan Review`}
+  description={bio?.shortBio ?? `Writings by ${name} in The Rang Yan Review.`}
 >
   <Header />
 
@@ -65,7 +70,7 @@ function articleHref(a: { collection: string; slug: string }) {
             <p class="author-location">{bio.location}</p>
           )}
           {bio?.shortBio ? (
-            <p class="author-short-bio">{bio.shortBio}</p>
+            <p class="author-short-bio" set:html={withJournalItalics(bio.shortBio)} />
           ) : (
             <p class="author-short-bio author-short-bio--placeholder">Biography forthcoming.</p>
           )}
@@ -90,7 +95,7 @@ function articleHref(a: { collection: string; slug: string }) {
 
       <section class="author-publications" aria-labelledby="publications-heading">
         <h2 id="publications-heading" class="publications-heading">
-          Publications in <em>The Rangzen Review</em>
+          Publications in <em>The Rang Yan Review</em>
         </h2>
         {publications.length === 0 ? (
           <p class="no-publications">No publications found.</p>

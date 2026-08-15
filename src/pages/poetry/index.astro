@@ -6,7 +6,7 @@ import Footer from '../../components/Footer.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 
 const allPoems = (await getCollection('poetry', e => !e.data.draft))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
 
 const allTags = [...new Set(allPoems.flatMap(e => e.data.tags))].sort();
 const selectedTag = Astro.url.searchParams.get('tag') || '';
@@ -16,8 +16,8 @@ const filtered = selectedTag
 ---
 
 <Layout
-  title="Poetry | The Rangzen Review"
-  description="New and established poets. Poetry in The Rangzen Review."
+  title="Poetry | The Rang Yan Review"
+  description="New and established poets. Poetry in The Rang Yan Review."
 >
   <Header />
 
@@ -47,7 +47,7 @@ const filtered = selectedTag
       )}
 
       {filtered.length === 0 ? (
-        <p class="no-results">No poems found for this tag.</p>
+        <p class="no-results">{selectedTag ? 'No poems found for this tag.' : 'No poems published yet.'}</p>
       ) : (
         <div class="articles-list">
           {filtered.map(poem => (

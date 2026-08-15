@@ -1,14 +1,14 @@
 # ============================================================
-# DECAP CMS — конфигурация для The Rangzen Review
+# DECAP CMS — конфигурация для The Rang Yan Review
 # ============================================================
 #
 # ВАЖНО: Перед запуском замените два значения:
 #
 #   1. repo: ЗАМЕНИТЬ_НА_GITHUB_USERNAME/ЗАМЕНИТЬ_НА_REPOSITORY
-#      Пример: repo: ivanova/rangzen-review
+#      Пример: repo: ivanova/rang-yan-review
 #
 #   2. base_url: ЗАМЕНИТЬ_НА_URL_OAUTH_WORKER
-#      Пример: base_url: https://rangzen-oauth.your-account.workers.dev
+#      Пример: base_url: https://rang-yan-oauth.your-account.workers.dev
 #
 #      base_url — это ваш Cloudflare Workers или другой OAuth proxy.
 #      Как настроить — смотрите README.md, раздел 6.
@@ -40,7 +40,7 @@ collections:
   # ЭССЕ
   # ----------------------------------------------------------
   - name: essays
-    label: "Эссе (Essays)"
+    label: "Essays and Philosophy"
     label_singular: "Эссе"
     folder: "src/content/essays"
     create: true
@@ -53,7 +53,7 @@ collections:
       - { label: "Дата публикации", name: date, widget: datetime, format: "YYYY-MM-DD" }
       - { label: "Краткое описание (excerpt)", name: excerpt, widget: text }
       - { label: "Теги", name: tags, widget: list, default: [] }
-      - { label: "Рубрика", name: category, widget: string, default: "Essays", required: false }
+      - { label: "Рубрика", name: category, widget: string, default: "Essays and Philosophy", required: false }
       - { label: "Выпуск (slug, например issue-02)", name: issue, widget: string, required: false }
       - { label: "Рекомендованный материал", name: featured, widget: boolean, default: false }
       - { label: "Черновик (не публиковать)", name: draft, widget: boolean, default: false }
@@ -109,12 +109,12 @@ collections:
       - { label: "Текст", name: body, widget: markdown }
 
   # ----------------------------------------------------------
-  # ЧИТАЛЬНЫЙ ЗАЛ
+  # CRITICISM
   # ----------------------------------------------------------
-  - name: reading-room
-    label: "Читальный зал (Reading Room)"
-    label_singular: "Текст для читального зала"
-    folder: "src/content/reading-room"
+  - name: criticism
+    label: "Criticism"
+    label_singular: "Criticism"
+    folder: "src/content/criticism"
     create: true
     slug: "{{slug}}"
     extension: md
@@ -125,7 +125,7 @@ collections:
       - { label: "Дата публикации", name: date, widget: datetime, format: "YYYY-MM-DD" }
       - { label: "Краткое описание", name: excerpt, widget: text }
       - { label: "Теги", name: tags, widget: list, default: [] }
-      - { label: "Рубрика", name: category, widget: string, default: "Reading Room", required: false }
+      - { label: "Рубрика", name: category, widget: string, default: "Criticism", required: false }
       - { label: "Выпуск (slug)", name: issue, widget: string, required: false }
       - { label: "Рекомендованный", name: featured, widget: boolean, default: false }
       - { label: "Черновик", name: draft, widget: boolean, default: false }

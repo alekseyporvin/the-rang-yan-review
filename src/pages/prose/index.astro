@@ -6,7 +6,7 @@ import Footer from '../../components/Footer.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 
 const allProse = (await getCollection('prose', e => !e.data.draft))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
 
 const allTags = [...new Set(allProse.flatMap(e => e.data.tags))].sort();
 const selectedTag = Astro.url.searchParams.get('tag') || '';
@@ -16,8 +16,8 @@ const filtered = selectedTag
 ---
 
 <Layout
-  title="Prose | The Rangzen Review"
-  description="Short fiction, creative non-fiction, and narrative prose. The Rangzen Review."
+  title="Prose | The Rang Yan Review"
+  description="Short fiction, creative non-fiction, and narrative prose. The Rang Yan Review."
 >
   <Header />
 
@@ -47,7 +47,7 @@ const filtered = selectedTag
       )}
 
       {filtered.length === 0 ? (
-        <p class="no-results">No prose found for this tag.</p>
+        <p class="no-results">{selectedTag ? 'No prose found for this tag.' : 'No prose published yet.'}</p>
       ) : (
         <div class="articles-list">
           {filtered.map(piece => (

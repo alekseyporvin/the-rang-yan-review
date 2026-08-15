@@ -6,7 +6,7 @@ import Footer from '../../components/Footer.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 
 const allEssays = (await getCollection('essays', e => !e.data.draft))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
 
 // Collect all unique tags
 const allTags = [...new Set(allEssays.flatMap(e => e.data.tags))].sort();
@@ -18,8 +18,8 @@ const filtered = selectedTag
 ---
 
 <Layout
-  title="Essays | The Rangzen Review"
-  description="Long-form essays on philosophy, politics, culture, and critical theory. The Rangzen Review."
+  title="Essays and Philosophy | The Rang Yan Review"
+  description="Long-form essays on philosophy, politics, culture, and critical theory. The Rang Yan Review."
 >
   <Header />
 
@@ -27,7 +27,7 @@ const filtered = selectedTag
     <div class="container section-page">
       <header class="section-page-header">
         <p class="category-label">Section</p>
-        <h1 class="section-page-title">Essays</h1>
+        <h1 class="section-page-title">Essays and Philosophy</h1>
         <p class="section-page-desc">
           Long-form essays on philosophy, politics, intellectual history, culture, and the conditions of critical thought.
         </p>
@@ -54,7 +54,7 @@ const filtered = selectedTag
       )}
 
       {filtered.length === 0 ? (
-        <p class="no-results">No essays found for this tag.</p>
+        <p class="no-results">{selectedTag ? 'No essays found for this tag.' : 'No essays published yet.'}</p>
       ) : (
         <div class="articles-list">
           {filtered.map(essay => (

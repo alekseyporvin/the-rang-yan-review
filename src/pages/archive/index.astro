@@ -7,7 +7,7 @@ import ArticleCard from '../../components/ArticleCard.astro';
 
 // Sort issues newest first
 const allIssues = (await getCollection('issues'))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
 
 // Find the current issue (newest with status: current)
 const currentIssues = allIssues.filter(i => i.data.status === 'current');
@@ -22,8 +22,9 @@ const allArticles = [
   ...(await getCollection('essays', e => !e.data.draft)),
   ...(await getCollection('poetry', e => !e.data.draft)),
   ...(await getCollection('prose', e => !e.data.draft)),
-  ...(await getCollection('reading-room', e => !e.data.draft)),
-].sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  ...(await getCollection('interviews', e => !e.data.draft)),
+  ...(await getCollection('criticism', e => !e.data.draft)),
+].sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
 
 function getIssueArticles(issueSlug: string) {
   return allArticles.filter(a => a.data.issue === issueSlug);
@@ -35,8 +36,8 @@ function articleHref(a: { collection: string; slug: string }) {
 ---
 
 <Layout
-  title="Archive | The Rangzen Review"
-  description="All issues of The Rangzen Review, from the current issue to the archive."
+  title="Archive | The Rang Yan Review"
+  description="All issues of The Rang Yan Review, from the current issue to the archive."
 >
   <Header />
 
@@ -46,11 +47,13 @@ function articleHref(a: { collection: string; slug: string }) {
         <p class="category-label">Archive</p>
         <h1 class="archive-title">All Issues</h1>
         <p class="archive-desc">
-          Every issue of <em>The Rangzen Review</em>, from the most recent to the first. The archive grows with each publication; no issue is ever removed.
+          Every issue of <em>The Rang Yan Review</em>, from the most recent to the first. The archive grows with each publication; no issue is ever removed.
         </p>
       </header>
 
-      {archiveIssues.map(issue => {
+      {archiveIssues.length === 0 ? (
+        <p class="no-results">No issues published yet.</p>
+      ) : archiveIssues.map(issue => {
         const isCurrent = currentIssue && issue.id === currentIssue.id;
         const issueArticles = getIssueArticles(issue.slug);
 
@@ -253,6 +256,13 @@ function articleHref(a: { collection: string; slug: string }) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0 3rem;
+  }
+
+  .no-results {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-ink-muted);
+    padding: 2rem 0;
   }
 
   @media (max-width: 768px) {

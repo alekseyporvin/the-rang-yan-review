@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const interviews = await getCollection('interviews', e => !e.data.draft);
+  return interviews.map(interview => ({
+    params: { slug: interview.slug },
+    props: { interview },
+  }));
+}
+
+const { interview } = Astro.props;
+const { Content } = await interview.render();
+---
+
+<ArticleLayout
+  title={interview.data.title}
+  author={interview.data.author}
+  authorSlug={interview.data.authorSlug}
+  date={interview.data.date}
+  excerpt={interview.data.excerpt}
+  tags={interview.data.tags}
+  category={interview.data.category || 'Interviews'}
+  issue={interview.data.issue}
+>
+  <Content />
+</ArticleLayout>

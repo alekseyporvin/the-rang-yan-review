@@ -1,46 +1,70 @@
 ---
-const navLinks = [
-  { href: '/essays/', label: 'Essays' },
+const navLeft = [
+  { href: '/essays/', label: 'Essays and Philosophy' },
   { href: '/poetry/', label: 'Poetry' },
   { href: '/prose/', label: 'Prose' },
-  { href: '/reading-room/', label: 'Reading Room' },
+  { href: '/interviews/', label: 'Interviews' },
+  { href: '/criticism/', label: 'Criticism' },
+];
+
+const navRight = [
   { href: '/archive/', label: 'Archive' },
   { href: '/authors/', label: 'Authors' },
   { href: '/editorial-board/', label: 'Editorial Board' },
   { href: '/about/', label: 'About' },
+  { href: '/submissions/', label: 'Submissions' },
 ];
 
+const navLinks = [...navLeft, ...navRight];
 const pathname = Astro.url.pathname;
 ---
 
 <header class="site-header" role="banner">
   <div class="container">
     <div class="header-inner">
-      <div class="header-brand">
-        <a href="/" class="brand-link" aria-label="The Rangzen Review — home">
-          <span class="brand-name">The Rangzen Review</span>
-          <span class="brand-tagline">Literature · Philosophy · Solidarity</span>
+      <div class="header-masthead">
+        <a href="/" class="masthead" aria-label="The Rang Yan Review — home">
+          <div class="masthead__rule" aria-hidden="true"></div>
+
+          <div class="masthead__title" aria-hidden="true">
+            <span class="masthead__the">The</span>
+            <span class="masthead__name">
+              <span class="masthead__rang">Rang</span>
+              <span class="masthead__yan">Yan</span>
+            </span>
+            <span class="masthead__review">Review</span>
+          </div>
+
+          <div class="masthead__double-rule" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="masthead__bottom">
+            <span class="masthead__tagline">
+              A monthly journal of literature, critical theory, and international culture
+            </span>
+            <span class="masthead__established">Est. 2026</span>
+          </div>
         </a>
+
+        <nav class="header-nav" aria-label="Main navigation">
+          <ul class="nav-group" role="list">
+            {navLinks.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class={`nav-link${pathname.startsWith(link.href) ? ' nav-link--active' : ''}`}
+                  aria-current={pathname.startsWith(link.href) ? 'page' : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
 
-      <!-- Desktop nav -->
-      <nav class="header-nav" aria-label="Main navigation">
-        <ul role="list">
-          {navLinks.map(link => (
-            <li>
-              <a
-                href={link.href}
-                class={`nav-link${pathname.startsWith(link.href) ? ' nav-link--active' : ''}`}
-                aria-current={pathname.startsWith(link.href) ? 'page' : undefined}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <!-- Mobile menu button -->
       <button
         class="mobile-menu-btn"
         id="mobile-menu-btn"
@@ -55,7 +79,6 @@ const pathname = Astro.url.pathname;
     </div>
   </div>
 
-  <!-- Mobile nav -->
   <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <nav aria-label="Mobile navigation">
       <ul role="list">
@@ -79,70 +102,203 @@ const pathname = Astro.url.pathname;
   .site-header {
     background: var(--color-paper);
     border-bottom: 1px solid var(--color-border);
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 100;
   }
 
   .header-inner {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    height: 4.5rem;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem 0 1.1rem;
   }
 
-  .brand-link {
-    text-decoration: none;
+  .header-masthead {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.15rem;
+    width: min(100%, 68rem);
+    max-width: 100%;
+  }
+
+  .masthead {
     display: flex;
     flex-direction: column;
     gap: 0;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
   }
 
-  .brand-name {
+  .masthead__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding-top: 0.75rem;
+  }
+
+  .masthead__established {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-ink);
-    letter-spacing: -0.01em;
-    line-height: 1.1;
-  }
-
-  .brand-tagline {
-    font-family: var(--font-sans);
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: 400;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-ink-muted);
-    line-height: 1;
+    white-space: nowrap;
   }
 
-  .header-nav ul {
+  .masthead__rule {
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 0;
+    background: var(--color-ink);
+    border: none;
+    opacity: 1;
+  }
+
+  .masthead__title {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    align-items: end;
+    padding: 0.85rem 0 0.95rem;
+    min-height: 5.5rem;
+  }
+
+  .masthead__the {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    font-family: var(--font-serif);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.55em;
+    text-transform: uppercase;
+    color: #b0aaa0;
+    padding-right: 0.15em;
+    margin-bottom: 0.15rem;
+  }
+
+  .masthead__name {
+    grid-column: 1 / -1;
+    grid-row: 2;
     display: flex;
+    align-items: baseline;
+    gap: 0.28em;
+    font-family: var(--font-serif);
+    font-size: clamp(3.4rem, 9vw, 5.6rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+
+  .masthead__rang {
+    color: var(--color-ink);
+  }
+
+  .masthead__yan {
+    color: var(--color-burgundy);
+  }
+
+  .masthead__review {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
+    align-self: start;
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2.4vw, 1.35rem);
+    font-weight: 400;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    padding-right: 0.12em;
+    margin-top: 0.35rem;
+  }
+
+  .masthead__double-rule {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .masthead__double-rule span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--color-ink);
+    opacity: 1;
+  }
+
+  .masthead__double-rule span:last-child {
+    height: 2px;
+  }
+
+  .masthead__tagline {
+    font-family: var(--font-serif-body);
+    font-size: 0.82rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-ink-muted);
+    line-height: 1.45;
+    max-width: 34rem;
+  }
+
+  .masthead:hover .masthead__yan {
+    color: var(--color-ink);
+  }
+
+  .masthead:hover .masthead__rang {
+    color: var(--color-burgundy);
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 0.15rem;
+    overflow-x: auto;
+  }
+
+  .nav-group {
+    display: flex;
+    flex-wrap: nowrap;
     list-style: none;
     padding: 0;
-    margin: 0;
-    gap: 0.25rem;
-    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 0.1rem;
+    justify-content: center;
+    width: max-content;
+    max-width: 100%;
+    white-space: nowrap;
   }
 
   .nav-link {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: 0.92rem;
     font-weight: 500;
     color: var(--color-ink-secondary);
+    -webkit-text-fill-color: currentColor;
     text-decoration: none;
-    padding: 0.35rem 0.65rem;
+    padding: 0.35rem 0.5rem;
     border-radius: 3px;
     letter-spacing: 0.01em;
     white-space: nowrap;
-    transition: color 0.15s, background 0.15s;
+    transition: color 0.15s ease, -webkit-text-fill-color 0.15s ease;
+    text-underline-offset: 0.28em;
   }
 
-  .nav-link:hover {
-    color: var(--color-ink);
-    background: var(--color-paper-dark);
+  .header-nav a.nav-link:hover,
+  .header-nav a.nav-link:focus-visible {
+    color: #1f8a4c;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    background: transparent;
   }
 
   .nav-link--active {
@@ -150,7 +306,11 @@ const pathname = Astro.url.pathname;
     font-weight: 600;
   }
 
-  /* Mobile button */
+  .header-nav a.nav-link--active:hover,
+  .header-nav a.nav-link--active:focus-visible {
+    color: #1f8a4c;
+  }
+
   .mobile-menu-btn {
     display: none;
     flex-direction: column;
@@ -175,7 +335,6 @@ const pathname = Astro.url.pathname;
     transition: transform 0.2s, opacity 0.2s;
   }
 
-  /* Open state */
   .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
   }
@@ -186,7 +345,6 @@ const pathname = Astro.url.pathname;
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* Mobile nav panel */
   .mobile-nav {
     display: none;
     background: var(--color-paper);
@@ -203,12 +361,18 @@ const pathname = Astro.url.pathname;
   .mobile-nav-link {
     display: block;
     font-family: var(--font-sans);
-    font-size: 0.95rem;
+    font-size: 1.235rem;
     font-weight: 500;
     color: var(--color-ink-secondary);
     text-decoration: none;
     padding: 0.65rem 0;
     border-bottom: 1px solid var(--color-border-light);
+    transition: color 0.15s;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link:focus-visible {
+    color: #1f8a4c;
   }
 
   .mobile-nav-link:last-child {
@@ -219,22 +383,63 @@ const pathname = Astro.url.pathname;
     color: var(--color-burgundy);
   }
 
+  .mobile-nav-link--active:hover,
+  .mobile-nav-link--active:focus-visible {
+    color: #1f8a4c;
+  }
+
   .mobile-nav[aria-hidden="false"] {
     display: block;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
+    .header-inner {
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .header-masthead {
+      flex: 1 1 auto;
+      min-width: 0;
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+      flex-shrink: 0;
+      margin-top: 0.35rem;
+    }
+
     .header-nav {
       display: none;
     }
-    .mobile-menu-btn {
-      display: flex;
-    }
+
     .mobile-nav {
       display: none;
     }
+
     .mobile-nav[aria-hidden="false"] {
       display: block;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .masthead__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    .masthead__established {
+      text-align: left;
+    }
+
+    .masthead__name {
+      font-size: clamp(2.6rem, 14vw, 3.6rem);
+    }
+
+    .masthead__tagline {
+      font-size: 0.78rem;
     }
   }
 </style>
@@ -250,7 +455,6 @@ const pathname = Astro.url.pathname;
       nav.setAttribute('aria-hidden', String(isOpen));
     });
 
-    // Close on outside click
     document.addEventListener('click', (e) => {
       if (!btn.contains(e.target as Node) && !nav.contains(e.target as Node)) {
         btn.setAttribute('aria-expanded', 'false');
@@ -258,4 +462,20 @@ const pathname = Astro.url.pathname;
       }
     });
   }
+
+  document
+    .querySelectorAll('.site-header .nav-link, .site-header .mobile-nav-link')
+    .forEach((link) => {
+      const el = link as HTMLElement;
+      link.addEventListener('mouseenter', () => {
+        el.classList.add('is-hovered');
+        el.style.setProperty('color', '#1f8a4c', 'important');
+        el.style.setProperty('-webkit-text-fill-color', '#1f8a4c', 'important');
+      });
+      link.addEventListener('mouseleave', () => {
+        el.classList.remove('is-hovered');
+        el.style.removeProperty('color');
+        el.style.removeProperty('-webkit-text-fill-color');
+      });
+    });
 </script>

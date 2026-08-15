@@ -14,7 +14,7 @@ interface Props {
 
 const {
   title,
-  description = 'The Rangzen Review — a literary and philosophical journal of critical thought, culture, and human solidarity.',
+  description = 'The Rang Yan Review — a literary and philosophical journal of critical thought, culture, and human solidarity.',
   ogTitle,
   ogDescription,
   ogImage,
@@ -23,7 +23,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const siteUrl = 'https://rangzenreview.org';
+const siteUrl = 'https://rangyanreview.org';
 const resolvedCanonical = canonical || new URL(Astro.url.pathname, siteUrl).toString();
 const resolvedOgTitle = ogTitle || title;
 const resolvedOgDescription = ogDescription || description;
@@ -41,7 +41,7 @@ const resolvedOgImage = ogImage || `${siteUrl}/images/og-default.svg`;
 
     <!-- Open Graph -->
     <meta property="og:type" content={articleDate ? 'article' : 'website'} />
-    <meta property="og:site_name" content="The Rangzen Review" />
+    <meta property="og:site_name" content="The Rang Yan Review" />
     <meta property="og:title" content={resolvedOgTitle} />
     <meta property="og:description" content={resolvedOgDescription} />
     <meta property="og:url" content={resolvedCanonical} />
@@ -56,9 +56,10 @@ const resolvedOgImage = ogImage || `${siteUrl}/images/og-default.svg`;
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/logo-rang-yan-review.svg" />
 
     <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="The Rangzen Review" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="The Rang Yan Review" href="/rss.xml" />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>

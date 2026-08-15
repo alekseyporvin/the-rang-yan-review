@@ -11,6 +11,7 @@
   --color-ink-secondary: #4a4840;
   --color-ink-muted: #8a877f;
   --color-burgundy: #7c2d3e;
+  --color-green: #1f8a4c;
   --color-border: #e4e0d8;
   --color-border-light: #eeebe4;
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -126,7 +127,15 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.9;
 }
 .prose-poetry p {
+  margin-top: 0;
   margin-bottom: 0.5em;
+}
+.prose-poetry p:has(> strong:only-child) {
+  margin-top: 2.5em;
+  margin-bottom: 1em;
+}
+.prose-poetry p:has(> strong:only-child):first-child {
+  margin-top: 0;
 }
 .prose-poetry hr {
   border: none;
@@ -167,6 +176,17 @@ h1, h2, h3, h4, h5, h6 {
 /* Smooth transitions */
 a {
   transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Header nav hover — unscoped so hover color always wins */
+.site-header .header-nav a.nav-link:hover,
+.site-header .header-nav a.nav-link:focus-visible,
+.site-header .header-nav a.nav-link.is-hovered,
+.site-header .mobile-nav a.mobile-nav-link:hover,
+.site-header .mobile-nav a.mobile-nav-link:focus-visible,
+.site-header .mobile-nav a.mobile-nav-link.is-hovered {
+  color: #1f8a4c !important;
+  -webkit-text-fill-color: #1f8a4c !important;
 }
 
 /* Selection color */

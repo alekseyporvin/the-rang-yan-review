@@ -1,4 +1,4 @@
-# The Rangzen Review
+# The Rang Yan Review
 
 Литературно-философский журнал. Построен на Astro + TypeScript + Tailwind CSS.
 Контент хранится в Markdown-файлах в репозитории GitHub. Деплой на Cloudflare Pages или Vercel — бесплатно, без внешних баз данных.
@@ -144,7 +144,7 @@ Decap CMS — это визуальный редактор контента. П�
 https://your-site.pages.dev/admin/
 ```
 
-Или на вашем собственном домене: `https://rangzenreview.org/admin/`
+Или на вашем собственном домене: `https://rangyanreview.org/admin/`
 
 Вход — через кнопку **"Login with GitHub"**. Нужны права на запись в репозиторий.
 
@@ -169,7 +169,7 @@ Decap CMS требует OAuth-авторизацию через GitHub. Для 
 
 1. Перейдите в **GitHub → Settings → Developer settings → OAuth Apps → New OAuth App**
 2. Заполните:
-   - **Application name**: Rangzen Review CMS
+   - **Application name**: Rang Yan Review CMS
    - **Homepage URL**: `https://ваш-сайт.pages.dev`
    - **Authorization callback URL**: `https://ваш-oauth-worker.workers.dev/callback`
 3. Нажмите **Register application**
@@ -230,8 +230,8 @@ backend:
 
 **Пример после замены:**
 ```yaml
-  repo: ivanova/rangzen-review
-  base_url: https://rangzen-oauth.ivanova.workers.dev
+  repo: ivanova/rang-yan-review
+  base_url: https://rang-yan-oauth.ivanova.workers.dev
 ```
 
 Больше ничего менять не нужно. Не добавляйте Client Secret или другие секреты в этот файл.

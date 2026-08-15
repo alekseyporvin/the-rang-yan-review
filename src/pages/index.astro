@@ -9,7 +9,7 @@ import ArticleCard from '../components/ArticleCard.astro';
 const allIssues = await getCollection('issues');
 const currentIssues = allIssues
   .filter(i => i.data.status === 'current')
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
 const currentIssue = currentIssues[0];
 
 // Articles from current issue
@@ -17,31 +17,27 @@ const allArticles = [
   ...(await getCollection('essays', e => !e.data.draft)),
   ...(await getCollection('poetry', e => !e.data.draft)),
   ...(await getCollection('prose', e => !e.data.draft)),
-  ...(await getCollection('reading-room', e => !e.data.draft)),
+  ...(await getCollection('interviews', e => !e.data.draft)),
+  ...(await getCollection('criticism', e => !e.data.draft)),
 ];
 
 const currentIssueSlug = currentIssue?.slug;
 const currentIssueArticles = currentIssueSlug
   ? allArticles
       .filter(a => a.data.issue === currentIssueSlug)
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+      .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
       .slice(0, 6)
   : [];
 
-// Reading room featured
-const readingRoomItems = (await getCollection('reading-room', e => !e.data.draft))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 4);
-
 // Latest from each section
 const latestEssays = (await getCollection('essays', e => !e.data.draft))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
   .slice(0, 2);
 const latestPoetry = (await getCollection('poetry', e => !e.data.draft))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
   .slice(0, 2);
 const latestProse = (await getCollection('prose', e => !e.data.draft))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
   .slice(0, 2);
 
 function getHref(col: string, slug: string) {
@@ -52,7 +48,8 @@ const collectionMap: Record<string, string> = {
   essays: 'essays',
   poetry: 'poetry',
   prose: 'prose',
-  'reading-room': 'reading-room',
+  interviews: 'interviews',
+  criticism: 'criticism',
 };
 
 function articleHref(a: { collection: string; slug: string }) {
@@ -61,12 +58,26 @@ function articleHref(a: { collection: string; slug: string }) {
 ---
 
 <Layout
-  title="The Rangzen Review — Literature, Philosophy, Solidarity"
-  description="The Rangzen Review is a literary and philosophical journal of critical thought, culture, and human solidarity."
+  title="The Rang Yan Review — Literature, Philosophy, Solidarity"
+  description="The Rang Yan Review is a literary and philosophical journal of critical thought, culture, and human solidarity."
 >
   <Header />
 
   <main id="main-content">
+
+    <!-- EPIGRAPH -->
+    <section class="epigraph-section" aria-label="Journal epigraph">
+      <div class="container">
+        <blockquote class="epigraph">
+          <p class="epigraph-line">
+            “We inherit the most luminous layers —<br />
+            and we spend our lives trying to accept the rest.”
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
 
     <!-- HERO: Current Issue -->
     {currentIssue && (
@@ -105,132 +116,107 @@ function articleHref(a: { collection: string; slug: string }) {
       </section>
     )}
 
-    <hr class="section-divider" />
-
     <!-- FROM THE CURRENT ISSUE -->
     {currentIssueArticles.length > 0 && (
-      <section class="section" aria-labelledby="current-issue-articles-heading">
-        <div class="container">
-          <div class="section-header">
-            <h2 id="current-issue-articles-heading" class="section-title">
-              From the Current Issue
-            </h2>
-            <a href="/archive/" class="section-link">View full issue →</a>
+      <>
+        <hr class="section-divider" />
+        <section class="section" aria-labelledby="current-issue-articles-heading">
+          <div class="container">
+            <div class="section-header">
+              <h2 id="current-issue-articles-heading" class="section-title">
+                From the Current Issue
+              </h2>
+              <a href="/archive/" class="section-link">View full issue →</a>
+            </div>
+            <div class="articles-grid articles-grid--3">
+              {currentIssueArticles.map(article => (
+                <ArticleCard
+                  category={article.data.category}
+                  title={article.data.title}
+                  author={article.data.author}
+                  authorSlug={article.data.authorSlug}
+                  date={article.data.date}
+                  excerpt={article.data.excerpt}
+                  href={articleHref(article)}
+                  tags={article.data.tags}
+                />
+              ))}
+            </div>
           </div>
-          <div class="articles-grid articles-grid--3">
-            {currentIssueArticles.map(article => (
-              <ArticleCard
-                category={article.data.category}
-                title={article.data.title}
-                author={article.data.author}
-                authorSlug={article.data.authorSlug}
-                date={article.data.date}
-                excerpt={article.data.excerpt}
-                href={articleHref(article)}
-                tags={article.data.tags}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </>
     )}
 
-    <hr class="section-divider" />
+    {(latestEssays.length > 0 || latestPoetry.length > 0 || latestProse.length > 0) && (
+      <>
+        <hr class="section-divider" />
 
-    <!-- READING ROOM -->
-    <section class="section reading-room-section" aria-labelledby="reading-room-heading">
-      <div class="container">
-        <div class="section-header">
-          <h2 id="reading-room-heading" class="section-title">Reading Room</h2>
-          <a href="/reading-room/" class="section-link">All texts →</a>
-        </div>
-        <p class="section-intro">
-          Essays, criticism, notes, and recommended reading — a space for engaged, unsystematic thinking.
-        </p>
-        <div class="reading-room-list">
-          {readingRoomItems.map(item => (
-            <ArticleCard
-              category={item.data.category}
-              title={item.data.title}
-              author={item.data.author}
-              authorSlug={item.data.authorSlug}
-              date={item.data.date}
-              excerpt={item.data.excerpt}
-              href={articleHref(item)}
-              tags={item.data.tags}
-              size="large"
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+        <!-- LATEST -->
+        <section class="section" aria-labelledby="latest-heading">
+          <div class="container">
+            <h2 id="latest-heading" class="section-title">Latest</h2>
+            <div class="latest-grid">
+              <div class="latest-col">
+                <div class="latest-col-header">
+                  <h3 class="latest-col-title">
+                    <a href="/essays/">Essays and Philosophy</a>
+                  </h3>
+                </div>
+                {latestEssays.map(e => (
+                  <ArticleCard
+                    title={e.data.title}
+                    author={e.data.author}
+                    authorSlug={e.data.authorSlug}
+                    date={e.data.date}
+                    excerpt={e.data.excerpt}
+                    href={articleHref(e)}
+                  />
+                ))}
+                <a href="/essays/" class="col-more-link">All essays and philosophy →</a>
+              </div>
 
-    <hr class="section-divider" />
+              <div class="latest-col">
+                <div class="latest-col-header">
+                  <h3 class="latest-col-title">
+                    <a href="/poetry/">Poetry</a>
+                  </h3>
+                </div>
+                {latestPoetry.map(p => (
+                  <ArticleCard
+                    title={p.data.title}
+                    author={p.data.author}
+                    authorSlug={p.data.authorSlug}
+                    date={p.data.date}
+                    excerpt={p.data.excerpt}
+                    href={articleHref(p)}
+                  />
+                ))}
+                <a href="/poetry/" class="col-more-link">All poetry →</a>
+              </div>
 
-    <!-- LATEST -->
-    <section class="section" aria-labelledby="latest-heading">
-      <div class="container">
-        <h2 id="latest-heading" class="section-title">Latest</h2>
-        <div class="latest-grid">
-          <div class="latest-col">
-            <div class="latest-col-header">
-              <h3 class="latest-col-title">
-                <a href="/essays/">Essays</a>
-              </h3>
+              <div class="latest-col">
+                <div class="latest-col-header">
+                  <h3 class="latest-col-title">
+                    <a href="/prose/">Prose</a>
+                  </h3>
+                </div>
+                {latestProse.map(p => (
+                  <ArticleCard
+                    title={p.data.title}
+                    author={p.data.author}
+                    authorSlug={p.data.authorSlug}
+                    date={p.data.date}
+                    excerpt={p.data.excerpt}
+                    href={articleHref(p)}
+                  />
+                ))}
+                <a href="/prose/" class="col-more-link">All prose →</a>
+              </div>
             </div>
-            {latestEssays.map(e => (
-              <ArticleCard
-                title={e.data.title}
-                author={e.data.author}
-                authorSlug={e.data.authorSlug}
-                date={e.data.date}
-                excerpt={e.data.excerpt}
-                href={articleHref(e)}
-              />
-            ))}
-            <a href="/essays/" class="col-more-link">All essays →</a>
           </div>
-
-          <div class="latest-col">
-            <div class="latest-col-header">
-              <h3 class="latest-col-title">
-                <a href="/poetry/">Poetry</a>
-              </h3>
-            </div>
-            {latestPoetry.map(p => (
-              <ArticleCard
-                title={p.data.title}
-                author={p.data.author}
-                authorSlug={p.data.authorSlug}
-                date={p.data.date}
-                excerpt={p.data.excerpt}
-                href={articleHref(p)}
-              />
-            ))}
-            <a href="/poetry/" class="col-more-link">All poetry →</a>
-          </div>
-
-          <div class="latest-col">
-            <div class="latest-col-header">
-              <h3 class="latest-col-title">
-                <a href="/prose/">Prose</a>
-              </h3>
-            </div>
-            {latestProse.map(p => (
-              <ArticleCard
-                title={p.data.title}
-                author={p.data.author}
-                authorSlug={p.data.authorSlug}
-                date={p.data.date}
-                excerpt={p.data.excerpt}
-                href={articleHref(p)}
-              />
-            ))}
-            <a href="/prose/" class="col-more-link">All prose →</a>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      </>
+    )}
 
     <hr class="section-divider" />
 
@@ -241,13 +227,191 @@ function articleHref(a: { collection: string; slug: string }) {
           <div class="about-content">
             <h2 id="about-heading" class="section-title">About the Journal</h2>
             <p>
-              <em>The Rangzen Review</em> is an independent literary and philosophical journal dedicated to critical thought, humanist culture, and the life of language. We publish essays, poetry, and fiction that take seriously both the aesthetic and the political — that believe form and commitment need not be opposed.
+              <em>The Rang Yan Review</em> is an independent literary and philosophical journal committed to critical thought, humanist culture, and the life of language. We publish essays, poetry, and prose that take seriously both aesthetic and political questions — that understand form and commitment to be not opposed but deeply entangled.
             </p>
             <p>
-              We are committed to maintaining a space that is rigorous without being academic, engaged without being sectarian, and attentive to the lives of people who do not always find themselves in the pages of literary journals.
+              We believe that literature and philosophy occupy an irreplaceable position in the public life of ideas: not the academy, not the market, but something between — a space for thinking that is too serious for entertainment and too committed for neutrality.
             </p>
             <a href="/about/" class="btn-secondary">More about the journal →</a>
           </div>
+          <aside
+            class="about-note about-note--collapsed"
+            id="about-note"
+            aria-label="On the name Rang Yan"
+          >
+            <div class="about-note__scroll">
+              <div class="about-note__body">
+                <p>
+                  The name <em>Rang Yan</em> comes from the Tibetan expression <em>rang yan</em> (རང་ཡན), which carries meanings such as “to let be, to abandon, to treat casually,” “naturally expansive, naturally unfolding, naturally dissipating,” and “free and relaxed.”
+                </p>
+                <p>
+                  We were drawn to the phrase because it suggests a different way of being with things. There is something generous in it, but also something difficult. To let something be means allowing it to remain partly outside our control. It means giving up, at least for a moment, the satisfaction of knowing exactly what something is, where it is going, and what it is supposed to become.
+                </p>
+                <p>
+                  This matters to us in language, culture, and politics.
+                </p>
+                <p>
+                  The left has a long relationship with the idea of mastery. We have wanted to understand history, to organize society, to give collective life a direction. There is something admirable in that desire: the refusal to accept exploitation and humiliation as inevitable facts of life. Yet the same desire can become dangerous when the future is imagined too clearly, when a political project begins to speak in the name of people who have not yet spoken for themselves.
+                </p>
+                <p>
+                  The history of the twentieth century makes this difficult to ignore. Again and again, emancipatory hopes became entangled with institutions of discipline, with political languages that demanded certainty, with the belief that a better society could be designed in advance. The state and capital have their own versions of this certainty. They classify, measure, regulate, predict. They make the world legible because legibility makes it governable.
+                </p>
+                <p>
+                  We do not think the answer is to withdraw from collective life. We need solidarity, organization, institutions, and material change. People need housing, healthcare, education, time, dignity, and the freedom to shape their own lives. The question is what kind of politics can pursue these things while leaving room for what cannot yet be anticipated.
+                </p>
+                <p>
+                  We are interested in that space.
+                </p>
+                <p>
+                  A materialist politics begins with attention. It looks at what is already taking shape beneath the dominant order: forms of life that have not yet found a language, desires that have been disciplined out of existence, forms of solidarity that may look insignificant until someone learns how to see them. History is full of things that appeared impossible until they became ordinary.
+                </p>
+                <p>
+                  This is where <em>rang yan</em> becomes useful to us. It suggests patience, but a particular kind of patience. We wait while remaining attentive. We allow something to unfold without assuming that we already know its destination.
+                </p>
+                <p>
+                  That distinction matters. Leaving existing relations untouched can simply mean accepting the world as it is. <em>Rang yan</em> asks something more difficult: how can we intervene in the conditions of life while resisting the temptation to determine every possible outcome?
+                </p>
+                <p>
+                  Nothing unfolds in a vacuum. Every life is shaped by material conditions, by bodies and institutions, by history, money, borders, language, memory, and power. Freedom has never existed outside these things. What matters is the possibility of changing the conditions themselves, so that lives can acquire forms that were previously unavailable to them.
+                </p>
+                <p>
+                  We also inherit a world before we have the chance to choose it. We inherit languages we did not invent, histories we did not make, wounds we did not cause, and forms of beauty that were already waiting for us. Some of what we inherit sustains us. Some of it hurts. Often the two are inseparable.
+                </p>
+                <p class="about-note-epigraph">
+                  We inherit the most luminous layers —<br />
+                  and we spend our lives trying to accept the rest.
+                </p>
+                <p>
+                  This is one of the difficulties of cultural inheritance. We cannot simply preserve everything, and we cannot simply discard everything. A living culture is made through this uncertain movement between attachment and criticism, memory and change. Sometimes we keep something because it is beautiful. Sometimes we keep it because we have not yet found the words to let it go. Sometimes we discover that what we thought belonged to the past is still alive inside us.
+                </p>
+                <p>
+                  Perhaps letting be has something to do with this as well: allowing an inheritance to remain complicated.
+                </p>
+                <p>
+                  Capitalism has very little patience for such complications. It wants to know what something can do, what it can produce, how quickly it can circulate, what it is worth. It turns time into schedules and attention into a resource. It teaches us to experience waiting as failure and slowness as inefficiency.
+                </p>
+                <p>
+                  There are moments when doing nothing is treated as a moral defect.
+                </p>
+                <p>
+                  We find this pressure everywhere: in work, in education, in cultural production, and increasingly in the way people are expected to understand themselves. We are asked to optimize our bodies, our careers, our relationships, even our thoughts. The question “What are you doing with your life?” often carries another question underneath it: “What are you producing from it?”
+                </p>
+                <p>
+                  There should be room for another answer.
+                </p>
+                <p>
+                  There should be room for uselessness, hesitation, opacity, wandering, and unfinished thought.
+                </p>
+                <p>
+                  The state has its own appetite for legibility. It wants names, categories, documents, identities, statistics. Institutions need information in order to function, but information can also become a form of power. A person becomes easier to manage when they can be reduced to a category.
+                </p>
+                <p>
+                  This is why we are interested in opacity. Some things deserve to remain partially unknown. A person should be allowed to contain more than the description assigned to them. A desire does not always need to become an identity. A community does not have to make itself completely transparent in order to deserve recognition.
+                </p>
+                <p>
+                  There is freedom in the parts of ourselves that remain untranslated.
+                </p>
+                <p>
+                  This also changes how we think about literature.
+                </p>
+                <p>
+                  We have no particular interest in turning literature into an instrument of political correctness, political education, or political persuasion. Literature can certainly enter political life. It can disturb a language, expose an assumption, preserve a memory, give shape to an experience that had previously seemed impossible to articulate. But its value does not depend on its ability to deliver a message.
+                </p>
+                <p>
+                  Sometimes a poem is important because it refuses to tell us what to think.
+                </p>
+                <p>
+                  Sometimes a novel gives us something we cannot immediately use.
+                </p>
+                <p>
+                  Sometimes a sentence stays with us for years without becoming an argument.
+                </p>
+                <p>
+                  This is one reason we want <em>Rang Yan Review</em> to remain open to difficult, contradictory, unfinished writing. We want texts that take risks with language, texts that do not always explain themselves, texts whose meanings may change depending on who reads them and when.
+                </p>
+                <p>
+                  We also want criticism to retain some of that uncertainty. A critic can illuminate a work without closing it down. Reading can be a form of companionship. You stay with something long enough for it to change your understanding of what you thought you already knew.
+                </p>
+                <p>
+                  And perhaps this is where literature begins to complicate the idea of ownership.
+                </p>
+                <p>
+                  A writer makes a work, but cannot determine its entire life. Once a poem enters another person's memory, it has already travelled somewhere beyond its author. A translation changes it. A misreading changes it. Time changes it. A stranger may find in it something the writer never intended.
+                </p>
+                <p>
+                  Literature has always moved like this: across borders, languages, generations, classes, bodies. It is inherited, translated, borrowed, transformed, misunderstood, and given away.
+                </p>
+                <p>
+                  Capital would prefer to turn all of this movement into property. Institutions may try to attach literature to nations, traditions, identities, markets, or reputations. Yet something in literature keeps escaping these arrangements.
+                </p>
+                <p>
+                  A book can be printed by a corporation and still become someone's private refuge. A poem written in one century can suddenly become necessary to someone living in another. A language that seemed marginal can become the language in which a stranger finally recognizes themselves.
+                </p>
+                <p>
+                  This is why we think literature matters politically. It creates forms of relation that cannot be completely predicted or administered.
+                </p>
+                <p>
+                  And perhaps this is also what we mean by solidarity. We do not have to become identical in order to stand beside one another. We do not need to agree about everything before we can recognize another person's vulnerability, imagination, or right to exist. A collective can contain disagreement. It can leave room for people to remain strange to one another.
+                </p>
+                <p>
+                  We are aware of the irony here. A journal devoted to “letting be” is itself an institution. We select texts. We edit them. We publish them under a name. We inevitably make choices about what enters this space and what does not.
+                </p>
+                <p>
+                  We cannot escape that contradiction, and we do not want to pretend otherwise.
+                </p>
+                <p>
+                  Perhaps <em>Rang Yan</em> is valuable precisely because it gives us a way to remain conscious of the contradiction. We will inevitably shape the space we create. The question is whether that shaping leaves room for surprise.
+                </p>
+                <p>
+                  We want this journal to be such a space: shaped, but not sealed; political, but not doctrinaire; attentive to history without believing that history has already told us what comes next.
+                </p>
+                <p>
+                  Perhaps the left begins somewhere around here. It begins with the willingness to listen before speaking for others. It begins with curiosity about forms of life that do not yet have a recognized political vocabulary. It begins with the possibility that the people who will transform our understanding of freedom may not yet know that they are doing so.
+                </p>
+                <p>
+                  We do not know in advance what freedom will look like.
+                </p>
+                <p>
+                  That uncertainty can be frightening. It can also be a source of hope.
+                </p>
+                <p>
+                  We are interested in what might emerge when there is enough space for something unexpected to become possible.
+                </p>
+                <p>
+                  And so we come back to literature.
+                </p>
+                <p>
+                  A poem cannot belong entirely to its author once it has entered the world. A language cannot be permanently owned by the people who first spoke it. A story can cross a border without asking permission. A sentence can survive the disappearance of the person who wrote it and find a home in someone they never knew.
+                </p>
+                <p class="about-note-closing">
+                  Literature does not belong to anyone.<br />
+                  Literature belongs to everyone.
+                </p>
+                <p>
+                  Perhaps that is the small paradox at the heart of <em>Rang Yan Review</em>: what cannot be possessed can still be shared. What remains singular can become collective. What begins as one person's voice can become part of another person's life.
+                </p>
+                <p>
+                  We do not want to close this possibility with a final definition.
+                </p>
+                <p>
+                  <em>Rang Yan</em> is not an answer.
+                </p>
+                <p>
+                  It is a way of keeping the question open.
+                </p>
+              </div>
+            </div>
+            <div class="about-note__fade" aria-hidden="true"></div>
+            <button
+              type="button"
+              class="about-note__toggle"
+              id="about-note-toggle"
+              aria-expanded="false"
+              aria-controls="about-note"
+            >
+              Read more
+            </button>
+          </aside>
         </div>
       </div>
     </section>
@@ -257,7 +421,115 @@ function articleHref(a: { collection: string; slug: string }) {
   <Footer />
 </Layout>
 
+<script>
+  function syncAboutNotePreview() {
+    const note = document.getElementById('about-note');
+    const content = document.querySelector('.about-content');
+    const toggle = document.getElementById('about-note-toggle');
+    if (!(note instanceof HTMLElement) || !(content instanceof HTMLElement) || !(toggle instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const syncHeight = () => {
+      if (note.classList.contains('about-note--expanded')) {
+        note.style.maxHeight = '';
+        return;
+      }
+      if (window.matchMedia('(max-width: 1024px)').matches) {
+        note.style.maxHeight = '22rem';
+        return;
+      }
+      note.style.maxHeight = `${Math.max(content.offsetHeight, 16 * 16)}px`;
+    };
+
+    toggle.addEventListener('click', () => {
+      const expanded = note.classList.toggle('about-note--expanded');
+      note.classList.toggle('about-note--collapsed', !expanded);
+      toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      toggle.textContent = expanded ? 'Show less' : 'Read more';
+      syncHeight();
+      if (!expanded) {
+        note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+
+    syncHeight();
+    window.addEventListener('resize', syncHeight);
+  }
+
+  syncAboutNotePreview();
+  document.addEventListener('astro:page-load', syncAboutNotePreview);
+</script>
+
 <style>
+  /* Epigraph */
+  .epigraph-section {
+    position: relative;
+    padding: 4.5rem 0 3.75rem;
+    background:
+      radial-gradient(ellipse 80% 70% at 50% 0%, rgba(124, 45, 62, 0.06), transparent 65%),
+      linear-gradient(180deg, var(--color-paper-dark) 0%, var(--color-paper) 100%);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .epigraph-section::before,
+  .epigraph-section::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 3rem;
+    height: 1px;
+    background: var(--color-ink-muted);
+    opacity: 0.45;
+    transform: translateX(-50%);
+  }
+
+  .epigraph-section::before {
+    top: 2rem;
+  }
+
+  .epigraph-section::after {
+    bottom: 2rem;
+  }
+
+  .epigraph {
+    margin: 0 auto;
+    max-width: 40rem;
+    text-align: center;
+    border: none;
+    padding: 0;
+    animation: epigraph-rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .epigraph-line {
+    font-family: var(--font-serif-body);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  @keyframes epigraph-rise {
+    from {
+      opacity: 0;
+      transform: translateY(0.7rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .epigraph {
+      animation: none;
+    }
+  }
+
   /* Hero Section */
   .hero-section {
     padding: 5rem 0 4rem;
@@ -428,10 +700,6 @@ function articleHref(a: { collection: string; slug: string }) {
     gap: 0 3rem;
   }
 
-  .reading-room-list {
-    max-width: 72ch;
-  }
-
   /* Latest grid */
   .latest-grid {
     display: grid;
@@ -475,7 +743,10 @@ function articleHref(a: { collection: string; slug: string }) {
 
   /* About */
   .about-inner {
-    max-width: 64ch;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 2.75rem;
+    align-items: start;
   }
 
   .about-content h2 {
@@ -499,6 +770,109 @@ function articleHref(a: { collection: string; slug: string }) {
     margin-top: 0.5rem;
   }
 
+  .about-note {
+    position: relative;
+    margin-top: 0;
+    padding: 1.5rem 1.35rem 3.25rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f3ea 100%);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-burgundy);
+    box-shadow: 0 1px 0 rgba(26, 25, 22, 0.04);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .about-note--collapsed {
+    overflow: hidden;
+  }
+
+  .about-note--expanded {
+    overflow: visible;
+    padding-bottom: 3.5rem;
+  }
+
+  .about-note__scroll {
+    overflow: hidden;
+    min-height: 0;
+    flex: 1 1 auto;
+  }
+
+  .about-note--expanded .about-note__scroll {
+    overflow: visible;
+  }
+
+  .about-note__body p {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--color-ink);
+    margin: 0 0 0.9em;
+  }
+
+  .about-note__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-note em {
+    font-family: var(--font-serif-body);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .about-note-epigraph {
+    font-family: var(--font-serif-body) !important;
+    font-style: italic;
+    font-weight: 400 !important;
+    margin: 1.25em 0 !important;
+    padding-left: 0.85rem;
+    border-left: 2px solid var(--color-burgundy);
+  }
+
+  .about-note-closing {
+    font-family: var(--font-serif-body) !important;
+    font-weight: 400 !important;
+    margin: 1.25em 0 !important;
+  }
+
+  .about-note__fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2.75rem;
+    height: 5rem;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(247, 243, 234, 0), #f7f3ea 75%);
+  }
+
+  .about-note--expanded .about-note__fade {
+    display: none;
+  }
+
+  .about-note__toggle {
+    position: absolute;
+    left: 1.35rem;
+    right: 1.35rem;
+    bottom: 0.85rem;
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-burgundy);
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .about-note__toggle:hover {
+    color: var(--color-ink);
+  }
+
   /* Responsive */
   @media (max-width: 1024px) {
     .articles-grid--3 {
@@ -507,9 +881,32 @@ function articleHref(a: { collection: string; slug: string }) {
     .latest-grid {
       grid-template-columns: repeat(2, 1fr);
     }
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+    .about-note {
+      margin-top: 0;
+      max-height: 22rem;
+    }
+    .about-note--expanded {
+      max-height: none;
+    }
   }
 
   @media (max-width: 768px) {
+    .epigraph-section {
+      padding: 3.25rem 0 2.75rem;
+    }
+
+    .epigraph-section::before {
+      top: 1.35rem;
+    }
+
+    .epigraph-section::after {
+      bottom: 1.35rem;
+    }
+
     .hero-section {
       padding: 3rem 0;
     }

@@ -1,15 +1,19 @@
 ---
+import { withJournalItalics, withTitleItalics, plainTitle } from '../lib/journal';
+import { getEarlierVoiceSlugs, voiceLabelFor } from '../lib/voices';
+
 interface Props {
   category?: string;
   title: string;
   author: string;
   authorSlug?: string;
-  date: Date;
+  date?: Date;
   excerpt: string;
   href: string;
   tags?: string[];
   featured?: boolean;
   size?: 'normal' | 'large';
+  coverImage?: string;
 }
 
 const {
@@ -23,51 +27,108 @@ const {
   tags = [],
   featured = false,
   size = 'normal',
+  coverImage,
 } = Astro.props;
 
-const formattedDate = date.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+const formattedDate = date
+  ? date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  : null;
+
+const earlierVoiceSlugs = await getEarlierVoiceSlugs();
+const voice = voiceLabelFor(authorSlug, earlierVoiceSlugs);
+const voiceClass = voice === 'earlier voice' ? 'voice-mark--earlier' : 'voice-mark--contemporary';
 ---
 
-<article class={`article-card${featured ? ' article-card--featured' : ''}${size === 'large' ? ' article-card--large' : ''}`}>
-  {category && <span class="category-label">{category}</span>}
-
-  <h3 class="article-card__title">
-    <a href={href}>{title}</a>
-  </h3>
-
-  <div class="article-card__meta">
-    {authorSlug ? (
-      <a href={`/authors/${authorSlug}/`} class="article-card__author">{author}</a>
-    ) : (
-      <span class="article-card__author">{author}</span>
-    )}
-    <span class="article-card__sep" aria-hidden="true">·</span>
-    <time datetime={date.toISOString()} class="article-card__date">{formattedDate}</time>
-  </div>
-
-  <p class="article-card__excerpt">{excerpt}</p>
-
-  {tags.length > 0 && (
-    <ul class="article-card__tags" role="list" aria-label="Tags">
-      {tags.slice(0, 3).map(tag => (
-        <li class="article-card__tag">{tag}</li>
-      ))}
-    </ul>
+<article class={`article-card${featured ? ' article-card--featured' : ''}${size === 'large' ? ' article-card--large' : ''}${coverImage ? ' article-card--with-cover' : ''}`}>
+  {coverImage && (
+    <a href={href} class="article-card__cover-link" tabindex="-1" aria-hidden="true">
+      <img
+        class="article-card__cover"
+        src={coverImage}
+        alt=""
+        width="140"
+        height="180"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
   )}
 
-  <a href={href} class="article-card__link" aria-label={`Read: ${title}`}>
-    Read <span aria-hidden="true">→</span>
-  </a>
+  <div class="article-card__body">
+    {category && <span class="category-label">{category}</span>}
+
+    <h3 class="article-card__title">
+      <a href={href} set:html={withTitleItalics(title)} />
+      <span class={`voice-mark ${voiceClass}`}>{voice}</span>
+    </h3>
+
+    <div class="article-card__meta">
+      {authorSlug ? (
+        <a href={`/authors/${authorSlug}/`} class="article-card__author">{author}</a>
+      ) : (
+        <span class="article-card__author">{author}</span>
+      )}
+      {formattedDate && date && (
+        <>
+          <span class="article-card__sep" aria-hidden="true">·</span>
+          <time datetime={date.toISOString()} class="article-card__date">{formattedDate}</time>
+        </>
+      )}
+    </div>
+
+    <p class="article-card__excerpt" set:html={withJournalItalics(excerpt)} />
+
+    {tags.length > 0 && (
+      <ul class="article-card__tags" role="list" aria-label="Tags">
+        {tags.slice(0, 3).map(tag => (
+          <li class="article-card__tag">{tag}</li>
+        ))}
+      </ul>
+    )}
+
+    <a href={href} class="article-card__link" aria-label={`Read: ${plainTitle(title)}`}>
+      Read <span aria-hidden="true">→</span>
+    </a>
+  </div>
 </article>
 
 <style>
   .article-card {
     border-top: 1px solid var(--color-border);
     padding: 1.75rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .article-card--with-cover {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .article-card__cover-link {
+    flex: 0 0 auto;
+    display: block;
+    line-height: 0;
+  }
+
+  .article-card__cover {
+    display: block;
+    width: 10.5rem;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid var(--color-border);
+    background: var(--color-paper);
+  }
+
+  .article-card__body {
+    flex: 1 1 auto;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -89,8 +150,12 @@ const formattedDate = date.toLocaleDateString('en-US', {
     font-family: var(--font-serif);
     font-size: 1.2rem;
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.35;
     margin: 0.25rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.55rem 0.75rem;
   }
 
   .article-card__title a {
@@ -99,6 +164,28 @@ const formattedDate = date.toLocaleDateString('en-US', {
   }
 
   .article-card__title a:hover {
+    color: var(--color-burgundy);
+  }
+
+  .voice-mark {
+    display: inline-block;
+    flex: 0 0 auto;
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 0.28rem 0;
+    border-bottom: 1px solid currentColor;
+    white-space: nowrap;
+  }
+
+  .voice-mark--contemporary {
+    color: var(--color-green);
+  }
+
+  .voice-mark--earlier {
     color: var(--color-burgundy);
   }
 
@@ -167,5 +254,15 @@ const formattedDate = date.toLocaleDateString('en-US', {
 
   .article-card__link:hover {
     color: var(--color-burgundy-dark);
+  }
+
+  @media (max-width: 560px) {
+    .article-card--with-cover {
+      flex-direction: column;
+    }
+
+    .article-card__cover {
+      width: 10.5rem;
+    }
   }
 </style>

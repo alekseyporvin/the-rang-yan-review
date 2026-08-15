@@ -4,7 +4,8 @@ const articleFields = z.object({
   title: z.string(),
   author: z.string(),
   authorSlug: z.string(),
-  date: z.coerce.date(),
+  authorRole: z.string().optional(),
+  date: z.coerce.date().optional(),
   excerpt: z.string(),
   tags: z.array(z.string()).default([]),
   category: z.string().optional(),
@@ -12,12 +13,15 @@ const articleFields = z.object({
   featured: z.boolean().default(false),
   draft: z.boolean().default(false),
   coverImage: z.string().optional(),
+  coverCredit: z.string().optional(),
+  previewImage: z.string().optional(),
 });
 
 const essays = defineCollection({ type: 'content', schema: articleFields });
 const poetry = defineCollection({ type: 'content', schema: articleFields });
 const prose = defineCollection({ type: 'content', schema: articleFields });
-const readingRoom = defineCollection({ type: 'content', schema: articleFields });
+const interviews = defineCollection({ type: 'content', schema: articleFields });
+const criticism = defineCollection({ type: 'content', schema: articleFields });
 
 const issues = defineCollection({
   type: 'content',
@@ -44,6 +48,8 @@ const authors = defineCollection({
     location: z.string().optional(),
     links: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
     portrait: z.string().optional(),
+    /** Deceased / historical authors appear as "earlier voice" in listings. */
+    earlierVoice: z.boolean().default(false),
   }),
 });
 
@@ -68,7 +74,8 @@ export const collections = {
   essays,
   poetry,
   prose,
-  'reading-room': readingRoom,
+  interviews,
+  criticism,
   issues,
   authors,
   'editorial-board': editorialBoard,

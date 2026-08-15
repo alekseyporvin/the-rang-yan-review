@@ -14,8 +14,8 @@ const team = allMembers.filter(m => !m.data.featured);
 ---
 
 <Layout
-  title="Editorial Board | The Rangzen Review"
-  description="The editorial board of The Rangzen Review — the editors, translators, and collaborators who make the journal possible."
+  title="Editorial Board | The Rang Yan Review"
+  description="The editorial board of The Rang Yan Review — the editors, translators, and collaborators who make the journal possible."
 >
   <Header />
 
@@ -29,7 +29,7 @@ const team = allMembers.filter(m => !m.data.featured);
       <!-- Editor-in-Chief profile -->
       {editorInChief && (
         <section class="eic-section" aria-labelledby="eic-heading">
-          <div class="eic-inner">
+          <div class={`eic-inner${editorInChief.data.photo ? ' eic-inner--with-photo' : ''}`}>
             {editorInChief.data.photo && (
               <div class="eic-photo">
                 <img
@@ -52,7 +52,9 @@ const team = allMembers.filter(m => !m.data.featured);
               )}
               {editorInChief.data.fullBio && (
                 <div class="eic-full-bio">
-                  <p>{editorInChief.data.fullBio}</p>
+                  {editorInChief.data.fullBio.split(/\n\n+/).map(paragraph => (
+                    <p>{paragraph}</p>
+                  ))}
                 </div>
               )}
               <div class="eic-contact">
@@ -151,6 +153,13 @@ const team = allMembers.filter(m => !m.data.featured);
     letter-spacing: -0.02em;
   }
 
+  .no-results {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-ink-muted);
+    padding: 2rem 0;
+  }
+
   /* EIC */
   .eic-section {
     margin-bottom: 5rem;
@@ -159,10 +168,17 @@ const team = allMembers.filter(m => !m.data.featured);
   }
 
   .eic-inner {
+    max-width: 72ch;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .eic-inner--with-photo {
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: 4rem;
     align-items: start;
+    max-width: none;
   }
 
   .eic-photo-img {
@@ -201,19 +217,23 @@ const team = allMembers.filter(m => !m.data.featured);
 
   .eic-short-bio {
     font-family: var(--font-serif-body);
-    font-size: 1.1rem;
-    line-height: 1.75;
-    color: var(--color-ink);
-    font-style: italic;
-    margin: 0 0 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--color-ink-secondary);
+    font-style: normal;
+    margin: 0 0 1em;
   }
 
   .eic-full-bio p {
     font-family: var(--font-serif-body);
-    font-size: 0.975rem;
+    font-size: 1.05rem;
     line-height: 1.85;
     color: var(--color-ink-secondary);
-    margin: 0;
+    margin: 0 0 1em;
+  }
+
+  .eic-full-bio p:last-child {
+    margin-bottom: 0;
   }
 
   .eic-contact {
@@ -248,13 +268,14 @@ const team = allMembers.filter(m => !m.data.featured);
 
   .eic-links a {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
-    color: var(--color-ink-secondary);
+    font-size: 0.875rem;
+    color: var(--color-burgundy);
     text-decoration: none;
+    font-weight: 500;
   }
 
   .eic-links a:hover {
-    color: var(--color-burgundy);
+    text-decoration: underline;
   }
 
   /* Team */
@@ -353,7 +374,7 @@ const team = allMembers.filter(m => !m.data.featured);
   }
 
   @media (max-width: 768px) {
-    .eic-inner {
+    .eic-inner--with-photo {
       grid-template-columns: 1fr;
       gap: 2rem;
     }

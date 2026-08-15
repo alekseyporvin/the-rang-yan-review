@@ -3,14 +3,16 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { withJournalItalics } from '../../lib/journal';
 
 // Collect all articles from all content collections
 const essays = await getCollection('essays', e => !e.data.draft);
 const poetry = await getCollection('poetry', e => !e.data.draft);
 const prose = await getCollection('prose', e => !e.data.draft);
-const readingRoom = await getCollection('reading-room', e => !e.data.draft);
+const interviews = await getCollection('interviews', e => !e.data.draft);
+const criticism = await getCollection('criticism', e => !e.data.draft);
 
-const allArticles = [...essays, ...poetry, ...prose, ...readingRoom];
+const allArticles = [...essays, ...poetry, ...prose, ...interviews, ...criticism];
 
 // Build a map of authorSlug -> { name, publications }
 const authorMap = new Map<string, { name: string; slug: string; publications: typeof allArticles }>();
@@ -29,15 +31,21 @@ const authorEntries = await getCollection('authors');
 // Use entry.slug (= filename) as the key, not a.data.slug
 const authorBioMap = new Map(authorEntries.map(a => [a.slug, a]));
 
-// Combine: use bio data if available, otherwise just use name + slug from publications
-const authors = [...authorMap.entries()].map(([slug, data]) => {
-  const bio = authorBioMap.get(slug) ?? authorEntries.find(a => a.slug === slug);
+// Include authors who have publications and those who only have a bio entry
+const authorSlugs = new Set([
+  ...authorMap.keys(),
+  ...authorEntries.map(a => a.slug),
+]);
+
+const authors = [...authorSlugs].map(slug => {
+  const data = authorMap.get(slug);
+  const bio = authorBioMap.get(slug);
   return {
     slug,
-    name: bio?.data.name ?? data.name,
+    name: bio?.data.name ?? data?.name ?? slug,
     shortBio: bio?.data.shortBio,
     location: bio?.data.location,
-    publicationCount: data.publications.length,
+    publicationCount: data?.publications.length ?? 0,
   };
 }).sort((a, b) => a.name.localeCompare(b.name));
 
@@ -53,8 +61,8 @@ const alphabet = [...grouped.keys()].sort();
 ---
 
 <Layout
-  title="Authors | The Rangzen Review"
-  description="All authors published in The Rangzen Review, with biographical notes and lists of their work."
+  title="Authors | The Rang Yan Review"
+  description="All authors published in The Rang Yan Review, with biographical notes and lists of their work."
 >
   <Header />
 
@@ -64,46 +72,52 @@ const alphabet = [...grouped.keys()].sort();
         <p class="category-label">Directory</p>
         <h1 class="authors-title">Authors</h1>
         <p class="authors-desc">
-          Contributors to <em>The Rangzen Review</em>. An author appears automatically after their first published work.
+          Contributors to <em>The Rang Yan Review</em>. An author appears automatically after their first published work.
         </p>
       </header>
 
-      <!-- Alphabet index -->
-      <nav class="alpha-index" aria-label="Jump to letter">
-        {['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'].map(letter => (
-          grouped.has(letter) ? (
-            <a href={`#letter-${letter}`} class="alpha-index__link">{letter}</a>
-          ) : (
-            <span class="alpha-index__disabled" aria-hidden="true">{letter}</span>
-          )
-        ))}
-      </nav>
+      {authors.length === 0 ? (
+        <p class="no-results">No authors published yet.</p>
+      ) : (
+        <>
+          <!-- Alphabet index -->
+          <nav class="alpha-index" aria-label="Jump to letter">
+            {['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'].map(letter => (
+              grouped.has(letter) ? (
+                <a href={`#letter-${letter}`} class="alpha-index__link">{letter}</a>
+              ) : (
+                <span class="alpha-index__disabled" aria-hidden="true">{letter}</span>
+              )
+            ))}
+          </nav>
 
-      <div class="authors-list">
-        {alphabet.map(letter => (
-          <section id={`letter-${letter}`} class="authors-letter-group" aria-labelledby={`letter-heading-${letter}`}>
-            <h2 id={`letter-heading-${letter}`} class="letter-heading">{letter}</h2>
-            <ul role="list" class="authors-letter-list">
-              {grouped.get(letter)!.map(author => (
-                <li class="author-item">
-                  <a href={`/authors/${author.slug}/`} class="author-item__name">
-                    {author.name}
-                  </a>
-                  {author.location && (
-                    <span class="author-item__location">{author.location}</span>
-                  )}
-                  {author.shortBio && (
-                    <p class="author-item__bio">{author.shortBio}</p>
-                  )}
-                  <span class="author-item__count">
-                    {author.publicationCount} {author.publicationCount === 1 ? 'publication' : 'publications'}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
-      </div>
+          <div class="authors-list">
+            {alphabet.map(letter => (
+              <section id={`letter-${letter}`} class="authors-letter-group" aria-labelledby={`letter-heading-${letter}`}>
+                <h2 id={`letter-heading-${letter}`} class="letter-heading">{letter}</h2>
+                <ul role="list" class="authors-letter-list">
+                  {grouped.get(letter)!.map(author => (
+                    <li class="author-item">
+                      <a href={`/authors/${author.slug}/`} class="author-item__name">
+                        {author.name}
+                      </a>
+                      {author.location && (
+                        <span class="author-item__location">{author.location}</span>
+                      )}
+                      {author.shortBio && (
+                        <p class="author-item__bio" set:html={withJournalItalics(author.shortBio)} />
+                      )}
+                      <span class="author-item__count">
+                        {author.publicationCount} {author.publicationCount === 1 ? 'publication' : 'publications'}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   </main>
 
@@ -258,6 +272,13 @@ const alphabet = [...grouped.keys()].sort();
     grid-row: 2;
     white-space: nowrap;
     align-self: end;
+  }
+
+  .no-results {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-ink-muted);
+    padding: 2rem 0;
   }
 
   @media (max-width: 600px) {

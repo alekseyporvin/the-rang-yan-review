@@ -1,0 +1,138 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const allCriticism = (await getCollection('criticism', e => !e.data.draft))
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
+
+const allTags = [...new Set(allCriticism.flatMap(e => e.data.tags))].sort();
+const selectedTag = Astro.url.searchParams.get('tag') || '';
+const filtered = selectedTag
+  ? allCriticism.filter(e => e.data.tags.includes(selectedTag))
+  : allCriticism;
+---
+
+<Layout
+  title="Criticism | The Rang Yan Review"
+  description="Literary and cultural criticism. The Rang Yan Review."
+>
+  <Header />
+
+  <main id="main-content">
+    <div class="container section-page">
+      <header class="section-page-header">
+        <p class="category-label">Section</p>
+        <h1 class="section-page-title">Criticism</h1>
+        <p class="section-page-desc">
+          Literary and cultural criticism that takes seriously form, politics, and the material life of texts.
+        </p>
+      </header>
+
+      {allTags.length > 0 && (
+        <nav class="tag-filter" aria-label="Filter by tag">
+          <span class="tag-filter__label">Filter:</span>
+          <div class="tag-filter__tags">
+            <a href="/criticism/" class={`tag-btn${!selectedTag ? ' tag-btn--active' : ''}`}>All</a>
+            {allTags.map(tag => (
+              <a
+                href={`/criticism/?tag=${encodeURIComponent(tag)}`}
+                class={`tag-btn${selectedTag === tag ? ' tag-btn--active' : ''}`}
+              >{tag}</a>
+            ))}
+          </div>
+        </nav>
+      )}
+
+      {filtered.length === 0 ? (
+        <p class="no-results">{selectedTag ? 'No criticism found for this tag.' : 'No criticism published yet.'}</p>
+      ) : (
+        <div class="articles-list">
+          {filtered.map(piece => (
+            <ArticleCard
+              title={piece.data.title}
+              author={piece.data.author}
+              authorSlug={piece.data.authorSlug}
+              date={piece.data.date}
+              excerpt={piece.data.excerpt}
+              href={`/criticism/${piece.slug}/`}
+              tags={piece.data.tags}
+              coverImage={piece.data.previewImage}
+              size="large"
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .section-page { padding: 4rem 0 0; }
+  .section-page-header {
+    max-width: 60ch;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--color-ink);
+  }
+  .section-page-header .category-label { margin-bottom: 0.5rem; }
+  .section-page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+  .section-page-desc {
+    font-family: var(--font-sans);
+    font-size: 0.975rem;
+    color: var(--color-ink-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .tag-filter__label {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .tag-filter__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag-btn {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-ink-secondary);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .tag-btn:hover, .tag-btn--active {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .articles-list { max-width: 80ch; }
+  .no-results {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-ink-muted);
+    padding: 2rem 0;
+  }
+</style>
