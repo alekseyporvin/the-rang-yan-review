@@ -137,6 +137,12 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry p:has(> strong:only-child):first-child {
   margin-top: 0;
 }
+.prose-poetry:has(.poem-manuscript) p:has(> strong:only-child) {
+  margin-top: calc(2.5em + 3.8em);
+}
+.prose-poetry:has(.poem-manuscript) p:has(> strong:only-child):first-child {
+  margin-top: 0;
+}
 .prose-poetry hr {
   border: none;
   border-top: none;
@@ -154,6 +160,49 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.35em;
   color: var(--color-ink-muted);
   line-height: 1;
+}
+
+.prose-poetry blockquote {
+  margin: 0 0 0.35em;
+  padding: 0;
+  border: none;
+  font-style: italic;
+}
+.prose-poetry .poem-attr {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 0.88em;
+  color: var(--color-ink-secondary);
+  margin: 0.2em 0 1.6em;
+}
+.prose-poetry .poem-dedication {
+  text-align: right;
+  font-style: italic;
+  margin: 0 0 1.6em;
+}
+
+.prose-poetry .poem-manuscript {
+  margin: 0;
+  background: var(--color-paper);
+}
+.prose-poetry .poem-manuscript + .poem-manuscript {
+  margin-top: 1.75em;
+}
+.prose-poetry .poem-manuscript img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  background: var(--color-paper);
+}
+.article-body.container:has(.poem-manuscript) {
+  max-width: min(100%, 46rem);
+}
+.poem-manuscript--1 img {
+  width: calc(1225 / 31 * 0.72em);
+}
+.poem-manuscript--2 img {
+  width: calc(1360 / 26 * 0.72em);
 }
 
 /* Utility classes */
