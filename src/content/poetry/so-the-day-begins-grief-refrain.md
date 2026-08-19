@@ -1,8 +1,9 @@
 ---
-title: "From *So the Day Begins: Grief Refrain*"
+title: "From the forthcoming book *So the Day Begins: Grief Refrain*"
 author: "Anja Utler"
 authorSlug: "anja-utler"
-excerpt: "From *So the Day Begins: Grief Refrain*. Translated by Kurt Beals and Aimee Chor."
+excerpt: "From the forthcoming book *So the Day Begins: Grief Refrain*. Translated by Kurt Beals and Aimee Chor."
+sourceNote: "Originally published in *Es beginnt. Trauerrefrain* (Edition Korrespondenzen, Wien 2023)."
 tags:
   - poetry
   - translation
@@ -10,8 +11,6 @@ tags:
 category: Poetry
 featured: true
 ---
-
-<p class="poem-source">Originally published in <em>Es beginnt. Trauerrefrain</em> (Edition Korrespondenzen, Wien 2023).</p>
 
 **192**
 

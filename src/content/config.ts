@@ -7,6 +7,7 @@ const articleFields = z.object({
   authorRole: z.string().optional(),
   date: z.coerce.date().optional(),
   excerpt: z.string(),
+  sourceNote: z.string().optional(),
   tags: z.array(z.string()).default([]),
   category: z.string().optional(),
   issue: z.string().optional(),
