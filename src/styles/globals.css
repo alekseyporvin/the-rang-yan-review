@@ -181,10 +181,6 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
   margin: 0 0 1.6em;
 }
-.prose-poetry .poem-source {
-  color: var(--color-ink-secondary);
-  margin: 0 0 2.25em;
-}
 
 .prose-poetry .poem-manuscript {
   margin: 0;

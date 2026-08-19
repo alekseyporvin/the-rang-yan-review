@@ -11,6 +11,7 @@ interface Props {
   authorRole?: string;
   date?: Date;
   excerpt?: string;
+  sourceNote?: string;
   tags?: string[];
   category?: string;
   issue?: string;
@@ -26,6 +27,7 @@ const {
   authorRole,
   date,
   excerpt,
+  sourceNote,
   tags = [],
   category,
   issue,
@@ -92,6 +94,13 @@ const pageTitle = `${displayTitle} — ${author} | The Rang Yan Review`;
               <p
                 class={`article-standfirst${excerpt.includes('*') ? ' article-standfirst--mixed' : ''}`}
                 set:html={withJournalItalics(excerpt)}
+              />
+            )}
+
+            {sourceNote && (
+              <p
+                class={`article-standfirst article-standfirst--follow${sourceNote.includes('*') ? ' article-standfirst--mixed' : ''}`}
+                set:html={withJournalItalics(sourceNote)}
               />
             )}
 
@@ -269,6 +278,12 @@ const pageTitle = `${displayTitle} — ${author} | The Rang Yan Review`;
 
   .article-standfirst--mixed em {
     font-style: italic;
+  }
+
+  .article-standfirst--follow {
+    border-top: none;
+    padding-top: 0.45rem;
+    margin-top: 0;
   }
 
   .article-tags {
