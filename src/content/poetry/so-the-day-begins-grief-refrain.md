@@ -11,6 +11,8 @@ category: Poetry
 featured: true
 ---
 
+<p class="poem-source">Originally published in <em>Es beginnt. Trauerrefrain</em> (Edition Korrespondenzen, Wien 2023).</p>
+
 **192**
 
 So the day begins  
