@@ -1,5 +1,5 @@
 ---
-title: "From the forthcoming book *So the Day Begins: Grief Refrain*"
+title: "From *So the Day Begins: Grief Refrain*"
 author: "Anja Utler"
 authorSlug: "anja-utler"
 excerpt: "From the forthcoming book *So the Day Begins: Grief Refrain*. Translated by Kurt Beals and Aimee Chor."
