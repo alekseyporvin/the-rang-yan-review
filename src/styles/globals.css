@@ -187,6 +187,34 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-alt-indent p:nth-child(even) {
   padding-left: 1.65em;
 }
+.prose-poetry .poem-hinge {
+  font-family: var(--font-serif-body);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  margin: 0 0 3.4em;
+  padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  tab-size: 8;
+}
+.prose-poetry .poem-note {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-ink-secondary);
+  margin: 0.5em 0 0;
+}
+.prose-poetry .poem-note p {
+  margin: 0 0 1em;
+}
+.prose-poetry .poem-note p:last-child {
+  margin-bottom: 0;
+}
+.article-body.container:has(.poem-hinge) {
+  max-width: min(100%, 48rem);
+}
 
 .prose-poetry .poem-manuscript {
   margin: 0;
