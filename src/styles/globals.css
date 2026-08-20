@@ -181,6 +181,12 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
   margin: 0 0 1.6em;
 }
+.prose-poetry .poem-alt-indent p {
+  margin: 0;
+}
+.prose-poetry .poem-alt-indent p:nth-child(even) {
+  padding-left: 1.65em;
+}
 
 .prose-poetry .poem-manuscript {
   margin: 0;
