@@ -81,7 +81,7 @@ whack wrack rack pillory puck pang pickle prick quirk ring tocsin spell
                                 euthanasia
 
 dwell affix affiliate tumble
-                        — the trouble with human affairs —
+                        — <em>the trouble with human affairs</em> —
                                 mull
                                         crull
                 crullery
@@ -96,7 +96,7 @@ prostate exam
                                                 . peevishness
                                                 . irresolute
 
-                                — no one is listening —
+                                — <em>no one is listening</em> —
 
 phobiaswirl applying for early admission young at heart fatigued with abbreviation sum of the parts hindquarters all aboard epiphanic foray majoring in bedlam living on forecasts fruits of your labor belly-up trundle tuck the perfect scarf
 if only
@@ -109,7 +109,7 @@ if only
 blither dither dervish tale             on all fours seaside resort consumables the will to power  hairspray nonpartisan the vitality of functions   felicitation   ambiguity   verbosity   tuning fork almighty the mathematics of subterfuge shotgun weddings Michelin tires onomatopoeia &amp; the Aurignacian armpit
                                                                 Massapequa
                                         Omaha
-                        Bedford Stuy’</pre>
+                        <em>Bedford Stuy’</em></pre>
 
 <div class="poem-note">
 <p><strong>Note:</strong> The FRC is a rotational Hinge kinetic (first appearing in <em>from stone this running</em>, BWP, 2011) devoted to densifying (expanding/emboldening/enlarging) the ‘particle’ (the particle in this case is ‘dread’). Submitting ‘dread’ to alternative linguistic ethers, the impregnated particle becomes Mass-Emboldened, Stature Enriched, — molten larval modules burbling on the ground of being.</p>
