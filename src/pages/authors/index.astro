@@ -10,9 +10,10 @@ const essays = await getCollection('essays', e => !e.data.draft);
 const poetry = await getCollection('poetry', e => !e.data.draft);
 const prose = await getCollection('prose', e => !e.data.draft);
 const interviews = await getCollection('interviews', e => !e.data.draft);
+const conversations = await getCollection('conversation-with', e => !e.data.draft);
 const criticism = await getCollection('criticism', e => !e.data.draft);
 
-const allArticles = [...essays, ...poetry, ...prose, ...interviews, ...criticism];
+const allArticles = [...essays, ...poetry, ...prose, ...interviews, ...conversations, ...criticism];
 
 // Build a map of authorSlug -> { name, publications }
 const authorMap = new Map<string, { name: string; slug: string; publications: typeof allArticles }>();

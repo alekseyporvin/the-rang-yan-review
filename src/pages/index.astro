@@ -18,6 +18,7 @@ const allArticles = [
   ...(await getCollection('poetry', e => !e.data.draft)),
   ...(await getCollection('prose', e => !e.data.draft)),
   ...(await getCollection('interviews', e => !e.data.draft)),
+  ...(await getCollection('conversation-with', e => !e.data.draft)),
   ...(await getCollection('criticism', e => !e.data.draft)),
 ];
 
@@ -49,6 +50,7 @@ const collectionMap: Record<string, string> = {
   poetry: 'poetry',
   prose: 'prose',
   interviews: 'interviews',
+  'conversation-with': 'conversation-with',
   criticism: 'criticism',
 };
 

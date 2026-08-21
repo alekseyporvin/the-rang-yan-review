@@ -7,9 +7,10 @@ export async function GET(context: APIContext) {
   const poetry = await getCollection('poetry', e => !e.data.draft);
   const prose = await getCollection('prose', e => !e.data.draft);
   const interviews = await getCollection('interviews', e => !e.data.draft);
+  const conversations = await getCollection('conversation-with', e => !e.data.draft);
   const criticism = await getCollection('criticism', e => !e.data.draft);
 
-  const allArticles = [...essays, ...poetry, ...prose, ...interviews, ...criticism]
+  const allArticles = [...essays, ...poetry, ...prose, ...interviews, ...conversations, ...criticism]
     .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
     .slice(0, 40);
 

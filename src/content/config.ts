@@ -22,6 +22,7 @@ const essays = defineCollection({ type: 'content', schema: articleFields });
 const poetry = defineCollection({ type: 'content', schema: articleFields });
 const prose = defineCollection({ type: 'content', schema: articleFields });
 const interviews = defineCollection({ type: 'content', schema: articleFields });
+const conversationWith = defineCollection({ type: 'content', schema: articleFields });
 const criticism = defineCollection({ type: 'content', schema: articleFields });
 
 const issues = defineCollection({
@@ -76,6 +77,7 @@ export const collections = {
   poetry,
   prose,
   interviews,
+  'conversation-with': conversationWith,
   criticism,
   issues,
   authors,
