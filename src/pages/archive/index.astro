@@ -23,6 +23,7 @@ const allArticles = [
   ...(await getCollection('poetry', e => !e.data.draft)),
   ...(await getCollection('prose', e => !e.data.draft)),
   ...(await getCollection('interviews', e => !e.data.draft)),
+  ...(await getCollection('conversation-with', e => !e.data.draft)),
   ...(await getCollection('criticism', e => !e.data.draft)),
 ].sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
 
