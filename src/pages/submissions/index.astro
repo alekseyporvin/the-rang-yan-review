@@ -144,6 +144,22 @@ import Footer from '../../components/Footer.astro';
             The journal is maintained as a shared space for literary and intellectual exchange, outside commercial publishing structures. Our aim is to make room for writing that may have difficulty finding a place within commercially driven cultural institutions.
           </p>
 
+          <aside class="author-rights" aria-labelledby="author-rights-heading">
+            <h2 id="author-rights-heading" class="author-rights__title">Author Rights</h2>
+            <p>
+              Authors retain copyright to their work. By submitting work to <em>The Rang Yan Review</em>, authors grant the journal the non-exclusive right to publish the accepted work in the journal, on its website, and in its digital archives.
+            </p>
+            <p>
+              Authors retain the right to republish their work elsewhere after publication in <em>The Rang Yan Review</em>, provided that the journal is acknowledged as the first place of publication.
+            </p>
+            <p>
+              Submission and publication do not constitute a transfer of copyright to <em>The Rang Yan Review</em>.
+            </p>
+            <p>
+              Authors are responsible for ensuring that their submissions are original and that they have the necessary rights and permissions for any material incorporated into their work.
+            </p>
+          </aside>
+
           <h2 class="submissions-heading">How to Submit</h2>
           <p>
             Please send your submission to
@@ -264,5 +280,38 @@ import Footer from '../../components/Footer.astro';
     border-left: 2px solid var(--color-burgundy);
     padding: 0.75rem 1rem;
     margin: 1rem 0 1.25rem !important;
+  }
+
+  .author-rights {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    padding: 1.7rem 1.75rem 1.45rem;
+    margin: 2.5rem 0 0.5rem;
+  }
+
+  .author-rights__title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    margin: 0 0 1rem;
+  }
+
+  .author-rights p {
+    font-family: var(--font-serif-body);
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--color-ink-secondary);
+    margin: 0 0 1em;
+  }
+
+  .author-rights p:last-child {
+    margin-bottom: 0;
+  }
+
+  .author-rights em {
+    font-style: italic;
+    color: var(--color-ink);
   }
 </style>
