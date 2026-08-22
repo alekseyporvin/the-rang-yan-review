@@ -289,7 +289,10 @@ const pathname = Astro.url.pathname;
     border-radius: 3px;
     letter-spacing: 0;
     white-space: nowrap;
-    transition: color 0.15s ease, -webkit-text-fill-color 0.15s ease;
+    display: inline-block;
+    transform: scale(1);
+    transform-origin: center;
+    transition: color 0.25s ease, transform 0.28s ease, -webkit-text-fill-color 0.25s ease;
     text-underline-offset: 0.28em;
   }
 
@@ -299,6 +302,7 @@ const pathname = Astro.url.pathname;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     background: transparent;
+    transform: scale(1.18);
   }
 
   .nav-link--active {

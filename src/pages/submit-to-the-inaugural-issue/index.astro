@@ -79,9 +79,12 @@ import Footer from '../../components/Footer.astro';
           <p>
             Please send your submission to:
           </p>
-          <p class="inaugural-example">
-            <a href="mailto:submissions@therangyanreview.org">submissions@therangyanreview.org</a>
-          </p>
+          <aside class="author-rights submissions-email" aria-labelledby="submissions-email-heading">
+            <h2 id="submissions-email-heading" class="author-rights__title">Email for manuscript submissions</h2>
+            <p>
+              <a href="mailto:sensus.interni@gmail.com">sensus.interni@gmail.com</a>
+            </p>
+          </aside>
           <p>
             Please use the following subject line:
           </p>
@@ -294,6 +297,27 @@ import Footer from '../../components/Footer.astro';
 
   .author-rights em {
     font-style: italic;
+    color: var(--color-ink);
+  }
+
+  .submissions-email {
+    margin: 1rem 0 1.5rem;
+  }
+
+  .submissions-email p {
+    margin: 0;
+  }
+
+  .submissions-email a {
+    font-family: var(--font-sans);
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: var(--color-burgundy);
+    text-decoration: none;
+  }
+
+  .submissions-email a:hover {
+    text-decoration: underline;
     color: var(--color-ink);
   }
 </style>
