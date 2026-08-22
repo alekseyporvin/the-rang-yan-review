@@ -14,7 +14,6 @@ const navRight = [
   { href: '/editorial-board/', label: 'Editorial Board' },
   { href: '/about/', label: 'About' },
   { href: '/submit-to-the-inaugural-issue/', label: 'Submit to the Inaugural Issue' },
-  { href: '/submissions/', label: 'Submissions' },
 ];
 
 const navLinks = [...navLeft, ...navRight];
@@ -121,7 +120,7 @@ const pathname = Astro.url.pathname;
     flex-direction: column;
     align-items: stretch;
     gap: 1.15rem;
-    width: min(100%, 68rem);
+    width: 100%;
     max-width: 100%;
   }
 
@@ -264,7 +263,7 @@ const pathname = Astro.url.pathname;
     justify-content: center;
     width: 100%;
     padding-top: 0.15rem;
-    overflow-x: auto;
+    overflow: visible;
   }
 
   .nav-group {
@@ -272,24 +271,23 @@ const pathname = Astro.url.pathname;
     flex-wrap: nowrap;
     list-style: none;
     padding: 0;
-    margin: 0 auto;
-    gap: 0.1rem;
-    justify-content: center;
-    width: max-content;
-    max-width: 100%;
+    margin: 0;
+    gap: 0;
+    justify-content: space-between;
+    width: 100%;
     white-space: nowrap;
   }
 
   .nav-link {
     font-family: var(--font-sans);
-    font-size: 0.92rem;
+    font-size: 0.76rem;
     font-weight: 500;
     color: var(--color-ink-secondary);
     -webkit-text-fill-color: currentColor;
     text-decoration: none;
-    padding: 0.35rem 0.5rem;
+    padding: 0.3rem 0.22rem;
     border-radius: 3px;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
     white-space: nowrap;
     transition: color 0.15s ease, -webkit-text-fill-color 0.15s ease;
     text-underline-offset: 0.28em;
@@ -394,7 +392,7 @@ const pathname = Astro.url.pathname;
     display: block;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
     .header-inner {
       justify-content: space-between;
       align-items: flex-start;
