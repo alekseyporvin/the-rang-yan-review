@@ -407,6 +407,18 @@ function articleHref(a: { collection: string; slug: string }) {
       </div>
     </section>
 
+    <section class="home-colophon" aria-label="The Rang Yan Review">
+      <div class="container">
+        <img
+          src="/images/logo-rang-yan-review.png"
+          alt="The Rang Yan Review — Literature, Criticism, Essays"
+          class="home-colophon__mark"
+          width="640"
+          height="640"
+        />
+      </div>
+    </section>
+
   </main>
 
   <Footer />
@@ -951,5 +963,20 @@ function articleHref(a: { collection: string; slug: string }) {
       padding-top: 0;
       margin-top: 0;
     }
+  }
+
+  .home-colophon {
+    padding: 2.5rem 0 0;
+  }
+
+  .home-colophon__mark {
+    display: block;
+    width: min(22rem, 86vw);
+    height: auto;
+    margin: 0 auto;
+  }
+
+  :global(.site-footer) {
+    margin-top: 2.25rem;
   }
 </style>
