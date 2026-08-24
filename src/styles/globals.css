@@ -119,6 +119,13 @@ h1, h2, h3, h4, h5, h6 {
 .prose-journal strong {
   font-weight: 600;
 }
+.prose-journal .essay-verse {
+  margin: 1.75em 0;
+}
+.prose-journal .essay-verse p {
+  margin: 0;
+  line-height: 1.65;
+}
 
 /* Poetry specific */
 .prose-poetry {
