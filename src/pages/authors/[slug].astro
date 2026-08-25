@@ -27,7 +27,7 @@ export async function getStaticPaths() {
   return authorSlugs.map(slug => {
     const bio = authorBioMap.get(slug);
     const publications = allArticles
-      .filter(a => a.data.authorSlug === slug)
+      .filter(a => a.data.authorSlug === slug || (a.data.translatorSlugs ?? []).includes(slug))
       .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0));
     const name = bio?.data.name ?? publications[0]?.data.author ?? slug;
 
