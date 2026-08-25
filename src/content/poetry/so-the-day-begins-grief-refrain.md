@@ -10,6 +10,9 @@ tags:
   - contemporary
 category: Poetry
 featured: true
+translatorSlugs:
+  - kurt-beals
+  - aimee-chor
 ---
 
 **192**

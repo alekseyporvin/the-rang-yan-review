@@ -25,6 +25,14 @@ for (const article of allArticles) {
     authorMap.set(slug, { name, slug, publications: [] });
   }
   authorMap.get(slug)!.publications.push(article);
+
+  for (const translatorSlug of article.data.translatorSlugs ?? []) {
+    if (translatorSlug === slug) continue;
+    if (!authorMap.has(translatorSlug)) {
+      authorMap.set(translatorSlug, { name: translatorSlug, slug: translatorSlug, publications: [] });
+    }
+    authorMap.get(translatorSlug)!.publications.push(article);
+  }
 }
 
 // Build list of authors with optional bio file
