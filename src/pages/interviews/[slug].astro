@@ -12,6 +12,17 @@ export async function getStaticPaths() {
 
 const { interview } = Astro.props;
 const { Content } = await interview.render();
+
+const authorBios = await getCollection('authors');
+const alsoBy = (interview.data.relatedAuthorSlugs ?? []).map(slug => {
+  const bio = authorBios.find(entry => entry.slug === slug);
+  const rawName = bio?.data.name ?? slug;
+  const comma = rawName.indexOf(',');
+  const name = comma === -1
+    ? rawName
+    : `${rawName.slice(comma + 1).trim()} ${rawName.slice(0, comma).trim()}`;
+  return { slug, name };
+});
 ---
 
 <ArticleLayout
@@ -27,6 +38,7 @@ const { Content } = await interview.render();
   issue={interview.data.issue}
   coverImage={interview.data.coverImage}
   coverCredit={interview.data.coverCredit}
+  alsoBy={alsoBy}
 >
   <Content />
 </ArticleLayout>
