@@ -1,5 +1,6 @@
 name: Deploy Astro site to GitHub Pages
 
+# Manual retrigger enabled via workflow_dispatch and push to main.
 on:
   push:
     branches: [main]
