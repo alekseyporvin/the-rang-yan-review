@@ -17,6 +17,7 @@ const articleFields = z.object({
   coverCredit: z.string().optional(),
   previewImage: z.string().optional(),
   translatorSlugs: z.array(z.string()).default([]),
+  relatedAuthorSlugs: z.array(z.string()).default([]),
 });
 
 const essays = defineCollection({ type: 'content', schema: articleFields });

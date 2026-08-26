@@ -53,6 +53,7 @@ const pageTitle = `${displayTitle} — ${author} | The Rang Yan Review`;
   description={excerpt ? plainInline(excerpt) : undefined}
   ogTitle={displayTitle}
   ogDescription={excerpt ? plainInline(excerpt) : undefined}
+  ogImage={coverImage ? `https://therangyanreview.org${coverImage}` : undefined}
   articleDate={date?.toISOString()}
 >
   <Header />

@@ -18,11 +18,15 @@ const { Content } = await interview.render();
   title={interview.data.title}
   author={interview.data.author}
   authorSlug={interview.data.authorSlug}
+  authorRole={interview.data.authorRole}
   date={interview.data.date}
   excerpt={interview.data.excerpt}
+  sourceNote={interview.data.sourceNote}
   tags={interview.data.tags}
   category={interview.data.category || 'Interviews'}
   issue={interview.data.issue}
+  coverImage={interview.data.coverImage}
+  coverCredit={interview.data.coverCredit}
 >
   <Content />
 </ArticleLayout>

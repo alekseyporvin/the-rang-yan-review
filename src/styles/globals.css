@@ -127,6 +127,106 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.65;
 }
 
+.prose-journal .interview-q {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--color-ink);
+  margin: 2.35em 0 0.85em;
+  letter-spacing: -0.01em;
+}
+
+.prose-journal .interview-q:first-child {
+  margin-top: 0;
+}
+
+.prose-journal .interview-who {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-burgundy);
+  margin-right: 0.7em;
+}
+
+.prose-journal .interview-photo {
+  margin: 2.75rem 0;
+}
+
+.prose-journal .interview-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 1px solid var(--color-border);
+}
+
+.prose-journal .interview-photo figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--color-ink-muted);
+  margin-top: 0.65rem;
+  line-height: 1.45;
+}
+
+.prose-journal .interview-photo--wide {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.prose-journal .interview-photo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin: 2.75rem 0;
+}
+
+.prose-journal .interview-photo-pair figure {
+  margin: 0;
+}
+
+.prose-journal .interview-photo-pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  background: #fff;
+  border: 1px solid var(--color-border);
+}
+
+.prose-journal .interview-photo-pair figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+  margin-top: 0.55rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 860px) {
+  .article-body.container:has(.interview-photo) {
+    max-width: min(100%, 46rem);
+  }
+
+  .prose-journal .interview-photo--wide {
+    width: calc(100% + 3.5rem);
+    margin-left: -1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .prose-journal .interview-photo-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .prose-journal .interview-photo-pair img {
+    aspect-ratio: auto;
+  }
+}
+
 /* Poetry specific */
 .prose-poetry {
   font-family: var(--font-serif-body);
