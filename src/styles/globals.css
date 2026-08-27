@@ -135,6 +135,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-ink);
   margin: 2.35em 0 0.85em;
   letter-spacing: -0.01em;
+  clear: both;
 }
 
 .prose-journal .interview-q:first-child {
@@ -169,6 +170,30 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-ink-muted);
   margin-top: 0.65rem;
   line-height: 1.45;
+}
+
+.prose-journal .interview-photo--book {
+  max-width: 14.75rem;
+  margin: 1.1rem auto 2rem;
+}
+
+.prose-journal .interview-photo--book img {
+  background: #111;
+  box-shadow: 0 16px 38px rgba(22, 14, 10, 0.18);
+}
+
+.prose-journal .interview-photo--book figcaption {
+  text-align: center;
+  font-size: 0.74rem;
+  letter-spacing: 0.01em;
+}
+
+@media (min-width: 760px) {
+  .prose-journal .interview-photo--book {
+    float: right;
+    margin: 0.15rem 0 1.5rem 2rem;
+    max-width: 14.75rem;
+  }
 }
 
 .prose-journal .interview-photo--wide {
