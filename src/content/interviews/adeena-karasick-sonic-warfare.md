@@ -55,14 +55,9 @@ Less rap n more like a wrap – as those lines are part of the “Checking In”
 
 Does this mean it made you LOL? I had so much fun, punctuating it with weird pop references / nursery rhymes, subverted cliches – really speaking to the flattening or de-hierarchization of language, so maybe best not to ; )
 
-<div class="essay-verse">
-<p>i’ll be your promptstitute ((whenever you need me))</p>
-<p>i’ll be your promptstitute ((whenever you need me))</p>
-<p>i’ll be your promptstitute</p>
-<p>((whenever you need me))</p>
-<p>i’ll be your promptstitute</p>
-<p>((whenever you need me))</p>
-</div>
+<figure class="interview-wordart">
+  <img src="/images/interviews/adeena-karasick-promptstitute.png" alt="i’ll be your promptstitute ((whenever you need me))" width="542" height="239" />
+</figure>
 
 <p class="interview-q"><span class="interview-who">DM</span> Your publisher, Roof Books, has in its own terms published “the best in language since 1976.” How do you regard your own poetics in relation to so-called “Language” poetry? Do you do “Language” with a supplemental difference?</p>
 
