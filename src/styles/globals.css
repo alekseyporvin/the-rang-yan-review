@@ -124,10 +124,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 1.65;
 }
+.prose-journal .essay-verse--center,
+.prose-journal .essay-center {
+  text-align: center;
+}
 
 .prose-journal .interview-wordart {
   margin: 2rem auto 2.35rem;
-  max-width: 34rem;
+  max-width: 26rem;
   background: #fff;
 }
 
