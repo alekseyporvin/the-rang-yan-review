@@ -17,11 +17,24 @@ export function italicizeJournalTerms(text: string): string {
     .replace(/\u0001([^\u0002]+)\u0002/g, '<em>$1</em>');
 }
 
-/** Escape HTML, convert *italic* markers, then italicize journal terms. */
+/** Escape HTML, convert *italic* markers and [label](url) links, then italicize journal terms. */
 export function withJournalItalics(text: string): string {
-  return italicizeJournalTerms(
-    escapeHtml(text).replace(/\*([^*]+)\*/g, '<em>$1</em>'),
+  const links: string[] = [];
+  const withPlaceholders = text.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, (_, label, href) => {
+    const token = `\u0003${links.length}\u0004`;
+    links.push(`<a href="${escapeHtml(href)}">${escapeHtml(label)}</a>`);
+    return token;
+  });
+
+  let html = italicizeJournalTerms(
+    escapeHtml(withPlaceholders).replace(/\*([^*]+)\*/g, '<em>$1</em>'),
   );
+
+  links.forEach((tag, i) => {
+    html = html.replace(`\u0003${i}\u0004`, tag);
+  });
+
+  return html;
 }
 
 /** Escape HTML, then convert *italic* markers to <em>. */

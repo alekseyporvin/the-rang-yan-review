@@ -113,8 +113,8 @@ h1, h2, h3, h4, h5, h6 {
   margin: 2.5em auto;
   width: 8rem;
 }
-.prose-journal em {
-  font-style: italic;
+.prose-journal .nowrap {
+  white-space: nowrap;
 }
 .prose-journal strong {
   font-weight: 600;
