@@ -28,7 +28,7 @@ we are so in the middle of it : )
 
 And in that hypernoetic space of the “the middle” — in the words of Marshall McLuhan, “we shape our tools as our tools shape us”: GPT (with its intellectual labor) overtaking our minds, GPS navigating our lives GPL’s eating our fat, GPA — i dunno ; ) we are all cyborgian now — in the transhumanist daswischensein:
 
-<div class="essay-verse">
+<div class="essay-verse essay-verse--center">
 <p>a desiring machine</p>
 <p>AI-oiled regenerative</p>
 <p>daseining machine</p>
@@ -55,7 +55,7 @@ And in that hypernoetic space of the “the middle” — in the words of Marsha
 <p>i think i love you</p>
 </div>
 
-All to say, as we negotiate this liminal space between our large language models and their impact on contemporary socio-philosophical, linguistic and political ethos, and when for Heidegger, “language is the house of being [where] humanity dwell” — what happens when AI also occupies this “house of being”? — when presence is relational and there is no fixed, locatable Truth, when everything is haunted by repetition, substitutions, veiled surveillance, within a scrolling corollary of coded communication // in the composite ventriloquy, electrical currency, mounting liquidity
+All to say, as we negotiate this liminal space between our large language models and their impact on contemporary socio-philosophical, linguistic and political ethos, and when for Heidegger, “language is the house of being [where] humanity dwells” — what happens when AI also occupies this “house of being”? — when presence is relational and there is no fixed, locatable Truth, when everything is haunted by repetition, substitutions, veiled surveillance, within a scrolling corollary of coded communication // in the composite ventriloquy, electrical currency, mounting liquidity
 
 What does it mean (pun intended) to be in the middle  
 What are the consequences of being between??
@@ -95,10 +95,11 @@ who can be sure of anything
 <p>Faux sure.</p>
 </div>
 
-Thus, ipso facto : ) we gotta remember that language is and has always been slippery, inherently metaphorical; a joining of heterogenous signals / codes propagating a polyontological disparity.  
-But this “polyontological disparity” is not just a “free-play of signifiers” (as we know from Derrida), but grounded in the trace of intra-subjective, socio/ideological / political and aesthetic specificities. For Charles Sanders Pierce, “a womb of indeterminacy inchoate in its limitless potential” So, when all knowledge (and meaning) is a palimpsestic process of ever-emergent information; when i am multiple subjectivities inscribed along so many axes of influence,
+Thus, ipso facto : ) we gotta remember that language is and has always been slippery, inherently metaphorical; a joining of heterogenous signals / codes propagating a polyontological disparity.
 
-<div class="essay-verse">
+But this “polyontological disparity” is not just a “free-play of signifiers” (as we know from Derrida), but grounded in the trace of intra-subjective, socio/ideological / political and aesthetic specificities. For Charles Sanders Pierce, “a womb of indeterminacy inchoate in its limitless potential.” So, when all knowledge (and meaning) is a palimpsestic process of ever-emergent information; when i am multiple subjectivities inscribed along so many axes of influence,
+
+<div class="essay-verse essay-verse--center">
 <p>in the being of being’s beyond-being of the being</p>
 <p>beingly be-ing (when being) given over to</p>
 <p>being and brings forth the</p>
@@ -108,16 +109,17 @@ But this “polyontological disparity” is not just a “free-play of signifier
 we gotta celebrate that hell yeah, we are always in a state of between  
 Re-defined in the Dazwischensein
 
-(((in in the event of the event  
-événtement of the avant)))
+<div class="essay-center">
+<p>(((in in the event of the event<br />événtement of the avant)))</p>
+</div>
 
-Take the idea of translation. Like how book artist, visual theorist, and cultural critic, Johanna Drucker’s, 2026 “Re-Declaration Project” (commissioned by the American Philosophical Society for the nation’s 250th Anniversary), re-translates the 1776 Dunlap Broadside of the Declaration of Independence through a series of Oulippean-inspired erasure techniques, and typographic elements (replacing traditional patriotic state seals and flourishes with hand drawn solar panels & wind turbines); blending historic design with contemporary symbols of American democracy, installing it with a new set of symbolic and iconic values, asking us to re-think our relation to the received past by re-historicizing the original -----
+Take the idea of translation. Like how book artist, visual theorist, and cultural critic, Johanna Drucker’s, 2026 “[Re-Declaration Project](https://newsroom.ucla.edu/stories/scholar-reimagines-declaration-of-independence-america-250)” (commissioned by the American Philosophical Society for the nation’s 250th Anniversary), re-translates the 1776 Dunlap Broadside of the Declaration of Independence through a series of Oulippean-inspired erasure techniques, and typographic elements (replacing traditional patriotic state seals and flourishes with hand drawn solar panels & wind turbines); blending historic design with contemporary symbols of American democracy, installing it with a new set of symbolic and iconic values, asking us to re-think our relation to the received past by re-historicizing the original -----
 
 Or Maria Damon, beloved Professor Emerita of U of M, cultural theorist, essayist, and textile artist, and takes artist, filmmaker, Derek Jarman’s, 1995 *Chroma*, his memoir on color, light and mortality written while battling Aids-related blindness, (published by University of Minnesota Press!), and re-fabricates it as polychromatic woven text-tiles, textures, ur-texts, sub-texts --
 
 Specifically, when diagnosed, Jarman’s response was to build a garden on the coast in Dungeness, the southeast tip of England, in the shadow of a then-working nuclear power plant. That garden became his heaven in Hell — his queer Eden. Damon’s “data [re]visualization” of warped wefts, weaves all the colors of the garden, his cottage, with 4 colors to correspond to the 4 nucleotides that comprise all DNA sequences, and weaving the genomic sequence of an HIV/AIDS virus sequences in the UK in 1986, the place and year in which Jarman received his diagnosis: In “Blue,” in honor of his last film by the same name, Damon threads blue for the ocean; black for grief of death, metallic gold and/or silver, for Jarman’s flamboyantly queer artistry, and brown, for the reassuring stability of the earth which he worked while creating the garden and to which he would return. Through combination and relation across grids of time, space, color, form, pattern and chaos, she creates a kind of Deleuze n Guattarian, “rhizomatic” response, a non-hierarchical, interconnected network of multiplicity, heterogeneity, and fluidity — asking us to re-think the state of being between as she re-threads, histories, aesthetics, biography, biology, philology.
 
-Or laterally read, this state of liminality could be seem as what L=A=N=G=U=A=G=E poet, Barrett Watten might call a kind of “neo-mimesis” — a reproduction that’s not primarily concerned with “the truth” of representation or transparency of meaning, but moves transversally across modes of representation. And between replication and reproduction, both Damon and Drucker offer an asymmetrical neo-mimetic poetics, reminding us how the liminal, a critical network of thresholds, transitions, axes of interpretive possibility.
+Or laterally read, this state of liminality could be seen as what L=A=N=G=U=A=G=E poet, Barrett Watten might call a kind of “neo-mimesis” — a reproduction that’s not primarily concerned with “the truth” of representation or transparency of meaning, but moves transversally across modes of representation. And between replication and reproduction, both Damon and Drucker offer an asymmetrical neo-mimetic poetics, reminding us how the liminal, a critical network of thresholds, transitions, axes of interpretive possibility.
 
 An adjacent example of playing within this liminal space of “translation” — through reflection, deflection, refraction and the fracturing of language — my 2023 *Eicha: The Book of Lumenations*, (written during Covid), homophonically re-situates the Book of Lamentation to the horrors and hope of a re-presented present palimpsesting language, history, rhythms, texture — which now speaks to not only the original destruction of Jerusalem but the destruction of all our “cities”, (Gaza, Ukraine, American democracy, bodies, politics, identities).
 
@@ -139,9 +141,9 @@ Through a kinda Irigaraian celebration of “the excluded middle” (“that dis
 
 Re-designed in the dazwischensein!
 
-(((And for those of you who don’t have the story of Salomé at the forefront of your brain, she’s obsessively in love with John (the Baptist) — but he’s obsessively in love with G-d! She’s uh SO in the middle of it —
+(((And for those of you who don’t have the story of Salomé at the forefront of your brain, she’s obsessively in love with John (the Baptist), but he’s obsessively in love with G-d! She’s uh SO in the middle of it —
 
-<div class="essay-verse">
+<div class="essay-verse essay-verse--center">
 <p>oh silly may, solo me oh,</p>
 <p>salo salo me no sweat, no</p>
 <p>way no slough sallow may laced with liaised</p>
@@ -151,7 +153,8 @@ Re-designed in the dazwischensein!
 <p>mustang sally headlong agon so langue tall sally</p>
 <p>salient alias wholesale sally down wind done gone</p>
 <p>done rot her s[ou]lamé so lay me down sally</p>
-<p>‘n don’t slow me with your tally sally hey dolly dolly psalm soullier what sally say</p>
+<p>‘n don’t slow me with your tally sally</p>
+<p>hey dolly dolly psalm soullier what sally say</p>
 <p>salomé slalom mal Allez! andelez salomé</p>
 <p>holy olé salomé me softly</p>
 <p>&nbsp;</p>
@@ -175,21 +178,25 @@ highlighting language’s skin wet sweat seeping into not just textual but techn
 
 So — in a “war in words” i urge you, DECLARE WAR IN LANGUAGE, on language by language, powered by passion, play, comedy and cunning, jouisse-ly underscoring how flagrant intervention, linguistic friction; appropriation, translation, citation and sophistry, defy mastery —
 
-For it is here in these unstable intervals,  
-this illimitable liminality --  
-a philo-political-socio-gendered-lingua-erotic  
-radically anti-authoritarian call for change.
+<div class="essay-verse essay-verse--center">
+<p>For it is here in these unstable intervals,</p>
+<p>this illimitable liminality —</p>
+<p>a philo-political-socio-gendered-lingua-erotic</p>
+<p>radically anti-authoritarian call for change.</p>
+</div>
 
 And because everything is always-already fluid, in flux fleeting in this increasingly destabilized world, we are forever between time, space, language, being, humanity, technology; domains, demains, demands; forms, homes, pages, stages, ideologies, languages. Between re-cirqued sanctuaries, synchronies, inquiries, iniquities, shadows, screens and silences — All to say,
 
 DAZWISCHE i may  
 DAZWISCHE i might
 
-May we all remain dedicated to the exploration and celebration of the work of []art  
-in the age of maniacal reproduction —
-
-re-designing / daseining in the Dazwischen-sein  
-an intertextatic space, all nomadic monadic n vagrant  
-mediating en medias with immediacy n madness  
-where the illuminal numenal liminal  
-a source of hope and solace, transformation and change.
+<div class="essay-verse essay-verse--center">
+<p>May we all remain dedicated to the exploration and celebration of the</p>
+<p>work of []art in the age of maniacal reproduction —</p>
+<p>&nbsp;</p>
+<p>re-designing / daseining in the Dazwischen-sein</p>
+<p>an intertextatic space, all nomadic monadic n vagrant</p>
+<p>mediating en medias with immediacy n madness</p>
+<p>where the illuminal numenal liminal</p>
+<p>a source of hope and solace, transformation and change.</p>
+</div>

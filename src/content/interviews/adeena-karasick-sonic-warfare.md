@@ -56,7 +56,7 @@ Less rap n more like a wrap – as those lines are part of the “Checking In”
 Does this mean it made you LOL? I had so much fun, punctuating it with weird pop references / nursery rhymes, subverted cliches – really speaking to the flattening or de-hierarchization of language, so maybe best not to ; )
 
 <figure class="interview-wordart">
-  <img src="/images/interviews/adeena-karasick-promptstitute.png" alt="i’ll be your promptstitute ((whenever you need me))" width="542" height="239" />
+  <img src="/images/interviews/adeena-karasick-promptstitute.png?v=2" alt="i’ll be your promptstitute ((whenever you need me))" width="340" height="195" />
 </figure>
 
 <p class="interview-q"><span class="interview-who">DM</span> Your publisher, Roof Books, has in its own terms published “the best in language since 1976.” How do you regard your own poetics in relation to so-called “Language” poetry? Do you do “Language” with a supplemental difference?</p>
@@ -65,7 +65,7 @@ I’m resistant to categorizing myself -- as the work is drawing from a range of
 
 <p class="interview-q"><span class="interview-who">DM</span> Why do you repeat certain phrases such as “This word is a digital immigrant,” “Ride with me,” “Who is weaponizing,” and “What is certain”</p>
 
-Well in one sense, for its rhythm -- but i’m particularly interested also how á la Stein, Benjamin, repetition is reproduction Every time articulated it’s re-constituted, made new, re-contextualized through a range of socio-technologic, political-aesthetic and geo-historic modalities.
+Well in one sense, for its rhythm -- but i’m particularly interested also how á la Stein, Baudrillard, repetition is reproduction Every time articulated it’s re-constituted, made new, re-contextualized through a range of socio-technologic, political-aesthetic and geo-historic modalities.
 
 <p class="interview-q"><span class="interview-who">DM</span> This book includes phrases associated with Trumpism: “flooding the zone,” “indictments,” “weaponizing,” “immigration,” “sex trafficking,” “self deporting/through taxed cracks,” “with a side of crushed ICE,” and “illegitimate amnesty” among others. What happens to these MAGA terms and talking points when you reframe / appropriate / play with and on / pun / morph them in <em>Sonic Warfare</em>?</p>
 
