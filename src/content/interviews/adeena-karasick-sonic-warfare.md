@@ -6,7 +6,8 @@ authorRole: "Interviewer"
 relatedAuthorSlugs:
   - adeena-karasick
 date: 2026-08-26
-excerpt: "Daniel Morris talks with Adeena Karasick about AI, Language poetry, Kabbalah, and the war in words behind *Sonic Warfare*, forthcoming from Roof Books."
+excerpt: "Daniel Morris talks with Adeena Karasick about AI, Language poetry, Kabbalah, and the war in words behind *Sonic Warfare*."
+sourceNote: "Forthcoming from Roof Books, Sept. 2026.\nOrder *Sonic Warfare* [HERE](https://www.ipgbook.com/sonic-warfare-products-9798994605028.php)."
 coverImage: "/images/interviews/adeena-karasick-sonic-warfare-cover.jpg"
 previewImage: "/images/interviews/adeena-karasick-preview.jpg"
 tags:
@@ -41,12 +42,14 @@ Aren’t they the same ; ) Lettered bodies of curves, crevices, invaginated surf
 
 <p class="interview-q"><span class="interview-who">DM</span> Is this a rap? “Bloom doin Molly/Audible is doin’ edibles”</p>
 
+I’ll check with Drake, n see if he wants to set it <span class="nowrap">; )</span>
+
 <figure class="interview-photo interview-photo--book">
   <img src="/images/interviews/adeena-karasick-aerotomania-cover.jpg" alt="Cover of Ærotomania: The Book of Lumenations by Adeena Karasick" width="687" height="1024" />
   <figcaption><em>Ærotomania: The Book of Lumenations</em><br />Lavender Ink, 2023</figcaption>
 </figure>
 
-I’ll check with Drake, n see if he wants to set it ; ) Less rap n more like a wrap – as those lines are part of the “Checking In” section of the book – it’s the 3rd installment of an ongoing investigation into our over-saturated media environment – an ironic listing of one-liners, highlighting how there’s always a political economy of technologic knowledge. Part I appears in *Checking In*, (Talonbooks, Vancouver, 2018); which we talked about at length in a previous interview [here](https://www.academia.edu/96342667/Adeena_Karasick_interview_WITH_DANIEL_MORRIS_ON_CHECKING_IN); Part II is in *Ærotomania: The Book of Lumenations*, (Lavender Ink, New Orleans, 2023), and as a 12 min. vispo film, and was prominently featured in VIDEOPOETRY: 1980-2020 at the Surrey Art Gallery in Vancouver, 2022. Similarly, this 3rd installment also exists as a videopoem again co-created with Andrews. i provided him with 500 images that relate to the text, and he imported it through his graphic synthesizer he developed, Aleph Null, and you can see it [here](https://www.youtube.com/watch?v=kLkt8VSYw8M). The text was also sampled (along with “Desiring Machine”) for the Adeena Karasick Boss Monster Poet in Arteroids, the first ever shoot-em-up poetry video game created by Andrews.
+Less rap n more like a wrap – as those lines are part of the “Checking In” section of the book – it’s the 3rd installment of an ongoing investigation into our over-saturated media environment – an ironic listing of one-liners, highlighting how there’s always a political economy of technologic knowledge. Part I appears in *Checking In*, (Talonbooks, Vancouver, 2018); which we talked about at length in a previous interview [here](https://www.academia.edu/96342667/Adeena_Karasick_interview_WITH_DANIEL_MORRIS_ON_CHECKING_IN); Part II is in *Ærotomania: The Book of Lumenations*, (Lavender Ink, New Orleans, 2023), and as a 12 min. vispo film, and was prominently featured in VIDEOPOETRY: 1980-2020 at the Surrey Art Gallery in Vancouver, 2022. Similarly, this 3rd installment also exists as a videopoem again co-created with Andrews. i provided him with 500 images that relate to the text, and he imported it through his graphic synthesizer he developed, Aleph Null, and you can see it [here](https://www.youtube.com/watch?v=kLkt8VSYw8M). The text was also sampled (along with “Desiring Machine”) for the Adeena Karasick Boss Monster Poet in Arteroids, the first ever shoot-em-up poetry video game created by Andrews.
 
 <p class="interview-q"><span class="interview-who">DM</span> Do you recommend reading this book in a library that requires strict silence among its patrons?</p>
 
@@ -107,7 +110,7 @@ i love plying / playing with the landscape of the page; where the letters caress
 
 <p class="interview-q"><span class="interview-who">DM</span> Is this book a Golem? In what way does it serve you?</p>
 
-Hmmm ; ) is this book a Golem? Well, like how early rabbis created something in their own image, yeah -- and even more than that, it was created out of code, systems of combinations and permutations / lexical distribution, So, yes! This book could definitely be seen as a Golem. And it’s true, these early avatars were meant to serve their creator, perhaps not so much in the de Sadean sense, but as i mention in *Sonic Warfare*, during the medieval period, Rabbi Samuel, father of Judah the Pious, was said to have had a golem as his valet. And well, this book certainly drove me to new destinations of seeing n being / drove me wild / drove me mad. Dressed me “through the spectacle of high fission / through ignoble ingests, insets / twinned-set datasets / gridlocked cross-talk / of Tik Tokin’ catwalks … on immersive runways in shape shifting hardware / shareware / software / spyware / malware…” Further, like a Golem itself, for me, the book, this book is a kinda living machine, “an aspect of our embodiment” that both generates and obscures signification --
+Hmmm ; ) is this book a Golem? Well, like how early rabbis created something in their own image, yeah -- and even more than that, it was created out of code, systems of combinations and permutations / lexical distribution. So, yes! This book could definitely be seen as a Golem. And it’s true, these early avatars were meant to serve their creator, perhaps not so much in the de Sadean sense, but as i mention in *Sonic Warfare*, during the medieval period, Rabbi Samuel, father of Judah the Pious, was said to have had a golem as his valet. And well, this book certainly drove me to new destinations of seeing n being / drove me wild / drove me mad. Dressed me “through the spectacle of high fission / through ignoble ingests, insets / twinned-set datasets / gridlocked cross-talk / of Tik Tokin’ catwalks … on immersive runways in shape shifting hardware / shareware / software / spyware / malware…” Further, like a Golem itself, for me, the book, this book is a kinda living machine, “an aspect of our embodiment” that both generates and obscures signification --
 
 <div class="essay-verse">
 <p>a living text of lips pressed cross-kissed cryptic schize</p>

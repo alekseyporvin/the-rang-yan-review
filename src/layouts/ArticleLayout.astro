@@ -103,7 +103,7 @@ const pageTitle = `${displayTitle} — ${author} | The Rang Yan Review`;
             {sourceNote && (
               <p
                 class={`article-standfirst article-standfirst--follow${sourceNote.includes('*') ? ' article-standfirst--mixed' : ''}`}
-                set:html={withJournalItalics(sourceNote)}
+                set:html={withJournalItalics(sourceNote).replace(/\n/g, '<br />')}
               />
             )}
 
@@ -292,6 +292,15 @@ const pageTitle = `${displayTitle} — ${author} | The Rang Yan Review`;
     border-top: none;
     padding-top: 0.45rem;
     margin-top: 0;
+  }
+
+  .article-standfirst a {
+    color: var(--color-burgundy);
+    text-underline-offset: 3px;
+  }
+
+  .article-standfirst a:hover {
+    color: var(--color-ink);
   }
 
   .article-tags {
