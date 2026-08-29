@@ -128,6 +128,23 @@ h1, h2, h3, h4, h5, h6 {
 .prose-journal .essay-center {
   text-align: center;
 }
+.prose-journal .essay-verse--step {
+  text-align: left;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  overflow-x: visible;
+}
+.prose-journal .essay-verse--center + .essay-verse--step {
+  margin-top: 0.35em;
+}
+.prose-journal .essay-verse--step p {
+  white-space: nowrap;
+}
+.prose-journal .essay-step-ghost {
+  visibility: hidden;
+  user-select: none;
+}
 
 .prose-journal .interview-wordart {
   margin: 2rem auto 2.35rem;
@@ -200,6 +217,33 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   font-size: 0.74rem;
   letter-spacing: 0.01em;
+}
+
+.prose-journal .interview-photo--portrait {
+  max-width: 17.75rem;
+  margin: 2.1rem auto 2.5rem;
+}
+
+.prose-journal .interview-photo--portrait img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.prose-journal .interview-photo--vispo {
+  max-width: 22.5rem;
+  margin: 3rem auto 0.75rem;
+}
+
+.prose-journal .interview-photo--vispo img {
+  background: #111;
+  box-shadow: 0 18px 42px rgba(22, 14, 10, 0.16);
+}
+
+.prose-journal .interview-photo--vispo figcaption {
+  text-align: center;
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
 }
 
 @media (min-width: 760px) {
