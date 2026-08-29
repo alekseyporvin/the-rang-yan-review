@@ -119,16 +119,10 @@ Hmmm ; ) is this book a Golem? Well, like how early rabbis created something in 
 
 More of desiring machine ; ) A dance of letters, meaning / a “dance of the intellect”
 
-<div class="interview-photo-pair">
-  <figure>
-    <img src="/images/interviews/adeena-karasick-portrait.jpg" alt="Portrait of Adeena Karasick" width="800" height="1067" />
-    <figcaption>Adeena Karasick</figcaption>
-  </figure>
-  <figure>
-    <img src="/images/interviews/adeena-karasick-bowery-poetry.jpg" alt="Adeena Karasick at Bowery Poetry" width="800" height="1067" />
-    <figcaption>At Bowery Poetry</figcaption>
-  </figure>
-</div>
+<figure class="interview-photo interview-photo--portrait">
+  <img src="/images/interviews/adeena-karasick-portrait.jpg" alt="Portrait of Adeena Karasick" width="800" height="1067" />
+  <figcaption>Adeena Karasick</figcaption>
+</figure>
 
 <p class="interview-q"><span class="interview-who">DM</span> Were you influenced by Gerard Manley Hopkins’ concept of “sprung rhythm”?</p>
 
@@ -148,8 +142,18 @@ LOL i don’t know about that – but what i can say is i’m really interested 
 
 <p class="interview-q"><span class="interview-who">DM</span> Are you a scat singer?</p>
 
+<figure class="interview-photo interview-photo--portrait">
+  <img src="/images/interviews/adeena-karasick-bowery-poetry.jpg" alt="Adeena Karasick at Bowery Poetry" width="800" height="1067" />
+  <figcaption>At Bowery Poetry</figcaption>
+</figure>
+
 uh more of a ersatz slinger….
 
 <p class="interview-q"><span class="interview-who">DM</span> Is this book your Guide for the Perplexed?</p>
 
 Well Maimonides’ brilliant 12th C. Guide reconciles Aristotelian philosophy with Jewish theology to guide those troubled by apparent contradictions between reason and revelation. Sonic, Warfare however, is grounded in what i’d call more of an anti-Aristotelian logic and celebrates contradiction. Invites the reader to play in the liminal spaces between connection and disconnection; empathy and detachment. And perhaps in this way, it can offer a discursive model a “guide” which presents not a non-ironic, over-sentimentalized discourse which glosses over darkness, tragedy, and discomfort but rather one that is both distancing, subversive and full of affect, and thereby underscores how modes of complex communicative strategies problematize the foundations of systemic infrastructures, crucial for transformation and change.
+
+<figure class="interview-photo interview-photo--vispo">
+  <img src="/images/interviews/adeena-karasick-stayin-alive.jpg" alt="Closing vispo from Sonic Warfare: AI AI AI Stayin’ Alive over a field of moodoom" width="303" height="446" />
+  <figcaption>Closing vispo from <em>Sonic Warfare</em></figcaption>
+</figure>
