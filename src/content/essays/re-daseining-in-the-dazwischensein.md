@@ -196,11 +196,8 @@ DAZWISCHE i might
 <p>&nbsp;</p>
 <p>re-designing / daseining in the Dazwischen-sein</p>
 <p>an intertextatic space, all nomadic monadic n vagrant</p>
-</div>
-
-<div class="essay-verse essay-verse--step">
-<p><span class="essay-step-ghost" aria-hidden="true">a source owhere the illuminal numenal limi</span>mediating en medias with immediacy n</p>
-<p><span class="essay-step-ghost" aria-hidden="true">a source owhere the illuminal numenal limi</span>madness</p>
-<p><span class="essay-step-ghost" aria-hidden="true">a source o</span>where the illuminal numenal liminal</p>
+<p>mediating en medias with immediacy n madness</p>
+<p>&nbsp;</p>
+<p>where the illuminal numenal liminal</p>
 <p>a source of hope and solace, transformation and change.</p>
 </div>
