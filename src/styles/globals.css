@@ -128,6 +128,29 @@ h1, h2, h3, h4, h5, h6 {
 .prose-journal .essay-center {
   text-align: center;
 }
+.prose-journal.prose-fiction p {
+  text-indent: 1.6em;
+  margin-bottom: 0.15em;
+}
+.prose-journal.prose-fiction p:first-child,
+.prose-journal.prose-fiction .story-break + p {
+  text-indent: 0;
+}
+.prose-journal.prose-fiction .story-break {
+  text-indent: 0;
+  text-align: center;
+  letter-spacing: 0.18em;
+  color: var(--color-ink-muted);
+  margin: 2.35em 0;
+}
+.prose-journal.prose-fiction .story-place {
+  text-indent: 0;
+  text-align: right;
+  font-style: italic;
+  margin-top: 2.75em;
+  margin-bottom: 0;
+  line-height: 1.7;
+}
 
 .prose-journal .interview-wordart {
   margin: 2rem auto 2.35rem;

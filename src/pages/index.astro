@@ -138,6 +138,7 @@ function articleHref(a: { collection: string; slug: string }) {
                   author={article.data.author}
                   authorSlug={article.data.authorSlug}
                   date={article.data.date}
+                  datePrecision={article.data.datePrecision}
                   excerpt={article.data.excerpt}
                   href={articleHref(article)}
                   tags={article.data.tags}
@@ -170,6 +171,7 @@ function articleHref(a: { collection: string; slug: string }) {
                     author={e.data.author}
                     authorSlug={e.data.authorSlug}
                     date={e.data.date}
+                    datePrecision={e.data.datePrecision}
                     excerpt={e.data.excerpt}
                     href={articleHref(e)}
                   />
@@ -189,6 +191,7 @@ function articleHref(a: { collection: string; slug: string }) {
                     author={p.data.author}
                     authorSlug={p.data.authorSlug}
                     date={p.data.date}
+                    datePrecision={p.data.datePrecision}
                     excerpt={p.data.excerpt}
                     href={articleHref(p)}
                   />
@@ -208,6 +211,7 @@ function articleHref(a: { collection: string; slug: string }) {
                     author={p.data.author}
                     authorSlug={p.data.authorSlug}
                     date={p.data.date}
+                    datePrecision={p.data.datePrecision}
                     excerpt={p.data.excerpt}
                     href={articleHref(p)}
                   />
