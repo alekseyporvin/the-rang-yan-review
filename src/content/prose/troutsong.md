@@ -3,7 +3,7 @@ title: "Troutsong"
 author: "James Harold Storbakken"
 authorSlug: "james-harold-storbakken"
 date: 2026-08-31
-excerpt: "An Alcampo trout ad in Granada sends an American poet back to the High Sierras — and to a poem he cannot quite leave behind."
+excerpt: "An Alcampo trout ad in Granada sends an American poet back to the High Sierras — and inspires him to write a poem about the life he cannot quite leave behind."
 tags:
   - fiction
   - memory
