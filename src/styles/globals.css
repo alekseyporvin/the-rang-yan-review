@@ -181,6 +181,19 @@ h1, h2, h3, h4, h5, h6 {
 .prose-journal .editorial-note p:last-child {
   margin-bottom: 0;
 }
+.prose-journal hr.text-rule {
+  border: none;
+  border-top: 2px solid var(--color-ink);
+  margin: 2.85em 0;
+  width: 100%;
+}
+.prose-journal .preface-sign {
+  text-align: right;
+  font-style: italic;
+  margin-top: 1.75em;
+  margin-bottom: 0;
+  line-height: 1.7;
+}
 
 .prose-journal .interview-wordart {
   margin: 2rem auto 2.35rem;
