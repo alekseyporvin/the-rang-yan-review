@@ -2,7 +2,7 @@
 title: "Zeenat and the Dawn of the Sindhi Novel"
 author: "Mirza Khalich Baig"
 authorSlug: "mirza-khalich-baig"
-date: 1890-10-01
+date: 2026-09-02
 excerpt: "When Mirza Khalich Baig published *Zeenat* in 1890, it marked a decisive turning point in the literary landscape of Sindh."
 sourceNote: "From *Zeenat* (1890). Translated from the Sindhi by Soni Wadhwa."
 tags:
