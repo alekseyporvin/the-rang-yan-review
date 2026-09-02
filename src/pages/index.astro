@@ -41,6 +41,29 @@ const latestProse = (await getCollection('prose', e => !e.data.draft))
   .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
   .slice(0, 2);
 
+const latestSections = [
+  {
+    title: 'Essays and Philosophy',
+    href: '/essays/',
+    more: 'All essays and philosophy →',
+    items: latestEssays,
+  },
+  {
+    title: 'Poetry',
+    href: '/poetry/',
+    more: 'All poetry →',
+    items: latestPoetry,
+  },
+  {
+    title: 'Prose',
+    href: '/prose/',
+    more: 'All prose →',
+    items: latestProse,
+  },
+]
+  .filter(section => section.items.length > 0)
+  .sort((a, b) => (b.items[0]?.data.date?.getTime() ?? 0) - (a.items[0]?.data.date?.getTime() ?? 0));
+
 function getHref(col: string, slug: string) {
   return `/${col}/${slug}/`;
 }
@@ -159,65 +182,27 @@ function articleHref(a: { collection: string; slug: string }) {
           <div class="container">
             <h2 id="latest-heading" class="section-title">Latest</h2>
             <div class="latest-grid">
-              <div class="latest-col">
-                <div class="latest-col-header">
-                  <h3 class="latest-col-title">
-                    <a href="/essays/">Essays and Philosophy</a>
-                  </h3>
+              {latestSections.map(section => (
+                <div class="latest-col">
+                  <div class="latest-col-header">
+                    <h3 class="latest-col-title">
+                      <a href={section.href}>{section.title}</a>
+                    </h3>
+                  </div>
+                  {section.items.map(item => (
+                    <ArticleCard
+                      title={item.data.title}
+                      author={item.data.author}
+                      authorSlug={item.data.authorSlug}
+                      date={item.data.date}
+                      datePrecision={item.data.datePrecision}
+                      excerpt={item.data.excerpt}
+                      href={articleHref(item)}
+                    />
+                  ))}
+                  <a href={section.href} class="col-more-link">{section.more}</a>
                 </div>
-                {latestEssays.map(e => (
-                  <ArticleCard
-                    title={e.data.title}
-                    author={e.data.author}
-                    authorSlug={e.data.authorSlug}
-                    date={e.data.date}
-                    datePrecision={e.data.datePrecision}
-                    excerpt={e.data.excerpt}
-                    href={articleHref(e)}
-                  />
-                ))}
-                <a href="/essays/" class="col-more-link">All essays and philosophy →</a>
-              </div>
-
-              <div class="latest-col">
-                <div class="latest-col-header">
-                  <h3 class="latest-col-title">
-                    <a href="/poetry/">Poetry</a>
-                  </h3>
-                </div>
-                {latestPoetry.map(p => (
-                  <ArticleCard
-                    title={p.data.title}
-                    author={p.data.author}
-                    authorSlug={p.data.authorSlug}
-                    date={p.data.date}
-                    datePrecision={p.data.datePrecision}
-                    excerpt={p.data.excerpt}
-                    href={articleHref(p)}
-                  />
-                ))}
-                <a href="/poetry/" class="col-more-link">All poetry →</a>
-              </div>
-
-              <div class="latest-col">
-                <div class="latest-col-header">
-                  <h3 class="latest-col-title">
-                    <a href="/prose/">Prose</a>
-                  </h3>
-                </div>
-                {latestProse.map(p => (
-                  <ArticleCard
-                    title={p.data.title}
-                    author={p.data.author}
-                    authorSlug={p.data.authorSlug}
-                    date={p.data.date}
-                    datePrecision={p.data.datePrecision}
-                    excerpt={p.data.excerpt}
-                    href={articleHref(p)}
-                  />
-                ))}
-                <a href="/prose/" class="col-more-link">All prose →</a>
-              </div>
+              ))}
             </div>
           </div>
         </section>
