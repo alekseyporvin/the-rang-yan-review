@@ -452,6 +452,15 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-alt-indent p:nth-child(even) {
   padding-left: 1.65em;
 }
+.prose-poetry .poem-prose p {
+  margin-bottom: 1.15em;
+}
+.prose-poetry .poem-inset {
+  margin: 1.4em 0 1.4em 1.65em;
+}
+.prose-poetry .poem-inset p {
+  margin-bottom: 0.2em;
+}
 .prose-poetry .poem-hinge {
   font-family: var(--font-serif-body);
   font-size: 1.05rem;
