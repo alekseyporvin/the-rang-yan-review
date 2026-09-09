@@ -455,6 +455,12 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-prose p {
   margin-bottom: 1.15em;
 }
+.prose-poetry .poem-verse p {
+  margin-bottom: 1.85em;
+}
+.prose-poetry .poem-verse p:last-child {
+  margin-bottom: 0.5em;
+}
 .prose-poetry .poem-inset {
   margin: 1.4em 0 1.4em 1.65em;
 }
