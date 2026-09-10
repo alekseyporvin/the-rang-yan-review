@@ -162,7 +162,7 @@ That’s how we got here.</p>
 and my Portuguese was Azores.<br />
 My great-grandpa was a whaler and great-grandma was a tailor.<br />
 In eighteen-something, they arrived from Pico and Faial (no one knew how<br />
-to spell these) came through Ellis Island,</p>
+to spell these), came through Ellis Island,</p>
 <p>settled in Rhode Island.<br />
 My father’s family came mid-seventeen hundreds<br />
 from someplace in Germany, landed somewhere<br />
