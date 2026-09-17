@@ -1,5 +1,5 @@
 ---
-title: "Around Silence"
+title: "*From the Lost Land* by André Spears"
 author: "Irakli Qolbaia"
 authorSlug: "irakli-qolbaia"
 date: 2026-09-17
