@@ -91,6 +91,19 @@ function articleHref(a: { collection: string; slug: string }) {
 
   <main id="main-content">
 
+    <section class="epigraph-section" aria-label="Journal epigraph">
+      <div class="container">
+        <blockquote class="epigraph">
+          <p class="epigraph-line">
+            “We inherit the most luminous layers —<br />
+            and we spend our lives trying to accept the rest.”
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
     <section class="inaugural-cover" aria-labelledby="inaugural-cover-heading">
       <div class="container">
         <header class="inaugural-cover__masthead">
@@ -118,17 +131,6 @@ function articleHref(a: { collection: string; slug: string }) {
           </p>
           <p class="inaugural-cover__coming">Coming this autumn.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="epigraph-section" aria-label="Journal epigraph">
-      <div class="container">
-        <blockquote class="epigraph">
-          <p class="epigraph-line">
-            “We inherit the most luminous layers —<br />
-            and we spend our lives trying to accept the rest.”
-          </p>
-        </blockquote>
       </div>
     </section>
 
@@ -514,7 +516,7 @@ function articleHref(a: { collection: string; slug: string }) {
   }
 
   .inaugural-cover {
-    padding: 2.5rem 0 3.25rem;
+    padding: 4.25rem 0 4.75rem;
     text-align: center;
   }
 
@@ -898,7 +900,7 @@ function articleHref(a: { collection: string; slug: string }) {
     }
 
     .inaugural-cover {
-      padding: 1.85rem 0 2.5rem;
+      padding: 2.85rem 0 3.35rem;
     }
 
     .inaugural-cover__masthead {
