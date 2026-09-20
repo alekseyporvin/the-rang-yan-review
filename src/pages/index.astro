@@ -84,7 +84,8 @@ function articleHref(a: { collection: string; slug: string }) {
 
 <Layout
   title="The Rang Yan Review — Literature, Philosophy, Solidarity"
-  description="The Rang Yan Review is a literary and philosophical journal of critical thought, culture, and human solidarity."
+  description="The Rang Yan Review is a literary and philosophical journal of critical thought, culture, and human solidarity. Issue 01, Autumn 2026, is currently in preparation."
+  ogImage="https://therangyanreview.org/images/issue-01-cover.jpg"
 >
   <Header />
 
@@ -104,42 +105,33 @@ function articleHref(a: { collection: string; slug: string }) {
 
     <hr class="section-divider" />
 
-    <!-- HERO: Current Issue -->
-    {currentIssue && (
-      <section class="hero-section" aria-labelledby="current-issue-heading">
-        <div class="container">
-          <div class="hero-inner">
-            <div class="hero-content">
-              <p class="category-label">Current Issue</p>
-              <h1 id="current-issue-heading" class="hero-issue-number">
-                Issue {currentIssue.data.number}
-              </h1>
-              <h2 class="hero-issue-title">{currentIssue.data.title}</h2>
-              <p class="hero-issue-season">
-                {currentIssue.data.season} {currentIssue.data.year}
-              </p>
-              <p class="hero-editorial">{currentIssue.data.editorial}</p>
-              <a href="/archive/" class="btn-primary">Read current issue →</a>
-            </div>
-            <div class="hero-cover" aria-hidden="true">
-              {currentIssue.data.coverImage ? (
-                <img
-                  src={currentIssue.data.coverImage}
-                  alt={`Cover of Issue ${currentIssue.data.number}: ${currentIssue.data.title}`}
-                  class="hero-cover-img"
-                  width="560"
-                  height="400"
-                />
-              ) : (
-                <div class="hero-cover-placeholder">
-                  <span>{currentIssue.data.number}</span>
-                </div>
-              )}
-            </div>
-          </div>
+    <section class="inaugural-cover" aria-labelledby="inaugural-cover-heading">
+      <div class="container">
+        <header class="inaugural-cover__masthead">
+          <h1 id="inaugural-cover-heading" class="inaugural-cover__journal">
+            The Rang Yan Review
+          </h1>
+          <p class="inaugural-cover__issue">Issue 01 · Autumn 2026</p>
+        </header>
+
+        <figure class="inaugural-cover__figure">
+          <img
+            src="/images/issue-01-cover.jpg"
+            alt="Cover of The Rang Yan Review, Issue 01, Autumn 2026: a Paris street in autumn light, an open newspaper on a stone ledge"
+            width="1024"
+            height="1024"
+          />
+        </figure>
+
+        <div class="inaugural-cover__status">
+          <p class="inaugural-cover__lead">
+            Our inaugural issue<br />
+            is currently in preparation.
+          </p>
+          <p class="inaugural-cover__coming">Coming this autumn.</p>
         </div>
-      </section>
-    )}
+      </div>
+    </section>
 
     <!-- FROM THE CURRENT ISSUE -->
     {currentIssueArticles.length > 0 && (
@@ -522,85 +514,77 @@ function articleHref(a: { collection: string; slug: string }) {
     }
   }
 
-  /* Hero Section */
-  .hero-section {
-    padding: 5rem 0 4rem;
+  .inaugural-cover {
+    padding: 4.25rem 0 4.75rem;
+    text-align: center;
   }
 
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
+  .inaugural-cover__masthead {
+    margin: 0 auto 2.35rem;
+    max-width: 36rem;
   }
 
-  .hero-issue-number {
+  .inaugural-cover__journal {
     font-family: var(--font-serif);
-    font-size: 0.9rem;
+    font-size: 0.84rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-burgundy);
+    margin: 0 0 0.7rem;
+    line-height: 1.2;
+  }
+
+  .inaugural-cover__issue {
+    font-family: var(--font-sans);
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--color-ink-muted);
-    margin: 0.5rem 0 0;
+    margin: 0;
   }
 
-  .hero-issue-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin: 0.5rem 0 0.5rem;
-    color: var(--color-ink);
+  .inaugural-cover__figure {
+    margin: 0 auto 2.85rem;
+    max-width: min(100%, 34rem);
   }
 
-  .hero-issue-season {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    color: var(--color-ink-muted);
-    margin: 0 0 1.5rem;
-    font-weight: 500;
-  }
-
-  .hero-editorial {
-    font-family: var(--font-serif-body);
-    font-size: 1rem;
-    line-height: 1.75;
-    color: var(--color-ink-secondary);
-    margin-bottom: 2rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .hero-cover {
-    position: relative;
-  }
-
-  .hero-cover-img {
+  .inaugural-cover__figure img {
+    display: block;
     width: 100%;
     height: auto;
-    border-radius: 3px;
-    box-shadow: 0 4px 20px rgba(26, 25, 22, 0.12);
-    display: block;
+    background: #c4b196;
+    border: 1px solid rgba(26, 25, 22, 0.08);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.35) inset,
+      0 22px 54px rgba(26, 25, 22, 0.16),
+      0 3px 10px rgba(26, 25, 22, 0.07);
   }
 
-  .hero-cover-placeholder {
-    aspect-ratio: 7/5;
-    background: var(--color-paper-dark);
-    border: 1px solid var(--color-border);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .inaugural-cover__status {
+    margin: 0 auto;
+    max-width: 28rem;
   }
 
-  .hero-cover-placeholder span {
+  .inaugural-cover__lead {
     font-family: var(--font-serif);
-    font-size: 6rem;
-    font-weight: 700;
-    color: var(--color-border);
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    font-weight: 500;
+    line-height: 1.28;
+    letter-spacing: -0.018em;
+    color: var(--color-ink);
+    margin: 0 0 1.2rem;
+  }
+
+  .inaugural-cover__coming {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-burgundy);
+    margin: 0;
   }
 
   /* Buttons */
@@ -914,22 +898,16 @@ function articleHref(a: { collection: string; slug: string }) {
       bottom: 1.35rem;
     }
 
-    .hero-section {
-      padding: 3rem 0;
+    .inaugural-cover {
+      padding: 2.85rem 0 3.35rem;
     }
 
-    .hero-inner {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
+    .inaugural-cover__masthead {
+      margin-bottom: 1.85rem;
     }
 
-    .hero-cover {
-      order: -1;
-    }
-
-    .hero-cover-img {
-      max-height: 260px;
-      object-fit: cover;
+    .inaugural-cover__figure {
+      margin-bottom: 2.15rem;
     }
 
     .articles-grid--3 {
