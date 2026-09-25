@@ -566,12 +566,19 @@ h1, h2, h3, h4, h5, h6 {
 .article-body.container:has(.poem-hinge),
 .article-body.container:has(.poem-graphic) {
   max-width: min(100%, 48rem);
+  container-type: inline-size;
 }
 
 .prose-poetry .poem-graphic {
+  --poem-barcode: 7.75rem;
+  --poem-gap: 1.15rem;
+  --poem-measure: 18.25rem;
+  --poem-frame: calc(var(--poem-barcode) + var(--poem-gap) + var(--poem-measure));
   font-family: Calibri, Carlito, "Segoe UI", sans-serif;
   margin: 0;
   overflow: visible;
+  width: var(--poem-frame);
+  zoom: min(1, calc(100cqi / var(--poem-frame)));
 }
 .prose-poetry .poem-graphic + .poem-graphic {
   margin-top: 4.5rem;
@@ -583,17 +590,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 .prose-poetry .poem-barcode-head {
   display: grid;
-  grid-template-columns: auto 16.5rem;
+  grid-template-columns: var(--poem-barcode) minmax(0, var(--poem-measure));
   justify-content: start;
   align-items: center;
-  column-gap: 1.15rem;
-  margin: 0 0 1.75rem;
-  width: max-content;
-  max-width: 100%;
+  column-gap: var(--poem-gap);
+  margin: 0 0 1.15rem;
+  width: 100%;
 }
 .prose-poetry .poem-barcode-head img {
   display: block;
-  width: 7.75rem;
+  width: var(--poem-barcode);
   height: auto;
 }
 .prose-poetry .poem-barcode-title {
@@ -603,24 +609,37 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   white-space: normal;
 }
-.prose-poetry .poem-barcode-title--start {
-  text-align: left;
-}
 .prose-poetry .poem-barcode-credit {
-  margin-top: 0.4rem;
+  margin-top: 0.35rem;
   font-style: italic;
   font-size: 1rem;
   line-height: 1.3;
   text-align: center;
   white-space: normal;
 }
-.prose-poetry .poem-barcode-credit--pre {
-  text-align: left;
-  white-space: pre;
+.prose-poetry .poem-graphic .poem-g,
+.prose-poetry .poem-graphic .poem-g-blank {
+  margin-left: calc(var(--poem-barcode) + var(--poem-gap));
+  width: var(--poem-measure);
 }
 .prose-poetry .poem-g {
   white-space: pre;
   font-family: inherit;
+}
+.prose-poetry .poem-g-hang {
+  transform: scaleX(var(--pull));
+  transform-origin: left center;
+}
+.prose-poetry .poem-g-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: var(--poem-measure);
+  gap: 1.5rem;
+}
+.prose-poetry .poem-g-split span:last-child {
+  text-align: right;
+  white-space: pre;
 }
 .prose-poetry .poem-g em {
   font-style: italic;
