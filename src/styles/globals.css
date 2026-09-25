@@ -563,8 +563,70 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-note p:last-child {
   margin-bottom: 0;
 }
-.article-body.container:has(.poem-hinge) {
+.article-body.container:has(.poem-hinge),
+.article-body.container:has(.poem-graphic) {
   max-width: min(100%, 48rem);
+}
+
+.prose-poetry .poem-graphic {
+  font-family: Calibri, Carlito, "Segoe UI", sans-serif;
+  margin: 0;
+  overflow: visible;
+}
+.prose-poetry .poem-graphic + .poem-graphic {
+  margin-top: 4.5rem;
+}
+.prose-poetry .poem-graphic p {
+  margin: 0;
+  font-family: inherit;
+  line-height: 1.08;
+}
+.prose-poetry .poem-barcode-head {
+  display: grid;
+  grid-template-columns: auto 16.5rem;
+  justify-content: start;
+  align-items: center;
+  column-gap: 1.15rem;
+  margin: 0 0 1.75rem;
+  width: max-content;
+  max-width: 100%;
+}
+.prose-poetry .poem-barcode-head img {
+  display: block;
+  width: 7.75rem;
+  height: auto;
+}
+.prose-poetry .poem-barcode-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  text-align: center;
+  white-space: normal;
+}
+.prose-poetry .poem-barcode-title--start {
+  text-align: left;
+}
+.prose-poetry .poem-barcode-credit {
+  margin-top: 0.4rem;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.3;
+  text-align: center;
+  white-space: normal;
+}
+.prose-poetry .poem-barcode-credit--pre {
+  text-align: left;
+  white-space: pre;
+}
+.prose-poetry .poem-g {
+  white-space: pre;
+  font-family: inherit;
+}
+.prose-poetry .poem-g em {
+  font-style: italic;
+}
+.prose-poetry .poem-g-blank {
+  margin: 0;
 }
 
 .prose-poetry .poem-manuscript {
