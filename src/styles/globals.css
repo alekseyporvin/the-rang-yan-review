@@ -563,6 +563,48 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-note p:last-child {
   margin-bottom: 0;
 }
+
+.prose-poetry .poem-stein {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: min(100%, 6.5in);
+  margin: 0 auto;
+}
+.prose-poetry .poem-stein + .poem-stein {
+  margin-top: 2.75rem;
+}
+.prose-poetry .poem-stein p {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  white-space: pre-wrap;
+}
+.prose-poetry .poem-stein .stein-title {
+  text-align: center;
+  font-weight: 700;
+}
+.prose-poetry .poem-stein .stein-place {
+  text-align: center;
+}
+.prose-poetry .poem-stein .stein-blank {
+  height: 1lh;
+}
+.prose-poetry .poem-stein .stein-voice {
+  margin-left: 23.0769%;
+  margin-right: 23.0769%;
+}
+.prose-poetry .poem-stein .stein-archive {
+  margin-left: 30.7692%;
+  margin-right: 3.8462%;
+}
+.prose-poetry .poem-stein .stein-archive--short {
+  margin-right: 23.0769%;
+}
+.prose-poetry .poem-stein em {
+  font-style: italic;
+}
 .article-body.container:has(.poem-hinge),
 .article-body.container:has(.poem-graphic) {
   max-width: min(100%, 48rem);
