@@ -583,6 +583,9 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-graphic + .poem-graphic {
   margin-top: 4.5rem;
 }
+.prose-poetry .poem-graphic.poem-graphic--match .poem-g + .poem-g {
+  margin-top: 5.2321px;
+}
 .prose-poetry .poem-graphic p {
   margin: 0;
   font-family: inherit;
