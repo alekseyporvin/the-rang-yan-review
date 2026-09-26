@@ -71,7 +71,7 @@ featured: true
 <p class="poem-g" style="font-size:10pt">WATER MILL   WHERE   I   HEL    COCKROACH   WILL  FOLLOW.</p>
 </div>
 
-<div class="poem-graphic">
+<div class="poem-graphic poem-graphic--match">
 <div class="poem-barcode-head">
 <img src="/images/poetry/andre-spears-ebr-barcode.png" alt="Barcode 011105 016124" width="171" height="105" />
 <div class="poem-barcode-copy">
