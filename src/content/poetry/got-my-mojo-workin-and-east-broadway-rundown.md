@@ -99,7 +99,7 @@ featured: true
 <p class="poem-g" style="font-size:16pt"><em>NAZI PARTY ANIMALS VOLS. I &amp; II</em></p>
 <p class="poem-g" style="font-size:10pt"> BY    SAMSA.    JEEZUS    BLESSES  THEM   AND   SAYS:  </p>
 <p class="poem-g" style="font-size:14.5pt"><em>“MEM  BET  HEY!” “MEM  BET  HEY!”</em></p>
-<p class="poem-g poem-g-split" style="font-size:14.5pt"><span>GESTAPO-MÜLLER</span><span>WAVES    WAVES</span></p>
+<p class="poem-g poem-g-split" style="font-size:14.5pt"><span>GESTAPO-MÜLLER</span><span>WAVES WAVES</span></p>
 <p class="poem-g" style="font-size:10pt">FROM  THE ARRIVALS BOARD  AS THE ENTRY  “D4 D6”  </p>
 <p class="poem-g" style="font-size:9pt">TURNS     DEEP   BLUE      THEN   RED      AND  GOES   BLANK. </p>
 <p class="poem-g" style="font-size:14.5pt">SO  JEEZUS  PACKS  THE  CARDS  AND </p>
