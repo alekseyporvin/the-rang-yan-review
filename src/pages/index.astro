@@ -40,6 +40,9 @@ const latestPoetry = (await getCollection('poetry', e => !e.data.draft))
 const latestProse = (await getCollection('prose', e => !e.data.draft))
   .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
   .slice(0, 2);
+const latestInterviews = (await getCollection('interviews', e => !e.data.draft))
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
+  .slice(0, 2);
 
 const latestSections = [
   {
@@ -59,6 +62,12 @@ const latestSections = [
     href: '/prose/',
     more: 'All prose →',
     items: latestProse,
+  },
+  {
+    title: 'Interviews',
+    href: '/interviews/',
+    more: 'All interviews →',
+    items: latestInterviews,
   },
 ]
   .filter(section => section.items.length > 0)
@@ -166,7 +175,7 @@ function articleHref(a: { collection: string; slug: string }) {
       </>
     )}
 
-    {(latestEssays.length > 0 || latestPoetry.length > 0 || latestProse.length > 0) && (
+    {latestSections.length > 0 && (
       <>
         <hr class="section-divider" />
 
@@ -680,8 +689,8 @@ function articleHref(a: { collection: string; slug: string }) {
   /* Latest grid */
   .latest-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0 4rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.75rem 4rem;
   }
 
   .latest-col-header {
