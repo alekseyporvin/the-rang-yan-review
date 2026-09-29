@@ -568,6 +568,19 @@ h1, h2, h3, h4, h5, h6 {
   color: inherit;
   tab-size: 8;
 }
+.prose-poetry .poem-lines {
+  font-family: var(--font-serif-body);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  tab-size: 8;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
+}
 .prose-poetry .poem-note {
   font-size: 0.95rem;
   line-height: 1.75;
