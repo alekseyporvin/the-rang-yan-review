@@ -581,6 +581,75 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   color: inherit;
 }
+.prose-poetry .poem-colophon {
+  margin: 0 0 2.2rem;
+  font-family: var(--font-serif-body);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+.prose-poetry .poem-colophon p {
+  margin: 0 0 0.85rem;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.prose-poetry .poem-colophon em {
+  font-style: italic;
+}
+.prose-poetry .poem-aizone {
+  text-align: center;
+  margin: 2.6rem auto 1.8rem;
+  max-width: 18.5rem;
+  color: var(--color-ink);
+}
+.prose-poetry .poem-aizone__enter {
+  font-family: 'Josefin Sans', 'Century Gothic', Futura, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.035em;
+  line-height: 1.2;
+  margin: 0 0 0.45rem;
+}
+.prose-poetry .poem-aizone__free {
+  font-family: 'Allerta Stencil', 'Arial Black', sans-serif;
+  font-size: 1.72rem;
+  font-weight: 400;
+  letter-spacing: 0.11em;
+  line-height: 1.15;
+  margin: 0;
+  text-transform: uppercase;
+}
+.prose-poetry .poem-aizone__rule {
+  width: 7.4rem;
+  height: 3px;
+  margin: 0.55rem auto 0.72rem;
+  border: 0;
+  background: var(--color-ink);
+}
+.prose-poetry .poem-aizone__rule::before {
+  content: none;
+}
+.prose-poetry .poem-aizone__small {
+  font-family: 'Josefin Sans', 'Century Gothic', Futura, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  line-height: 1.45;
+  margin: 0.12rem 0;
+}
+.prose-poetry .poem-figure {
+  margin: 0.4rem auto 2.2rem;
+  max-width: 22rem;
+}
+.prose-poetry .poem-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.prose-poetry .poem-figure--right {
+  margin: 1.4rem 0 0 auto;
+  max-width: 14.5rem;
+}
 .prose-poetry .poem-note {
   font-size: 0.95rem;
   line-height: 1.75;
