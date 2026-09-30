@@ -595,6 +595,28 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-in-6 { padding-left: 15.75em; }
 .prose-poetry .poem-in-7 { padding-left: 2.633em; }
 .prose-poetry .poem-in-8 { padding-left: 5.633em; }
+.prose-poetry .poem-in-9 { padding-left: 4.25em; }
+.prose-poetry .poem-in-10 { padding-left: 8.5em; }
+.prose-poetry .poem-in-11 { padding-left: 6.75em; }
+.prose-poetry .poem-in-12 { padding-left: 3.25em; }
+.prose-poetry .poem-in-13 { padding-left: 3.75em; }
+.prose-poetry .poem-lines--pdf .poem-fall {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 1.46em;
+  vertical-align: top;
+  line-height: 1.46;
+}
+.prose-poetry .poem-lines--pdf .poem-fall--2 {
+  padding-bottom: 2.92em;
+}
+.prose-poetry .poem-lines--pdf .poem-fell {
+  position: absolute;
+  left: 100%;
+  top: 1.46em;
+  margin-left: 0.4em;
+  white-space: nowrap;
+}
 .prose-poetry .poem-beauty-title {
   padding-left: 2.24em;
 }
