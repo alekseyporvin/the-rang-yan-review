@@ -163,26 +163,25 @@ a six car pileup on the 401
 not to mention
 Mr. Fancy Pants Kant’s <em>joyous</em>, <em>smiling</em>
 <em>pleasant sensation</em>
-They say Hemingway
+<span class="poem-in-9">They say Hemingway</span>
 jumped off a truck headed to the front
 in Spain when he spotted a dead dog
 decayed in a ditch at the edge of the road,
 had to find words for it, urgently,
-the question
+<span class="poem-in-5">the question</span>
 of beauty dwelling in the world
 it brought to attention,
 roadside cypress sentinels, odour of death, clouds,
 intense sky, white glimpse of bone, armies
 in the distance, each
-squirming maggot
+<span class="poem-in-10">squirming maggot</span>
 blue more blue, white more white, <em>lifedeath</em>
 feeding itself
 a thing of beauty
-neither joyous
-nor pleasant
+<span class="poem-in-11">neither joyous nor pleasant</span>
 just <em>this</em>
-sharper, deeper
-more <em>this</em> than before</pre>
+<span class="poem-in-12">sharper, deeper</span>
+<span class="poem-in-13">more <em>this</em> than before</span></pre>
 
 **v.**
 
@@ -228,8 +227,7 @@ stroll through our lives arm in arm
 with the ease of old lovers while we stutter
 befuddled by demands to cohere, choose
 a side, cheer loudly for Tom Cruise or John Wayne, assured
-of our virtue,
-<span class="poem-in-1">unable to hear the knock on the door</span></pre>
+<span class="poem-fall">of our virtue,<span class="poem-fell">unable to hear the knock on the door</span></span></pre>
 
 **vi.**
 
@@ -248,8 +246,7 @@ together with a kind of love vibrates
 with the awakening trees as he
 chases squirrels with the enthusiasm
 of new love, refuses to believe he
-can’t leap to the top of the tree
-<span class="poem-in-4">If there are</span>
+<span class="poem-fall">can’t leap to the top of the tree<span class="poem-fell">If there are</span></span>
 no words large enough to hold the pain, how
 measure love’s wound, what inches are there
 for his last walk, pushing himself through
@@ -258,8 +255,7 @@ from the strength he remembered, the speed,
 determined, his face clenched against
 death’s drain, the knowledge pooling
 in his belly with the blood, till he fell
-panting, never to walk again
-<span class="poem-in-3">The stigma</span>
+<span class="poem-fall">panting, never to walk again<span class="poem-fell">The stigma</span></span>
 of finitude stinks,
 but beauty
 does lurk in the folds of his broken
@@ -268,20 +264,16 @@ of his power, lickety split, a flash
 through the bush, hard and fast
 as his spirit yearns to be everything
 flesh makes possible, sheer animal joy
-at the limit of <em>unleashed</em>
-<span class="poem-in-1">Beauty is strange,</span>
+<span class="poem-fall">at the limit of <em>unleashed</em><span class="poem-fell">Beauty is strange,</span></span>
 as Kent used to say, the Kizeamon cup
 for instance, old, chipped, or on the floor
 face to face with his yellow eyes,
 remarked on by many strangers, which I
 now recall from H.D. are also
-Azrael’s eyes, Angel of Death
-Case’s eyes
+Azrael’s eyes, Angel of Death Case’s eyes
 alive with knowledge—flutter—
 rich with exchange of our souls—flutter—
-lit with unspeakable love—flutter
-<span class="poem-in-5">flutter</span>
-<span class="poem-in-6">and close</span></pre>
+<span class="poem-fall poem-fall--2">lit with unspeakable love—flutter<span class="poem-fell">flutter<span class="poem-fell">and close</span></span></span></pre>
 
 <figure class="poem-figure poem-figure--right">
 <img src="/images/poetry/case-the-dog.png" alt="Case, a brown and white dog" width="280" height="300" />
