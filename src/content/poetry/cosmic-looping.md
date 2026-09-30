@@ -36,7 +36,7 @@ keep us down but these dreams
 of our youth
 <em>		should</em>
 exist in some universe somewhere,
-so really part of the secret it to
+so really part of the secret is to
 never believe, never trust
 but never give up or give in.
 
