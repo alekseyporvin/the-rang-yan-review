@@ -581,6 +581,36 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   color: inherit;
 }
+.prose-poetry .poem-lines--pdf {
+  line-height: 1.46;
+}
+.prose-poetry .poem-lines--pdf [class^="poem-in"] {
+  display: inline-block;
+}
+.prose-poetry .poem-in-1 { padding-left: 5.25em; }
+.prose-poetry .poem-in-2 { padding-left: 7.17em; }
+.prose-poetry .poem-in-3 { padding-left: 11.25em; }
+.prose-poetry .poem-in-4 { padding-left: 12em; }
+.prose-poetry .poem-in-5 { padding-left: 12.75em; }
+.prose-poetry .poem-in-6 { padding-left: 15.75em; }
+.prose-poetry .poem-in-7 { padding-left: 2.633em; }
+.prose-poetry .poem-in-8 { padding-left: 5.633em; }
+.prose-poetry .poem-beauty-title {
+  padding-left: 2.24em;
+}
+.prose-poetry .poem-epigraph--front {
+  margin-left: 3.4em;
+}
+.prose-poetry .poem-epigraph--inset {
+  margin-left: 1.883em;
+}
+.prose-poetry .poem-epigraph--front .poem-epigraph-attr,
+.prose-poetry .poem-epigraph--inset .poem-epigraph-attr {
+  text-align: left;
+}
+.prose-poetry .poem-epigraph--hd .poem-epigraph-attr {
+  padding-left: 2.58em;
+}
 .prose-poetry .poem-colophon {
   margin: 0 0 2.2rem;
   font-family: var(--font-serif-body);
