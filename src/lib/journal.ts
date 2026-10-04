@@ -9,12 +9,10 @@ function escapeHtml(text: string): string {
 
 /** Italicize Rang Yan / Rang Yan Review / The Rang Yan Review (longest match first). */
 export function italicizeJournalTerms(text: string): string {
-  return text
-    .replace(/(The Rang Yan Review|the Rang Yan Review)/g, '\u0001$1\u0002')
-    .replace(/Rang Yan Review/g, '\u0001Rang Yan Review\u0002')
-    .replace(/rang yan/g, '\u0001rang yan\u0002')
-    .replace(/Rang Yan/g, '\u0001Rang Yan\u0002')
-    .replace(/\u0001([^\u0002]+)\u0002/g, '<em>$1</em>');
+  return text.replace(
+    /The Rang Yan Review|the Rang Yan Review|Rang Yan Review|rang yan|Rang Yan/g,
+    '<em>$&</em>',
+  );
 }
 
 /** Escape HTML, convert *italic* markers and [label](url) links, then italicize journal terms. */

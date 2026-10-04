@@ -539,6 +539,122 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.prose-journal .conv-cast {
+  list-style: none;
+  padding: 0 0 1.15rem;
+  margin: 0 0 2.35rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.prose-journal .conv-cast li {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-secondary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.prose-journal .conv-cast span {
+  display: inline-block;
+  min-width: 3.85rem;
+  margin-right: 0.35rem;
+  font-size: 0.952rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.1;
+  color: #000000;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e4dfd6;
+  padding: 0.16em 0.42em 0.12em;
+}
+
+.prose-journal .conv-turn .interview-who {
+  font-size: 1.008rem;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: middle;
+  color: #000000;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e4dfd6;
+  padding: 0.2em 0.46em 0.16em;
+}
+
+.prose-journal .conv-turn {
+  margin-top: 2.35em;
+}
+
+.prose-journal .conv-cast + .conv-turn,
+.prose-journal .conv-plate + .conv-turn {
+  margin-top: 0;
+}
+
+.prose-journal .conv-plate {
+  margin: 2.75rem auto;
+}
+
+.prose-journal .conv-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  background: transparent;
+}
+
+.prose-journal .conv-plate figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--color-ink-muted);
+  margin-top: 0.6rem;
+  line-height: 1.45;
+}
+
+.prose-journal .conv-plate--frontis {
+  max-width: 15.625rem;
+  margin: 0.15rem auto 2.15rem;
+}
+
+.prose-journal .conv-plate--frontis figcaption,
+.prose-journal .conv-plate--youth figcaption,
+.prose-journal .conv-plate--monument figcaption {
+  text-align: center;
+}
+
+.prose-journal .conv-plate--youth {
+  max-width: 14.375rem;
+  margin: 2.5rem auto 2.65rem;
+}
+
+.prose-journal .conv-plate--monument {
+  max-width: 18.75rem;
+  margin: 2.85rem auto 2.75rem;
+}
+
+.prose-journal .conv-plate--bench {
+  max-width: 100%;
+  margin: 2.85rem auto 2.9rem;
+}
+
+@media (min-width: 860px) {
+  .article-body.container:has(.conv-plate) {
+    max-width: min(100%, 42rem);
+  }
+
+  .prose-journal .conv-plate--bench {
+    width: calc(100% + 3.5rem);
+    max-width: none;
+    margin-left: -1.75rem;
+    margin-right: -1.75rem;
+  }
+}
+
 /* Poetry specific */
 .prose-poetry {
   font-family: var(--font-serif-body);
