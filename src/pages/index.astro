@@ -43,6 +43,9 @@ const latestProse = (await getCollection('prose', e => !e.data.draft))
 const latestInterviews = (await getCollection('interviews', e => !e.data.draft))
   .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
   .slice(0, 2);
+const latestConversations = (await getCollection('conversation-with', e => !e.data.draft))
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
+  .slice(0, 2);
 
 const latestSections = [
   {
@@ -68,6 +71,19 @@ const latestSections = [
     href: '/interviews/',
     more: 'All interviews →',
     items: latestInterviews,
+  },
+  {
+    title: 'Conversation With',
+    href: '/conversation-with/',
+    more: 'All conversations →',
+    items: latestConversations.map(item => ({
+      collection: item.collection,
+      slug: item.slug,
+      data: {
+        ...item.data,
+        excerpt: item.data.excerpt.replace(/\.\s[\s\S]*$/, '.'),
+      },
+    })),
   },
 ]
   .filter(section => section.items.length > 0)
