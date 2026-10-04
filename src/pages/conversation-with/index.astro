@@ -67,6 +67,7 @@ const filtered = selectedTag
               excerpt={conversation.data.excerpt}
               href={`/conversation-with/${conversation.slug}/`}
               tags={conversation.data.tags}
+              coverImage={conversation.data.previewImage}
               size="large"
             />
           ))}
@@ -140,7 +141,7 @@ const filtered = selectedTag
     border-color: var(--color-ink);
     color: var(--color-paper);
   }
-  .articles-list { max-width: 72ch; }
+  .articles-list { max-width: 80ch; }
   .no-results {
     font-family: var(--font-sans);
     font-size: 0.95rem;

@@ -12,6 +12,17 @@ export async function getStaticPaths() {
 
 const { conversation } = Astro.props;
 const { Content } = await conversation.render();
+
+const authorBios = await getCollection('authors');
+const alsoBy = (conversation.data.relatedAuthorSlugs ?? []).map(slug => {
+  const bio = authorBios.find(entry => entry.slug === slug);
+  const rawName = bio?.data.name ?? slug;
+  const comma = rawName.indexOf(',');
+  const name = comma === -1
+    ? rawName
+    : `${rawName.slice(comma + 1).trim()} ${rawName.slice(0, comma).trim()}`;
+  return { slug, name };
+});
 ---
 
 <ArticleLayout
@@ -19,10 +30,13 @@ const { Content } = await conversation.render();
   author={conversation.data.author}
   authorSlug={conversation.data.authorSlug}
   date={conversation.data.date}
+  datePrecision={conversation.data.datePrecision}
   excerpt={conversation.data.excerpt}
+  sourceNote={conversation.data.sourceNote}
   tags={conversation.data.tags}
   category={conversation.data.category || 'Conversation With'}
   issue={conversation.data.issue}
+  alsoBy={alsoBy}
 >
   <Content />
 </ArticleLayout>
