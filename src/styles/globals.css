@@ -789,6 +789,18 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   color: inherit;
 }
+.prose-poetry .poem-lines--fink {
+  white-space: pre;
+}
+.prose-poetry .fink-title {
+  font-family: var(--font-serif-body);
+  font-size: 1.02rem;
+  letter-spacing: 0.06em;
+  margin: 2.8rem 0 1.15rem;
+}
+.prose-poetry .fink-title--first {
+  margin-top: 0.2rem;
+}
 .prose-poetry .poem-lines--pdf {
   line-height: 1.46;
 }
