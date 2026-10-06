@@ -794,12 +794,47 @@ h1, h2, h3, h4, h5, h6 {
 }
 .prose-poetry .fink-title {
   font-family: var(--font-serif-body);
+  font-weight: 700;
   font-size: 1.02rem;
   letter-spacing: 0.06em;
-  margin: 2.8rem 0 1.15rem;
+  margin: 5.46rem 0 1.15rem;
 }
 .prose-poetry .fink-title--first {
   margin-top: 0.2rem;
+}
+.article-body.container:has(.quasha-title) {
+  max-width: 78ch;
+}
+.prose-poetry .quasha-title {
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 6.97125rem 0 1.15rem;
+}
+.prose-poetry .quasha-title--first {
+  margin-top: 0.15rem;
+}
+.prose-poetry .quasha-note {
+  margin: 0.2rem 0 1.35rem;
+}
+.prose-poetry .quasha-epigraph {
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 1.02rem;
+  text-align: right;
+  margin: 0.1rem 0;
+}
+.prose-poetry .quasha-epigraph-attr {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-align: right;
+  color: var(--color-ink-muted);
+  margin: 0.35rem 0 0;
+}
+.prose-poetry .poem-lines--keep {
+  white-space: pre;
 }
 .prose-poetry .poem-lines--pdf {
   line-height: 1.46;
