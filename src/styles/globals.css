@@ -836,6 +836,14 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-lines--keep {
   white-space: pre;
 }
+.prose-poetry .erroreum-break {
+  font-family: var(--font-serif-body);
+  font-size: 1.35rem;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: 0.35em;
+  margin: 2.6rem 0;
+}
 .prose-poetry .poem-lines--pdf {
   line-height: 1.46;
 }
