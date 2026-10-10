@@ -3,7 +3,7 @@ title: "Five Poems from Genius Foci and Hilaritas Sublime"
 author: "George Quasha"
 authorSlug: "george-quasha"
 date: 2026-10-02
-excerpt: "Five poems from Genius Foci and Hilaritas Sublime. A line stands back from the life it is already inside, and the thing—bird, stone, word—says more than it has to say."
+excerpt: "Five poems from “Genius Foci,” the seventh series in the book *Hilaritas Sublime* (preverbs) (forthcoming, Marsh Hawk Press: 2027). A line stands back from the life it is already inside, and the thing—bird, stone, word—says more than it has to say."
 tags:
   - poetry
   - contemporary
