@@ -26,13 +26,6 @@ const team = allMembers.filter(m => !m.data.featured);
         <h1 class="editorial-title">Editorial Board</h1>
       </header>
 
-      <aside class="editorial-correspondence" aria-label="Editorial correspondence">
-        <p>
-          Editorial correspondence:
-          <a href="mailto:sensus.interni@gmail.com">sensus.interni@gmail.com</a>
-        </p>
-      </aside>
-
       {featuredMembers.map((member) => (
         <section class="eic-section" aria-labelledby={`board-${member.slug}`}>
           <div class={`eic-inner${member.data.photo ? ' eic-inner--with-photo' : ''}`}>
@@ -63,15 +56,9 @@ const team = allMembers.filter(m => !m.data.featured);
                   ))}
                 </div>
               )}
-              {(member.data.email || (member.data.links && member.data.links.length > 0)) && (
+              {member.data.links && member.data.links.length > 0 && (
                 <div class="eic-contact">
-                  {member.data.email && (
-                    <a href={`mailto:${member.data.email}`} class="eic-email">
-                      {member.data.email}
-                    </a>
-                  )}
-                  {member.data.links && member.data.links.length > 0 && (
-                    <div class="eic-links-block">
+                  <div class="eic-links-block">
                       {member.data.linksLabel && (
                         <p class="eic-links-label">{member.data.linksLabel}</p>
                       )}
@@ -84,9 +71,16 @@ const team = allMembers.filter(m => !m.data.featured);
                           </li>
                         ))}
                       </ul>
-                    </div>
-                  )}
+                  </div>
                 </div>
+              )}
+              {member.data.email && (
+                <aside class="eic-submissions">
+                  {member.data.emailLabel && (
+                    <p class="eic-submissions-label">{member.data.emailLabel}</p>
+                  )}
+                  <a href={`mailto:${member.data.email}`}>{member.data.email}</a>
+                </aside>
               )}
               {member.data.plate && (
                 <p class="eic-plate" set:html={withJournalItalics(member.data.plate)} />
@@ -152,34 +146,9 @@ const team = allMembers.filter(m => !m.data.featured);
   }
 
   .editorial-header {
-    margin-bottom: 1.75rem;
+    margin-bottom: 3rem;
     padding-bottom: 2rem;
     border-bottom: 2px solid var(--color-ink);
-  }
-
-  .editorial-correspondence {
-    background: #fff;
-    border: 1px solid var(--color-border);
-    padding: 1.1rem 1.5rem;
-    margin: 0 0 3.5rem;
-  }
-
-  .editorial-correspondence p {
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    color: var(--color-ink-secondary);
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  .editorial-correspondence a {
-    color: var(--color-burgundy);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .editorial-correspondence a:hover {
-    text-decoration: underline;
   }
 
   .editorial-header .category-label {
@@ -275,6 +244,37 @@ const team = allMembers.filter(m => !m.data.featured);
 
   .eic-full-bio p:last-child {
     margin-bottom: 0;
+  }
+
+  .eic-submissions {
+    width: fit-content;
+    max-width: 100%;
+    background: #ffffff;
+    border: 1px solid #e4dfd6;
+    padding: 0.7rem 0.95rem;
+    margin: 1.35rem 0 0;
+  }
+
+  .eic-submissions-label {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-burgundy);
+    margin: 0 0 0.3rem;
+  }
+
+  .eic-submissions a {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .eic-submissions a:hover {
+    text-decoration: underline;
   }
 
   .eic-plate {

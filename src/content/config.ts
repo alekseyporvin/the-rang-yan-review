@@ -72,6 +72,7 @@ const editorialBoard = defineCollection({
     photo: z.string().optional(),
     location: z.string().optional(),
     email: z.string().optional(),
+    emailLabel: z.string().optional(),
     links: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
     linksLabel: z.string().optional(),
     featured: z.boolean().default(false),
