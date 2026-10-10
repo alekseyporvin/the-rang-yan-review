@@ -3,13 +3,13 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { withJournalItalics, withTitleItalics } from '../../lib/journal';
 
 const allMembers = (await getCollection('editorial-board'))
   .sort((a, b) => a.data.order - b.data.order);
 
-// Editor-in-Chief: first member with featured: true (sorted by order)
+// Featured profiles, in order: Editor-in-Chief first, then the same large format.
 const featuredMembers = allMembers.filter(m => m.data.featured);
-const editorInChief = featuredMembers[0];
 const team = allMembers.filter(m => !m.data.featured);
 ---
 
@@ -33,15 +33,14 @@ const team = allMembers.filter(m => !m.data.featured);
         </p>
       </aside>
 
-      <!-- Editor-in-Chief profile -->
-      {editorInChief && (
-        <section class="eic-section" aria-labelledby="eic-heading">
-          <div class={`eic-inner${editorInChief.data.photo ? ' eic-inner--with-photo' : ''}`}>
-            {editorInChief.data.photo && (
+      {featuredMembers.map((member) => (
+        <section class="eic-section" aria-labelledby={`board-${member.slug}`}>
+          <div class={`eic-inner${member.data.photo ? ' eic-inner--with-photo' : ''}`}>
+            {member.data.photo && (
               <div class="eic-photo">
                 <img
-                  src={editorInChief.data.photo}
-                  alt={`Portrait of ${editorInChief.data.name}`}
+                  src={member.data.photo}
+                  alt={`Portrait of ${member.data.name}`}
                   width="320"
                   height="400"
                   class="eic-photo-img"
@@ -49,43 +48,53 @@ const team = allMembers.filter(m => !m.data.featured);
               </div>
             )}
             <div class="eic-content">
-              <p class="eic-role">{editorInChief.data.role}</p>
-              <h2 id="eic-heading" class="eic-name">{editorInChief.data.name}</h2>
-              {editorInChief.data.location && (
-                <p class="eic-location">{editorInChief.data.location}</p>
+              <p class="eic-role">{member.data.role}</p>
+              <h2 id={`board-${member.slug}`} class="eic-name">{member.data.name}</h2>
+              {member.data.location && (
+                <p class="eic-location">{member.data.location}</p>
               )}
-              {editorInChief.data.shortBio && (
-                <p class="eic-short-bio">{editorInChief.data.shortBio}</p>
+              {member.data.shortBio && (
+                <p class="eic-short-bio" set:html={withJournalItalics(member.data.shortBio)} />
               )}
-              {editorInChief.data.fullBio && (
+              {member.data.fullBio && (
                 <div class="eic-full-bio">
-                  {editorInChief.data.fullBio.split(/\n\n+/).map(paragraph => (
-                    <p>{paragraph}</p>
+                  {member.data.fullBio.split(/\n\n+/).map(paragraph => (
+                    <p set:html={withJournalItalics(paragraph)} />
                   ))}
                 </div>
               )}
-              <div class="eic-contact">
-                {editorInChief.data.email && (
-                  <a href={`mailto:${editorInChief.data.email}`} class="eic-email">
-                    {editorInChief.data.email}
-                  </a>
-                )}
-                {editorInChief.data.links && editorInChief.data.links.length > 0 && (
-                  <ul class="eic-links" role="list">
-                    {editorInChief.data.links.map((link: { label: string; url: string }) => (
-                      <li>
-                        <a href={link.url} target="_blank" rel="noopener noreferrer">
-                          {link.label} ↗
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+              {(member.data.email || (member.data.links && member.data.links.length > 0)) && (
+                <div class="eic-contact">
+                  {member.data.email && (
+                    <a href={`mailto:${member.data.email}`} class="eic-email">
+                      {member.data.email}
+                    </a>
+                  )}
+                  {member.data.links && member.data.links.length > 0 && (
+                    <div class="eic-links-block">
+                      {member.data.linksLabel && (
+                        <p class="eic-links-label">{member.data.linksLabel}</p>
+                      )}
+                      <ul class="eic-links" role="list">
+                        {member.data.links.map((link: { label: string; url: string }) => (
+                          <li>
+                            <a href={link.url} target="_blank" rel="noopener noreferrer">
+                              <span set:html={withTitleItalics(link.label)} /> ↗
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+              {member.data.plate && (
+                <p class="eic-plate" set:html={withJournalItalics(member.data.plate)} />
+              )}
             </div>
           </div>
         </section>
-      )}
+      ))}
 
       <!-- Team section -->
       {team.length > 0 && (
@@ -268,6 +277,17 @@ const team = allMembers.filter(m => !m.data.featured);
     margin-bottom: 0;
   }
 
+  .eic-plate {
+    font-family: var(--font-serif-body);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--color-ink-secondary);
+    background: #ffffff;
+    border: 1px solid #e4dfd6;
+    padding: 1.15rem 1.35rem;
+    margin: 1.5rem 0 0;
+  }
+
   .eic-contact {
     margin-top: 1.75rem;
     padding-top: 1.25rem;
@@ -290,12 +310,27 @@ const team = allMembers.filter(m => !m.data.featured);
     text-decoration: underline;
   }
 
+  .eic-links-block {
+    width: 100%;
+  }
+
+  .eic-links-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-burgundy);
+    margin: 0 0 0.7rem;
+  }
+
   .eic-links {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.45rem 1.25rem;
   }
 
   .eic-links a {

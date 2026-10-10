@@ -67,10 +67,13 @@ const editorialBoard = defineCollection({
     order: z.number().default(99),
     shortBio: z.string().optional(),
     fullBio: z.string().optional(),
+    /** A set-off statement, shown on a light plate under the biography. */
+    plate: z.string().optional(),
     photo: z.string().optional(),
     location: z.string().optional(),
     email: z.string().optional(),
     links: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
+    linksLabel: z.string().optional(),
     featured: z.boolean().default(false),
   }),
 });
