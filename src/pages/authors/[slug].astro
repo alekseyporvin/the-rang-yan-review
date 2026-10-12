@@ -144,6 +144,10 @@ function articleHref(a: { collection: string; slug: string }) {
     border-bottom: 1px solid var(--color-border);
   }
 
+  .author-header:not(:has(.author-portrait)) {
+    grid-template-columns: minmax(0, 72ch);
+  }
+
   .author-portrait img {
     width: 160px;
     height: 160px;
