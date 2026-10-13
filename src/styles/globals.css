@@ -824,6 +824,25 @@ h1, h2, h3, h4, h5, h6 {
 .article-body.container:has(.quasha-title) {
   max-width: 78ch;
 }
+.prose-poetry .quasha-qr {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  margin: 0.15rem 0 2.4rem;
+}
+.prose-poetry .quasha-qr img {
+  display: block;
+  width: 99px;
+  height: 99px;
+  max-width: none;
+  flex: 0 0 auto;
+}
+.prose-poetry .quasha-qr p {
+  font-family: var(--font-serif-body);
+  font-size: 1.1rem;
+  line-height: 1.45;
+  margin: 0;
+}
 .prose-poetry .quasha-title {
   font-family: var(--font-serif-body);
   font-style: italic;

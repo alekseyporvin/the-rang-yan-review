@@ -11,6 +11,11 @@ category: Poetry
 featured: true
 ---
 
+<figure class="quasha-qr">
+<img src="/images/poetry/george-quasha-qr.png" alt="QR code" width="99" height="99" />
+<p>Link to George Quasha reading <em>Genius Foci</em> on PennSound</p>
+</figure>
+
 <p class="quasha-title quasha-title--first">real is no bottom line</p>
 
 <pre class="poem-lines poem-lines--keep">Mapping the territory’s speaking for itself where no one’s listening.
