@@ -73,6 +73,9 @@ const editorialBoard = defineCollection({
     location: z.string().optional(),
     email: z.string().optional(),
     emailLabel: z.string().optional(),
+    /** A submissions contact that is not an email address, shown on the same plate. */
+    submissionsUrl: z.string().optional(),
+    submissionsLabel: z.string().optional(),
     links: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
     linksLabel: z.string().optional(),
     featured: z.boolean().default(false),
