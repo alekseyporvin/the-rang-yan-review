@@ -74,12 +74,19 @@ const team = allMembers.filter(m => !m.data.featured);
                   </div>
                 </div>
               )}
-              {member.data.email && (
+              {(member.data.email || member.data.submissionsUrl) && (
                 <aside class="eic-submissions">
                   {member.data.emailLabel && (
                     <p class="eic-submissions-label">{member.data.emailLabel}</p>
                   )}
-                  <a href={`mailto:${member.data.email}`}>{member.data.email}</a>
+                  {member.data.email && (
+                    <a href={`mailto:${member.data.email}`}>{member.data.email}</a>
+                  )}
+                  {member.data.submissionsUrl && (
+                    <a href={member.data.submissionsUrl} target="_blank" rel="noopener noreferrer">
+                      {member.data.submissionsLabel || member.data.submissionsUrl}
+                    </a>
+                  )}
                 </aside>
               )}
               {member.data.plate && (
