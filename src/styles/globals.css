@@ -808,6 +808,20 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   color: inherit;
 }
+.prose-poetry .poem-lines--meggeson {
+  line-height: 1.16;
+  overflow: visible;
+}
+.article-body.container:has(.poem-lines--meggeson) {
+  max-width: 880px;
+}
+.prose-poetry .poem-lines--meggeson + .poem-lines--meggeson {
+  margin-top: 4.8rem;
+}
+.prose-poetry .poem-lines--meggeson .meggeson-title {
+  font-weight: 700;
+  font-size: 1.17em;
+}
 .prose-poetry .poem-lines--fink {
   white-space: pre;
 }
