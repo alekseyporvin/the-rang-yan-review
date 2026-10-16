@@ -22,7 +22,7 @@ Sack of Symptoms
 resembles no one.
 
 Sack of Symptoms
-reads its Daily Horoscope
+reads its Daily Horoscope.
 
 Sack of Symptoms
 cannot contain itself.

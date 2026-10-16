@@ -117,6 +117,11 @@ h1, h2, h3, h4, h5, h6 {
 .prose-journal strong {
   font-weight: 600;
 }
+.prose-journal .face-spaced {
+  text-indent: 0.5in;
+  margin-top: 2.5em;
+  white-space: pre-wrap;
+}
 .prose-journal .essay-verse {
   margin: 1.75em 0;
 }
