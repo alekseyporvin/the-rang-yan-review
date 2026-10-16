@@ -3,7 +3,7 @@ title: "Tiwanaku and Other Poems"
 author: "Pedro Shimose"
 authorSlug: "pedro-shimose"
 date: 2026-10-16
-excerpt: "Against the triumphalist temporality of capital, empire, and colonial modernity, Shimose’s poetry excavates the ruins through which history persists as material violence, sedimented memory, and the unfinished struggle over who may inhabit the future. Moving between the archaeological afterlives of stone, the lethal trajectories of objects, and the insurgent metamorphoses of vegetal life, these poems enact an archaeo-poetics in which translation becomes not the neutral transfer of meaning but a contested redistribution of historical agency, implicating the reader in the very terrain where language, dispossession, and collective survival converge."
+excerpt: "Against the triumphalist temporality of capital, empire, and colonial modernity, Shimose’s poetry excavates the ruins through which history persists as material violence, sedimented memory, and the unfinished struggle over who may inhabit the future. Moving between the archaeological afterlives of stone, the lethal trajectories of objects, and the insurgent metamorphoses of vegetal life, these poems forge an archaeo-poetics in which translation becomes a redistribution of historical agency, implicating the reader in the very terrain where language, dispossession, and collective survival converge."
 sourceNote: "Translated from the Spanish by J.N. Cardenas."
 tags:
   - poetry
