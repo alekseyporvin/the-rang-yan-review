@@ -133,6 +133,42 @@ h1, h2, h3, h4, h5, h6 {
 .prose-journal .essay-center {
   text-align: center;
 }
+.prose-journal .postpata-epigraph {
+  margin: 0.15rem 0 2.25rem;
+  text-align: right;
+}
+.prose-journal .postpata-epigraph p {
+  margin: 0;
+  line-height: 1.55;
+  text-align: right;
+}
+.prose-journal .postpata-epigraph p + p {
+  margin-top: 0.12em;
+}
+.prose-journal .postpata-heading {
+  font-weight: 600;
+  margin-top: 2.35em;
+  margin-bottom: 0.75em;
+}
+.prose-journal .postpata-epigraph + .postpata-heading {
+  margin-top: 0.35em;
+}
+.prose-journal .postpata-heading--center {
+  text-align: center;
+}
+.prose-journal .postpata-line {
+  text-align: center;
+  margin: 1.85em 0;
+}
+.prose-journal .postpata-inset {
+  margin: 1.35em 0 1.5em 1.6em;
+}
+.prose-journal .postpata-item {
+  margin-bottom: 0.55em;
+}
+.prose-journal .postpata-item + p:not([class]) {
+  margin-top: 1.6em;
+}
 .prose-journal.prose-fiction p {
   text-indent: 1.6em;
   margin-bottom: 0.15em;
