@@ -781,6 +781,69 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-preface {
   margin-bottom: 2.4em;
 }
+.prose-poetry .poem-preface p {
+  margin-bottom: 0;
+  font-style: italic;
+}
+/* Paul Stubbs, The Beast: Times 12pt on a 6.285in measure (Word text column),
+   line spacing 1.5, left indents of N spaces at Times space-width 0.25em.
+   Epigraphs break where Word wrapped them and sit on the right edge. */
+.poem-stubbs-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.prose-poetry .poem-stubbs {
+  width: 37.708em;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12pt;
+  line-height: 1.5;
+  color: inherit;
+}
+.prose-poetry .poem-stubbs p {
+  margin: 0;
+  font-family: inherit;
+  line-height: inherit;
+}
+.prose-poetry .poem-stubbs p:has(> strong:only-child) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.prose-poetry .poem-stubbs .stubbs-line {
+  white-space: nowrap;
+  font-size: 12pt;
+}
+.prose-poetry .poem-stubbs .stubbs-in-18 { padding-left: 4.5em; }
+.prose-poetry .poem-stubbs .stubbs-in-19 { padding-left: 4.75em; }
+.prose-poetry .poem-stubbs .stubbs-in-27 { padding-left: 6.75em; }
+.prose-poetry .poem-stubbs .stubbs-in-28 { padding-left: 7em; }
+.prose-poetry .poem-stubbs .stubbs-in-30 { padding-left: 7.5em; }
+.prose-poetry .poem-stubbs .stubbs-in-33 { padding-left: 8.25em; }
+.prose-poetry .poem-stubbs .stubbs-in-34 { padding-left: 8.5em; }
+.prose-poetry .poem-stubbs .stubbs-yeats,
+.prose-poetry .poem-stubbs .stubbs-yeats-attr {
+  text-align: center;
+  font-weight: 700;
+  font-size: 14pt;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.prose-poetry .poem-stubbs .stubbs-dash {
+  font-weight: 400;
+  font-size: 12pt;
+}
+.prose-poetry .poem-stubbs .stubbs-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 12pt;
+  white-space: nowrap;
+}
+.prose-poetry .poem-stubbs .stubbs-right {
+  text-align: right;
+  font-size: 12pt;
+}
+.prose-poetry .poem-stubbs em {
+  font-style: italic;
+}
 .prose-poetry .poem-inset {
   margin: 1.4em 0 1.4em 1.65em;
 }
