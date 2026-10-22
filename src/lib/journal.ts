@@ -18,7 +18,7 @@ export function italicizeJournalTerms(text: string): string {
 /** Escape HTML, convert *italic* markers and [label](url) links, then italicize journal terms. */
 export function withJournalItalics(text: string): string {
   const links: string[] = [];
-  const withPlaceholders = text.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, (_, label, href) => {
+  const withPlaceholders = text.replace(/\[([^\]]+)\]\(((?:https?:|\/)[^)\s]+)\)/g, (_, label, href) => {
     const token = `\u0003${links.length}\u0004`;
     links.push(`<a href="${escapeHtml(href)}">${escapeHtml(label)}</a>`);
     return token;

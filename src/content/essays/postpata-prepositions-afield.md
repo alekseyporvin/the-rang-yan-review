@@ -4,6 +4,7 @@ author: "George Quasha"
 authorSlug: "george-quasha"
 date: 2026-10-21
 excerpt: "This essay explores how experimental poetics can unsettle fixed identities, disrupt habitual structures of thought, and reconceive language as an open-ended field of relational becoming. Its significance for contemporary art lies in its resistance to the instrumental rationality that governs both capitalist production and cultural consumption, proposing instead a poiesis grounded in indeterminacy, reciprocal attention, and the ceaseless transformation of the relations between artist, artwork, and reader."
+sourceNote: "This prose was written specifically to conclude the forthcoming book *Hilaritas Sublime*, represented here by the [five poems](/poetry/five-poems-from-genius-foci-and-hilaritas-sublime/)."
 tags:
   - poetics
   - philosophy
