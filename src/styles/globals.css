@@ -939,6 +939,30 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .fink-title--first {
   margin-top: 0.2rem;
 }
+.prose-poetry .wilson-title {
+  font-family: var(--font-serif-body);
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin: 5.5rem 0 0.4rem;
+}
+.prose-poetry .wilson-title--first {
+  margin-top: 0.2rem;
+}
+.prose-poetry .wilson-title--solo {
+  margin-bottom: 1.45rem;
+}
+.prose-poetry .wilson-sub {
+  font-family: var(--font-serif-body);
+  font-size: 1.02rem;
+  text-align: center;
+  margin: 0.1rem 0 1.45rem;
+}
+.prose-poetry .poem-lines--wilson {
+  tab-size: 3em;
+  -moz-tab-size: 3em;
+}
 .article-body.container:has(.quasha-title) {
   max-width: 78ch;
 }

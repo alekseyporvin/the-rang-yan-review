@@ -1,0 +1,4 @@
+---
+name: "Wilson, Mark"
+shortBio: "Mark Wilson has published five poetry collections: *Quartet For the End of Time* (Editions du Zaporogue, 2011), *Passio* (Editions du Zaporogue, 2013), *The Angel of History* (Leaky Boot Press, 2013), *Illuminations* (Leaky Boot Press, 2016) & *Paolo & Francesca in a Colder Climate* (Black Herald Press, 2025). He is the author of a verse-drama, *One Eucalyptus Seed*, about the arrest and incarceration of Ezra Pound after World War Two, as well as a tragi-comedy, *Arden*. His poems and articles have appeared in: *The Black Herald*, *The Shop*, *Tears in the Fence*, *3:AM Magazine*, *Anvil Tongue*, *International Times*, *The Fiend*, *Syncopation*, *Epignosis Quarterly*, *Mande*, *Dodging the Rain*, *The Ekphrastic Review*, *Enheduanna*, *Rasputin*, *Amethyst Review*, *The Writer Monk* and *Le Zaporogue*."
+---
