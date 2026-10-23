@@ -3,7 +3,7 @@ title: "A Reel From Tarkovsky and Other Poems"
 author: "Mark Wilson"
 authorSlug: "mark-wilson"
 date: 2026-10-23
-excerpt: "Five poems: *A Reel From Tarkovsky*, *Maestro*, *Oracle*, *High Priestess*, and *Hierophant*. Long takes, antiphons, and the major arcana become instruments of attention, through which a voice tests devotion, gnosis, and the company of its magisters."
+excerpt: "Five poems: A Reel From Tarkovsky, Maestro, Oracle, High Priestess, and Hierophant. These poems approach the sacred, the oracular, and the mythological as contested sites of cultural memory, where inherited systems of knowledge persist as fractured forms of resistance to the disenchantment and instrumental rationality of the modern world. Moving between Tarkovsky’s post-industrial wastelands, the esoteric architectures of the tarot, and the precarious intimacies of poetic address, they imagine artistic consciousness as a collective practice of re-enchantment, capable of retrieving suppressed possibilities of being from the ruins of dominant historical narratives."
 tags:
   - poetry
   - contemporary
