@@ -917,6 +917,23 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   color: inherit;
 }
+/* Guido Cavalli: Word tab stops are 0.5in; two lines also carry a paragraph indent. */
+.prose-poetry .poem-lines--cavalli {
+  tab-size: 0.5in;
+  -moz-tab-size: 0.5in;
+}
+.prose-poetry .poem-lines--cavalli .cavalli-half,
+.prose-poetry .poem-lines--cavalli .cavalli-deep {
+  display: inline;
+}
+.prose-poetry .poem-lines--cavalli .cavalli-half { padding-left: 0.5in; }
+.prose-poetry .poem-lines--cavalli .cavalli-deep { padding-left: 1.5in; }
+.prose-poetry .poem-lines--frolloni + .poem-lines--frolloni {
+  margin-top: 4.5rem;
+}
+.prose-poetry .poem-lines--frolloni .frolloni-in {
+  padding-left: 2.4in;
+}
 .prose-poetry .poem-lines--meggeson {
   line-height: 1.16;
   overflow: visible;
