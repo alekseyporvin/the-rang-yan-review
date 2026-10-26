@@ -932,6 +932,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 .prose-poetry .poem-lines--cavalli .cavalli-half { padding-left: 0.5in; }
 .prose-poetry .poem-lines--cavalli .cavalli-deep { padding-left: 1.5in; }
+/* Ernesto Cardenal: Helvetica 11pt non-breaking spaces, about 0.0425in each. */
+.prose-poetry .poem-lines--cardenal {
+  white-space: pre;
+}
+.prose-poetry .poem-lines--cardenal .cardenal-10 { padding-left: 0.43in; }
+.prose-poetry .poem-lines--cardenal .cardenal-17 { padding-left: 0.72in; }
+.prose-poetry .poem-lines--cardenal .cardenal-20 { padding-left: 0.85in; }
+.prose-poetry .poem-lines--cardenal .cardenal-21 { padding-left: 0.89in; }
+.prose-poetry .poem-lines--cardenal .cardenal-33 { padding-left: 1.40in; }
+.prose-poetry .poem-lines--cardenal .cardenal-40 { padding-left: 1.70in; }
+.prose-poetry .poem-lines--cardenal .cardenal-41 { padding-left: 1.74in; }
+.prose-poetry .poem-lines--cardenal .cardenal-45 { padding-left: 1.91in; }
+.prose-poetry .poem-lines--cardenal .cardenal-52 { padding-left: 2.21in; }
 .prose-poetry .poem-lines--frolloni + .poem-lines--frolloni {
   margin-top: 4.5rem;
 }
