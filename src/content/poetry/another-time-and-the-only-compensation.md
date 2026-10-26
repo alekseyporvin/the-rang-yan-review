@@ -14,8 +14,6 @@ translatorSlugs:
   - lawrence-venuti
 ---
 
-<p><strong>Selections from <em>Resemblances</em> (1976)</strong></p>
-
 <p><strong>A Generosity</strong></p>
 
 <pre class="poem-lines">This is a dance
