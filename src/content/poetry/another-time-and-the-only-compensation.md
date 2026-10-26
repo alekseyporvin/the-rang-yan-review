@@ -1,5 +1,5 @@
 ---
-title: "Another Time and “The only compensation for your loss? Being unable to know its exact limits”"
+title: "A Generosity and Other Poems"
 author: "Milo De Angelis"
 authorSlug: "milo-de-angelis"
 date: 2026-10-25
@@ -14,7 +14,99 @@ translatorSlugs:
   - lawrence-venuti
 ---
 
-<p><strong>Another Time</strong></p>
+<p><strong>Selections from <em>Resemblances</em> (1976)</strong></p>
+
+<p><strong>A Generosity</strong></p>
+
+<pre class="poem-lines">This is a dance
+where steps aren’t learned
+for it to be (“I’ll take
+everything by surprise”) and it doesn’t resign itself
+to halfhearted talk, now that the wind
+carries the smell of ploughed earth
+and shouts out things
+as if they existed
+and they come (“See, you don’t have to choose
+anymore”) toward the splendor
+of swimming, an improvised
+fate, which reveals itself later
+in the thick of the current
+but in silence,
+silence, testing.</pre>
+
+<p class="poem-next"><strong>On the Point</strong></p>
+
+<pre class="poem-lines">Now that I speak of you
+without naming you . . . only now . . . 
+beyond analysis . . . where nothing is
+whole . . . but acts . . . 
+I say . . . try . . . from the beginning . . . 
+don’t fix . . . don’t figure on anybody . . . 
+others can’t sustain
+an embrace . . . try . . . 
+don’t negotiate . . . don’t prepare . . .
+don’t last . . .  </pre>
+
+<p class="poem-next"><strong>Largo Afternoon</strong></p>
+
+<pre class="poem-lines">Now canoes are crossing the river
+movement
+in exuberant sunlight, and looking
+shuts down reason
+
+where this death is not simply a fading away
+but being too, briefly,
+on the edge of joy
+which opens and lightly bears
+an offer in the glimmer of a drop
+and comment is excluded
+when river banks in the morning
+bring their strength
+messenger of a name, listening,
+conveying the body’s will, the imminent caress
+
+<span class="deangelis-in">looking         living         here</span>
+
+the intact season
+has time to last
+but pushes beyond
+without rummaging through rubble
+and calls for writing
+that isn’t noticeable.</pre>
+
+<p class="poem-next"><strong>Where Everything Is Connected</strong></p>
+
+<pre class="poem-lines">Being called,
+it’s never dark here,
+it’s always later, amid
+obligations, on trams, sinking into coats
+with things that need to be finished--everything.
+And even now rain
+on glossy windows
+can’t be nature or history
+but an episode
+that every winter knows how to repeat
+living and circular
+while everything demanded a different attitude
+which believes in each thing
+without second-guessing it, a lightness in the cells,
+a smile in the right place . . . 
+
+. . . intensities, only viscous intensities
+between mother and mamma’s voice
+like these sidewalks
+that try to divide
+but join with the cars
+and this vice
+of recognizing, and its commands,
+voice useless, in the midst of a storm,
+which is kissed,
+kissed . . . kissed . . . 
+
+Via Pacini. It’s raining, heavier and heavier.
+Someone asked me the time</pre>
+
+<p class="poem-next"><strong>Another Time</strong></p>
 
 <pre class="poem-lines">This is the unique revolt
 that doesn’t understand a thing, delays

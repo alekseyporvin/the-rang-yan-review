@@ -917,6 +917,10 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   color: inherit;
 }
+/* Largo Afternoon: Word first-line indent of 0.5in on one line. */
+.prose-poetry .poem-lines .deangelis-in {
+  padding-left: 0.5in;
+}
 /* Guido Cavalli: Word tab stops are 0.5in; two lines also carry a paragraph indent. */
 .prose-poetry .poem-lines--cavalli {
   tab-size: 0.5in;
