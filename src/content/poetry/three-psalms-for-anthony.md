@@ -1,5 +1,5 @@
 ---
-title: "Three Psalms for Anthony"
+title: "Three Psalms"
 author: "Ernesto Cardenal"
 authorSlug: "ernesto-cardenal"
 date: 2026-10-26
