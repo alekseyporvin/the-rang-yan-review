@@ -1258,6 +1258,29 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-graphic + .poem-graphic {
   margin-top: 4.5rem;
 }
+.prose-poetry .poem-graphic:has(.poem-score--mojo) {
+  --poem-frame: 35.976rem;
+}
+.prose-poetry .poem-graphic:has(.poem-score--ebr) {
+  --poem-frame: 31.152rem;
+}
+.prose-poetry .poem-score {
+  margin: 3.25rem 0 0;
+}
+.prose-poetry .poem-score--mojo {
+  margin-left: calc(var(--poem-barcode) + var(--poem-gap) - 1.5146rem);
+  width: 28.5903rem;
+}
+.prose-poetry .poem-score--ebr {
+  margin-left: calc(var(--poem-barcode) + var(--poem-gap) - 4.575rem);
+  width: 26.8263rem;
+}
+.prose-poetry .poem-score img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
 .prose-poetry .poem-graphic.poem-graphic--match .poem-g + .poem-g {
   margin-top: 5.2321px;
 }
