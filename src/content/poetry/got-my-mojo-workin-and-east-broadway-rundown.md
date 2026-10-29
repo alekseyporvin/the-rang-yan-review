@@ -69,6 +69,9 @@ featured: true
 <div class="poem-g-blank" style="height:6pt"></div>
 <p class="poem-g" style="font-size:10pt">PAUL      WALKING  ONWARD   TO  THE  CLIMBING WALL  AND</p>
 <p class="poem-g" style="font-size:10pt">WATER MILL   WHERE   I   HEL    COCKROACH   WILL  FOLLOW.</p>
+<figure class="poem-score poem-score--mojo">
+<img src="/images/poetry/andre-spears-mojo-score.png" alt="Sheet music for Got My Mojo Workin’, Jimmy Smith, 1966" width="1429" height="1217" />
+</figure>
 </div>
 
 <div class="poem-graphic poem-graphic--match">
@@ -110,4 +113,7 @@ featured: true
 <p class="poem-g" style="font-size:16pt">AND  DEPARTURES    FROM  ZION </p>
 <p class="poem-g poem-g-hang" style="font-size:10pt;--pull:1.001463">TO  NURENBERG   HORMUZ  TO  QUEENS   SAY  GOODBYE  TO </p>
 <p class="poem-g poem-g-hang" style="font-size:10pt;--pull:0.993723">HEIΔEGGER      MAΛΛARMÉ      HEIΣENBERG    AND    TURINΓ.”</p>
+<figure class="poem-score poem-score--ebr">
+<img src="/images/poetry/andre-spears-ebr-score.png" alt="Sheet music for East Broadway Rundown, Sonny Rollins, 1967" width="1131" height="384" />
+</figure>
 </div>
