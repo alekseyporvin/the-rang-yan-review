@@ -46,6 +46,9 @@ const dateTime = date ? articleDateTime(date, datePrecision) : null;
 
 const displayTitle = plainTitle(title);
 const pageTitle = `${displayTitle} — ${author} | The Rang Yan Review`;
+
+// Social crawlers only. The visible article cover, when one exists, stays coverImage.
+const shareImage = 'https://therangyanreview.org/images/issue-01-cover.jpg';
 ---
 
 <Layout
@@ -53,7 +56,11 @@ const pageTitle = `${displayTitle} — ${author} | The Rang Yan Review`;
   description={excerpt ? plainInline(excerpt) : undefined}
   ogTitle={displayTitle}
   ogDescription={excerpt ? plainInline(excerpt) : undefined}
-  ogImage={coverImage ? `https://therangyanreview.org${coverImage}` : undefined}
+  ogImage={shareImage}
+  ogImageWidth={1024}
+  ogImageHeight={1024}
+  ogImageAlt="Cover of The Rang Yan Review, Issue 01, Autumn 2026: a Paris street in autumn light, an open newspaper on a stone ledge"
+  ogType="article"
   articleDate={dateTime ?? undefined}
 >
   <Header />
