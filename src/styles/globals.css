@@ -948,6 +948,21 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-lines--frolloni + .poem-lines--frolloni {
   margin-top: 4.5rem;
 }
+/* Maria Luisa Vezzali: Word default tab stops are 0.5in; the first line of each poem is bold. */
+.prose-poetry .poem-lines--vezzali {
+  tab-size: 0.5in;
+  -moz-tab-size: 0.5in;
+  white-space: pre;
+}
+.prose-poetry .poem-lines--vezzali + .poem-lines--vezzali {
+  margin-top: 3.45em;
+}
+.prose-poetry .poem-lines--vezzali .vezzali-open {
+  font-weight: 700;
+}
+.article-body.container:has(.poem-lines--vezzali) {
+  max-width: 860px;
+}
 .prose-poetry .poem-lines--frolloni .frolloni-in {
   padding-left: 2.4in;
 }
