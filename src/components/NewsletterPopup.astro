@@ -1,0 +1,124 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+---
+
+<div
+  class="newsletter-popup"
+  id="newsletter-popup"
+  role="dialog"
+  aria-label="Newsletter"
+  hidden
+>
+  <button
+    type="button"
+    class="newsletter-popup__close"
+    id="newsletter-popup-close"
+    aria-label="Close newsletter"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <NewsletterForm />
+</div>
+
+<script is:inline>
+  (function () {
+    var popup = document.getElementById('newsletter-popup');
+    var closeButton = document.getElementById('newsletter-popup-close');
+    if (!popup || !closeButton) return;
+
+    var hidePopup = function () {
+      popup.hidden = true;
+    };
+
+    closeButton.addEventListener('click', hidePopup);
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !popup.hidden) hidePopup();
+    });
+
+    popup.hidden = true;
+    window.setTimeout(function () {
+      popup.hidden = false;
+    }, 10000);
+  })();
+</script>
+
+<style>
+  .newsletter-popup {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 300;
+    width: min(22.5rem, calc(100vw - 2rem));
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+    box-shadow: 0 16px 40px rgba(26, 25, 22, 0.22);
+  }
+
+  .newsletter-popup[hidden] {
+    display: none !important;
+  }
+
+  .newsletter-popup:not([hidden]) {
+    display: block;
+  }
+
+  .newsletter-popup__close {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.45rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #1a1916;
+    font-size: 1.45rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  }
+
+  .newsletter-popup__close:hover {
+    background: #f3f0ea;
+  }
+
+  .newsletter-popup :global(.formkit-form[data-uid="ebc38792ae"]) {
+    max-width: none;
+  }
+
+  .newsletter-popup :global(.formkit-form[data-uid="ebc38792ae"] .formkit-container) {
+    padding: 12px;
+  }
+
+  .newsletter-popup :global(.formkit-form[data-uid="ebc38792ae"] .formkit-hero) {
+    padding: 2.5rem 0.85rem 1.15rem;
+    margin-bottom: 14px;
+  }
+
+  .newsletter-popup :global(.formkit-form[data-uid="ebc38792ae"] .formkit-header) {
+    font-size: 1.35rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .newsletter-popup :global(.formkit-form[data-uid="ebc38792ae"] .formkit-content) {
+    font-size: 0.95rem;
+  }
+
+  .newsletter-popup :global(.formkit-form[data-uid="ebc38792ae"] .formkit-fields) {
+    flex-direction: column;
+  }
+
+  .newsletter-popup :global(.formkit-form[data-uid="ebc38792ae"] .formkit-input) {
+    border-right: 1px solid #e4e7ea;
+  }
+
+  .newsletter-popup :global(.formkit-form[data-uid="ebc38792ae"] .formkit-submit) {
+    width: 100%;
+    margin-top: 12px;
+  }
+</style>
