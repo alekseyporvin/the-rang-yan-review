@@ -4,7 +4,7 @@ author: "Rita Degli Esposti"
 authorSlug: "rita-degli-esposti"
 date: 2026-11-01T18:00:00.000Z
 excerpt: "Domestic life emerges here as an unstable archive of historical violence, where the banal residues of consumption, childhood, family memory, and everyday survival bear the inscriptions of war, displacement, and ideological power. Through abrupt juxtapositions and fractured recollections, the texts unsettle the boundary between private experience and collective history, revealing how the grand machinery of political violence penetrates the most intimate spaces of human existence, while fragments of tenderness and imagination persist as fragile forms of resistance."
-sourceNote: "Poem 1 translated from the Italian by the author. Poems 2–4 translated from the Italian by Coco Gordon."
+sourceNote: "The first poem translated from the Italian by the author. The other three translated from the Italian by Coco Gordon."
 tags:
   - poetry
   - translation
@@ -13,8 +13,6 @@ featured: true
 translatorSlugs:
   - coco-gordon
 ---
-
-<p><strong>1</strong></p>
 
 <pre class="poem-lines">after work and shopping
 back home watch news on tv
@@ -43,15 +41,11 @@ for Dadi’s agenda</pre>
 
 <hr>
 
-<p><strong>2</strong></p>
-
 <pre class="poem-lines">at daylight
 not finding
 the stolen goods of dreams</pre>
 
 <hr>
-
-<p><strong>3</strong></p>
 
 <pre class="poem-lines">150 hours
 
@@ -74,8 +68,6 @@ expected a son)
 like morning mist on peaks)</pre>
 
 <hr>
-
-<p><strong>4</strong></p>
 
 <pre class="poem-lines">exercise #2
 
