@@ -10,11 +10,14 @@
   <div class="formkit-container" data-style="full">
     <div class="formkit-hero">
       <div class="formkit-hero-bg-color"></div>
-      <div
+      <img
         class="formkit-hero-bg-img"
-        style="background-image:url('https://embed.filekitcdn.com/e/uRDbgK5ALAsu1dAEq6ecyK/9Ek9bRmkwmJY7b1Fvq7o89')"
-      >
-      </div>
+        src="/images/newsletter-hero.jpg"
+        alt=""
+        width="1200"
+        height="800"
+        decoding="async"
+      />
       <div class="formkit-header" data-element="header">
         <p>Read. Think. Connect.</p>
       </div>
@@ -79,6 +82,7 @@
   }
   .formkit-form[data-uid="ebc38792ae"] .formkit-hero {
     margin-bottom: 20px;
+    min-height: 11rem;
     padding: 30px 5%;
     position: relative;
     text-align: center;
@@ -96,14 +100,16 @@
     background-color: #101010;
   }
   .formkit-form[data-uid="ebc38792ae"] .formkit-hero-bg-img {
-    background-color: #101010;
-    background-position: center center;
-    background-size: cover;
-    opacity: 0.7;
+    display: block;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 0.72;
   }
   .formkit-form[data-uid="ebc38792ae"] .formkit-header,
   .formkit-form[data-uid="ebc38792ae"] .formkit-content {
     position: relative;
+    z-index: 1;
   }
   .formkit-form[data-uid="ebc38792ae"] .formkit-header {
     margin-bottom: 20px;
