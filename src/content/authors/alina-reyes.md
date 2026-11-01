@@ -1,0 +1,4 @@
+---
+name: "Reyes, Alina"
+shortBio: "Alina Reyes is a French novelist, essayist, and poet born in 1956 in Bruges, in southwestern France. She came to international attention with her debut novel, *Le Boucher* (1988), a provocative exploration of eroticism and the politics of the body, subsequently translated into numerous languages. Her literary work encompasses fiction, essays, and poetry, engaging with desire, sexuality, female subjectivity, political power, and spiritual inquiry. Among her other notable books are *Lucie au long cours*, *Au corset qui tue*, *Derrière la porte*, and *Nus devant les fantômes*, a work devoted to Franz Kafka and Milena Jesenská. Her writing persistently interrogates the relationship between the body, freedom, and the structures—social, cultural, and ideological—that seek to regulate human experience."
+---

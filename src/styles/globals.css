@@ -405,6 +405,40 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 16.5rem;
   margin: 0.2rem auto 2.6rem;
 }
+.prose-journal .interview-photo--fink-portrait {
+  max-width: 18rem;
+  margin: 0.2rem auto 2.6rem;
+}
+.prose-journal .interview-photo--fink-portrait figcaption {
+  text-align: center;
+}
+.prose-journal .interview-photo--fink-painting {
+  max-width: 34rem;
+  margin: 2.8rem auto 2.4rem;
+}
+.prose-journal .interview-photo--fink-painting figcaption {
+  text-align: center;
+}
+.prose-journal .interview-photo--fink-panel {
+  max-width: 17.5rem;
+  margin: 2.6rem auto 2.4rem;
+}
+.prose-journal .interview-photo--fink-panel figcaption {
+  text-align: center;
+}
+.prose-journal .interview-photo--fink-canvas {
+  max-width: 18.75rem;
+  margin: 2.6rem auto 2.4rem;
+}
+.prose-journal .interview-photo--fink-canvas figcaption {
+  text-align: center;
+}
+.prose-journal .interview-photo--fink-strip {
+  margin: 2.6rem 0 2.4rem;
+}
+.prose-journal .interview-photo--fink-strip figcaption {
+  text-align: center;
+}
 .prose-journal .interview-photo--murphy-portrait img {
   border: none;
   background: #efeae0;
@@ -710,6 +744,50 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry p {
   margin-top: 0;
   margin-bottom: 0.5em;
+}
+/* Hollay Ghadery: the poem sits on a Word-white page. Most of the letter is #efefef; a few words stay black. */
+.article-body.container:has(.ghadery-page) {
+  max-width: min(100%, 46rem);
+}
+.prose-poetry .ghadery-page {
+  background: #ffffff;
+  color: #000000;
+  font-family: Cambria, "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 12pt;
+  line-height: 1;
+  padding: 1.35rem 1.2rem 1.6rem;
+  margin: 0;
+}
+.prose-poetry .ghadery-page p {
+  margin: 0 0 12pt;
+  padding: 0;
+  font-size: 12pt;
+  line-height: 1;
+  color: #000000;
+  white-space: pre-wrap;
+}
+.prose-poetry .ghadery-page p.ghadery-gap {
+  margin-top: 12pt;
+}
+.prose-poetry .ghadery-page .ghadery-bold {
+  font-weight: 700;
+}
+.prose-poetry .ghadery-page .ghadery-pale {
+  color: #efefef;
+}
+.prose-poetry .ghadery-page .ghadery-mist {
+  color: #d9d9d9;
+}
+.prose-poetry .ghadery-page a {
+  color: #000000;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (min-width: 760px) {
+  .prose-poetry .ghadery-page {
+    padding: 0.9in 0.85in 1in;
+  }
 }
 .prose-poetry p:has(> strong:only-child) {
   margin-top: 2.5em;

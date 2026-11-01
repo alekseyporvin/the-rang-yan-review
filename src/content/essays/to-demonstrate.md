@@ -1,0 +1,41 @@
+---
+title: "To Demonstrate"
+author: "Alina Reyes"
+authorSlug: "alina-reyes"
+date: 2026-11-01
+excerpt: "The running body becomes a site of insurgent knowledge, reclaiming the streets from the apparatuses of policing, enclosure, and capitalist dispossession, while transforming physical movement into a collective practice of resistance and political self-determination. Against the privatisation of space and the alienation of human life from its ecological and social foundations, this text advances an embodied poetics of emancipation in which the individual body becomes porous to the multitude, revolutionary memory, and the generative intelligence of the living world."
+sourceNote: "Translated from the French by the author."
+tags:
+  - essay
+  - politics
+category: Essays and Philosophy
+featured: true
+---
+
+My voice is shackled, our feet remain. I stride through the city and hear the glass screaming, vomited out by the containers the people’s anger has overturned. I run, my running is a fire that raises and purifies my anger. You will not get us, you will not get me, says my path.
+
+To run. The world is mad, my head is overflowing, I have to go running. Run, run, run, run all the way home, all the way to the house I have lost, all the way to the home I have lost. All the way up there, into the mountains, into the forest, all the way to where my heart, my lungs, my feet, my legs, my whole body, say to themselves: home at last. Out of place and at home, in bliss.
+
+Yes, I am many within myself. I take my feet in both hands, put their shoes on. I check my armour, my weaponry. T-shirt, shorts, water bottle. I go on the attack. I am another woman, armed like this. My head, my body, I am going to empty them of the world’s filth. I beat the asphalt, I beat the pavement, I stride through the city to write in it with my feet: I am here. I run, I watch the city passing, I slip away from it, I spin it, I do. Here we are, partners, I do not submit to it, I look it in the eyes and I see: its eyes answer mine. Rise up! I am not who they want me to be. I am who I am and I see the signs of the people who are like me.
+
+The people have marched, have stridden through the city as I have. The most combative were chased by the police. They are young, they are hale and hearty too. The robotised men, the instruments of those who want us to be as they want us to be, those men, those helmeted robots, heavily armoured and armed, charged them, brutalised them, gassed them, or even maimed them, or even hauled them away, or even imprisoned them, or even killed them.
+
+But they, armed as I am with nothing but their trainers, armed with lightness, even suffocated, even wounded, even maimed, even locked up, even dead, they remained free. And our freedom will outlive us. What History will remember is our freedom, our honour. And the iniquity, the dishonour of those who will have used their wretched power, their usurped power, to destroy our dwelling, our country, our way of dwelling in our country, and to send their robots to stifle our voice.
+
+My voice is shackled, our feet remain. I stride through the city and hear the glass screaming, vomited out by the containers the people’s anger has overturned. I run, my running is a fire that raises and purifies my anger. You will not get us, you will not get me, says my path. I thank the people who rise up as with every stride my old body rises up and grows young again.
+
+Amid the wreckage I run. The old world falls beneath my soles of wind. Our rulers have twisted mugs, they who cannot govern themselves. Drugs circulate in the circles where they shut themselves away, they who have nothing in their heads but the everlasting repetition of the same. This is the time of tyrants, of tyrants to be removed. The demon Money reigns over humans, lost animals whom the wisdom of the Earth has abandoned.
+
+It has taken possession of cohorts of souls, bent them so thoroughly to its service that they can no longer even tell day from night. Illegitimate in the eyes of Life, they have begotten the fallen spirits of tyranny, pawns turned parasites of the entire planet.
+
+Keep running, planet! I run with you and I love you. See, watercourses run through me, currents of air caress me, I was born to run, not to die! From my muscles spring greenery, beasts, stars. For I run, I march with all the living who walk the earth, I march against the walls of the circles between which the leaders and their lackeys alienate themselves. The manufacturers of artificial books raise the alarm against the artificial intelligence that makes them look ridiculous and I laugh, yes, long live technology! I belong to the world that moves forward. May it reduce to nothing the falsifiers and the bloodsuckers, the white-collar cannibals, the show-offs who open their shirts over their meagre chests, the non-living thirsty for petty glory and money.
+
+Our home is our country, our country is the world, and those people drive us out of it. Just as Paris was Bastilled during the Games, barriers everywhere, police everywhere, army everywhere, common spaces confiscated, movement obstructed, running or walking amounting to moving through a maze as in those children’s magazines where you have to find and pencil in a path to the exit, that is what, darker still, cities have become when the people demonstrate in them and you have to escape the police kettles, escape police violence, escape the bans on gathering or moving here or there, and then a ban on demonstrating in city centres, those in power behaving as though the country belonged to them, our country, our home, for every country belongs to the women and men who inhabit it, forbidden to inhabit it, those in power behaving as colonisers of their own population because in their eyes we are those who are nothing whereas they belong among those who have succeeded, succeeded in selling the country, succeeded in destroying the country, succeeded in seizing the country to hand it over to all the mine operators, our country, that gold mine those in power have given them to ravage, listen to me I am running, I am panting, my old body rises up as the people rise up and we grow young again, I rediscover the youth of my country, free and inventive, inventing their lives despite the contempt so many old people in their country show them, the future of this country despite the arrogance, despite the deafness, despite the blindness of so many of this country’s seated, so many gone stale, whom I could be among if I did not run, if I did not defy with my feet, with my body, the labyrinths of power.
+
+Queens and kings are the insurgents, upright on their feet. Method? One step after another. It marches, it barricades, it entrenches itself and finds a way through elsewhere. So the spring: torrential at first then widening its courses all the way to its estuary. I run, I march, I see the people rising, moving forward, I want to weep.
+
+Because it is within me that the crowd rises in a torrent, in my flesh that the torrent surges and wants to overflow, through my throat, through the eyes of the poor creature I am, swept away by the joyful pain of union.
+
+Whoever strides through the city manifests in it the life that springs from cosmic accidents. On your feet, carcass, it is time to wrench yourself free of the traps that grip your ankles, now it is through the body that we must dream! But go wisely, do not let them sacrifice you or wreck you on their stinking altar, go with determination, wisdom and determination will prevail and I see that you have them, I admire you for having them.
+
+It is through the body that we must go and inhabit the home they deny us, our city, our country, our planet. The street is ours and the countryside too. Away with the ministries, we belong to the earth, for roots our dead from whom to draw our strength, for fruit our generations that have taken letters for names and must return to the first. I run, my heart beats the pavement, my cheeks are red and I have the epic breath of revolutions. The living stream into my muscles, the peoples stream into my voice, it is not I who run, it is not I who speak, I am nothing but transport, transport of art into animality, the springing forth of forms and colours in fur, in plumage! Let us ascend to bliss.

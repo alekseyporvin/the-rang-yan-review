@@ -31,7 +31,7 @@ and spirits and accents to mark the beat
 and pauses, intervals, leaps, and arcs
 like a swallow in the sky
 is the movement of this melody, a becoming.
-From the beginning.</pre>
+<em>Da capo.</em></pre>
 
 <hr>
 
