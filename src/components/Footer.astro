@@ -1,4 +1,7 @@
 ---
+import NewsletterForm from './NewsletterForm.astro';
+import NewsletterPopup from './NewsletterPopup.astro';
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -51,6 +54,11 @@ const currentYear = new Date().getFullYear();
       </nav>
     </div>
 
+    <div class="footer-newsletter">
+      <p class="footer-newsletter__label">Newsletter</p>
+      <NewsletterForm />
+    </div>
+
     <div class="footer-bottom">
       <p class="footer-copyright">
         &copy; {currentYear} <em>The Rang Yan Review</em>. All rights reserved.
@@ -61,6 +69,8 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<NewsletterPopup />
 
 <style>
   .site-footer {
@@ -160,6 +170,21 @@ const currentYear = new Date().getFullYear();
 
   .footer-nav a:hover {
     color: var(--color-burgundy);
+  }
+
+  .footer-newsletter {
+    padding-top: 2.25rem;
+    max-width: 700px;
+  }
+
+  .footer-newsletter__label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    margin: 0 0 0.85rem;
   }
 
   .footer-bottom {
