@@ -35,6 +35,6 @@ category: Poetry
 <p class="ghadery-p ghadery-gap">&#160;</p>
 <p class="ghadery-p ghadery-gap">Source text: </p>
 <p class="ghadery-p">&#160;</p>
-<p class="ghadery-p"><a href="https://www.facebook.com/share/1E6Qj4s1Ce/?mibextid=wwXIfr">https://www.facebook.com/share/1E6Qj4s1Ce/?mibextid=wwXIfr</a><br /><a href="https://cwvmp.ca/transcription/771-letter-home">https://cwvmp.ca/transcription/771-letter-home</a></p>
+<p class="ghadery-p"><a href="https://www.facebook.com/share/1E6Qj4s1Ce/?mibextid=wwXIfr">https://www.facebook.com/share/1E6Qj4s1Ce/?mibextid=wwXIfr</a><br /><a href="https://cwvmp.ca/transcription/771-letter-home">https://cwvmp.ca/transcription/771-letter-home</a><br /><a href="https://www.summerlandmuseum.org/wwi-letters-home">https://www.summerlandmuseum.org/wwi-letters-home</a></p>
 <p class="ghadery-p">&#160;</p>
 </div>
