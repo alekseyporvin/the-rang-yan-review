@@ -3,6 +3,7 @@ import NewsletterForm from './NewsletterForm.astro';
 import NewsletterPopup from './NewsletterPopup.astro';
 
 const currentYear = new Date().getFullYear();
+const isHome = Astro.url.pathname === '/';
 ---
 
 <footer class="site-footer" role="contentinfo">
@@ -70,7 +71,7 @@ const currentYear = new Date().getFullYear();
   </div>
 </footer>
 
-<NewsletterPopup />
+{isHome && <NewsletterPopup />}
 
 <style>
   .site-footer {

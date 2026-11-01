@@ -35,9 +35,21 @@ import NewsletterForm from './NewsletterForm.astro';
       if (event.key === 'Escape' && !popup.hidden) hidePopup();
     });
 
+    var seenKey = 'ryr-newsletter-popup-shown';
+    try {
+      if (localStorage.getItem(seenKey) === '1') return;
+    } catch (error) {
+      /* storage unavailable; still show this once */
+    }
+
     popup.hidden = true;
     window.setTimeout(function () {
       popup.hidden = false;
+      try {
+        localStorage.setItem(seenKey, '1');
+      } catch (error) {
+        /* storage unavailable */
+      }
     }, 10000);
   })();
 </script>
