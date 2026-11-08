@@ -253,6 +253,11 @@ h1, h2, h3, h4, h5, h6 {
   height: auto;
 }
 
+.prose-journal .interview-intro {
+  font-style: italic;
+  margin: 0.2rem 0 2.15rem;
+}
+
 .prose-journal .interview-epigraph {
   margin: 0 0 2.85rem;
   padding: 0 0 1.85rem;
@@ -518,6 +523,34 @@ h1, h2, h3, h4, h5, h6 {
   margin: 2.8rem auto 2.6rem;
 }
 .prose-journal .interview-photo--shea-harbor figcaption {
+  text-align: center;
+}
+
+.prose-journal .interview-photo--reyes-portrait {
+  max-width: 22rem;
+  margin: 0.2rem auto 2.6rem;
+}
+.prose-journal .interview-photo--reyes-portrait img {
+  border: none;
+  background: #efeae0;
+}
+.prose-journal .interview-photo--reyes-portrait figcaption {
+  text-align: center;
+}
+
+.prose-journal .interview-photo--reyes-square {
+  max-width: 20.5rem;
+  margin: 2.7rem auto 2.5rem;
+}
+.prose-journal .interview-photo--reyes-square figcaption {
+  text-align: center;
+}
+
+.prose-journal .interview-photo--reyes-tall {
+  max-width: 16.75rem;
+  margin: 2.7rem auto 2.5rem;
+}
+.prose-journal .interview-photo--reyes-tall figcaption {
   text-align: center;
 }
 
