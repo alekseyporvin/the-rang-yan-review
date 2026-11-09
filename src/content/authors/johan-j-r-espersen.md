@@ -1,6 +1,6 @@
 ---
 name: "Espersen, Johan J. R."
-shortBio: "Johan J. R. Espersen is a Danish essayist and cand.mag. in philosophy from the University of Copenhagen. He lives in Frederiksberg. His essays take up technology, identity, and the conditions of human relation, and have appeared in *Paradoks*, *Critique*, *Jyllands-Posten*, and *Libertas*, of whose editorial board he has been a member."
+shortBio: "Johan J. R. Espersen is a Danish essayist and cand.mag. in philosophy from the University of Copenhagen. He lives in Frederiksberg. His essays take up technology, identity, and the conditions of human relation, and have appeared in *Paradoks*, *Critique*, and *Jyllands-Posten*."
 location: "Frederiksberg"
 links:
   - label: "Jeg™ og Jeg-Det"
