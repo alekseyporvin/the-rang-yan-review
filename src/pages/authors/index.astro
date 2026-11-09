@@ -44,7 +44,7 @@ for (const article of allArticles) {
 }
 
 // Build list of authors with optional bio file
-const authorEntries = await getCollection('authors');
+const authorEntries = await getCollection('authors', a => !a.data.draft);
 // Use entry.slug (= filename) as the key, not a.data.slug
 const authorBioMap = new Map(authorEntries.map(a => [a.slug, a]));
 

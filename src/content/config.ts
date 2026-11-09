@@ -55,6 +55,8 @@ const authors = defineCollection({
     portrait: z.string().optional(),
     /** Deceased / historical authors appear as "earlier voice" in listings. */
     earlierVoice: z.boolean().default(false),
+    /** Hidden from the public author directory. The file stays in the repo. */
+    draft: z.boolean().default(false),
   }),
 });
 

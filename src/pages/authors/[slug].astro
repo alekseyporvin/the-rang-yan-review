@@ -16,7 +16,7 @@ export async function getStaticPaths() {
   const criticism = await getCollection('criticism', e => !e.data.draft);
   const allArticles = [...essays, ...poetry, ...prose, ...interviews, ...conversations, ...criticism];
 
-  const authorBios = await getCollection('authors');
+  const authorBios = await getCollection('authors', a => !a.data.draft);
   // Use entry.slug (= filename, e.g. "eleanor-voss") as key
   const authorBioMap = new Map(authorBios.map(a => [a.slug, a]));
   const authorSlugs = [...new Set([
