@@ -227,6 +227,11 @@ h1, h2, h3, h4, h5, h6 {
 .prose-journal .editorial-note p:last-child {
   margin-bottom: 0;
 }
+.prose-journal .editorial-note--preface {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
 .prose-journal hr.text-rule {
   border: none;
   border-top: 2px solid var(--color-ink);

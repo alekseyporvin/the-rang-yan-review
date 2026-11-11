@@ -122,7 +122,11 @@ const alphabet = [...grouped.keys()].sort();
                         <span class="author-item__location">{author.location}</span>
                       )}
                       {author.shortBio && (
-                        <p class="author-item__bio" set:html={withJournalItalics(author.shortBio)} />
+                        <div class="author-item__bio">
+                          {author.shortBio.split(/\n\s*\n/).map((paragraph) => paragraph.trim()).filter(Boolean).map((paragraph) => (
+                            <p set:html={withJournalItalics(paragraph)} />
+                          ))}
+                        </div>
                       )}
                       <span class="author-item__count">
                         {author.publicationCount} {author.publicationCount === 1 ? 'publication' : 'publications'}
@@ -279,6 +283,14 @@ const alphabet = [...grouped.keys()].sort();
     margin: 0;
     grid-column: 1;
     grid-row: 2;
+  }
+
+  .author-item__bio p {
+    margin: 0 0 0.65rem;
+  }
+
+  .author-item__bio p:last-child {
+    margin-bottom: 0;
   }
 
   .author-item__count {

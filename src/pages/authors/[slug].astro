@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
-import { withJournalItalics } from '../../lib/journal';
+import { plainInline, withJournalItalics } from '../../lib/journal';
 
 export async function getStaticPaths() {
   // Gather all author slugs from publications
@@ -44,6 +44,12 @@ export async function getStaticPaths() {
 
 const { slug, name, bio, publications } = Astro.props;
 
+const bioParagraphs = (bio?.shortBio ?? '')
+  .split(/\n\s*\n/)
+  .map((paragraph) => paragraph.trim())
+  .filter(Boolean);
+const bioLead = bioParagraphs[0] ?? '';
+
 function articleHref(a: { collection: string; slug: string }) {
   return `/${a.collection}/${a.slug}/`;
 }
@@ -51,7 +57,7 @@ function articleHref(a: { collection: string; slug: string }) {
 
 <Layout
   title={`${name} | Authors | The Rang Yan Review`}
-  description={bio?.shortBio ?? `Writings by ${name} in The Rang Yan Review.`}
+  description={bioLead ? plainInline(bioLead) : `Writings by ${name} in The Rang Yan Review.`}
 >
   <Header />
 
@@ -74,8 +80,10 @@ function articleHref(a: { collection: string; slug: string }) {
           {bio?.location && (
             <p class="author-location">{bio.location}</p>
           )}
-          {bio?.shortBio ? (
-            <p class="author-short-bio" set:html={withJournalItalics(bio.shortBio)} />
+          {bioParagraphs.length > 0 ? (
+            bioParagraphs.map((paragraph) => (
+              <p class="author-short-bio" set:html={withJournalItalics(paragraph)} />
+            ))
           ) : (
             <p class="author-short-bio author-short-bio--placeholder">Biography forthcoming.</p>
           )}
