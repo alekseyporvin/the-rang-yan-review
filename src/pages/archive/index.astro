@@ -37,7 +37,7 @@ function articleHref(a: { collection: string; slug: string }) {
 ---
 
 <Layout
-  title="Archive | The Rang Yan Review"
+  title="ISSUES | The Rang Yan Review"
   description="All issues of The Rang Yan Review, from the current issue to the archive."
 >
   <Header />
@@ -45,16 +45,31 @@ function articleHref(a: { collection: string; slug: string }) {
   <main id="main-content">
     <div class="container archive-page">
       <header class="archive-header">
-        <p class="category-label">Archive</p>
+        <p class="category-label">ISSUES</p>
         <h1 class="archive-title">All Issues</h1>
         <p class="archive-desc">
-          Every issue of <em>The Rang Yan Review</em>, from the most recent to the first. The archive grows with each publication; no issue is ever removed.
+          Every issue of <em>The Rang Yan Review</em>, from the most recent to the first.
         </p>
       </header>
 
-      {archiveIssues.length === 0 ? (
-        <p class="no-results">No issues published yet.</p>
-      ) : archiveIssues.map(issue => {
+      <section class="autumn-issue" aria-labelledby="autumn-issue-heading">
+        <a class="autumn-issue__cover" href="/fall-2026/">
+          <img
+            src="/images/issue-01-cover.jpg"
+            alt="Cover of The Rang Yan Review, Issue 01, Autumn 2026: a Paris street in autumn light, an open newspaper on a stone ledge"
+            width="1024"
+            height="1024"
+          />
+        </a>
+        <div class="autumn-issue__meta">
+          <p class="autumn-issue__kicker">Issue 01</p>
+          <h2 id="autumn-issue-heading" class="autumn-issue__title">Autumn 2026</h2>
+          <p class="autumn-issue__note">The autumn issue of The Rang Yan Review.</p>
+          <a class="autumn-issue__read" href="/fall-2026/">Read the issue</a>
+        </div>
+      </section>
+
+      {archiveIssues.length === 0 ? null : archiveIssues.map(issue => {
         const isCurrent = currentIssue && issue.id === currentIssue.id;
         const issueArticles = getIssueArticles(issue.slug);
 
@@ -155,6 +170,71 @@ function articleHref(a: { collection: string; slug: string }) {
   .archive-desc em {
     font-style: italic;
     color: var(--color-ink);
+  }
+
+  .autumn-issue {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: 2rem 2.75rem;
+    align-items: center;
+    padding: 0 0 3rem;
+  }
+
+  .autumn-issue__cover {
+    display: block;
+  }
+
+  .autumn-issue__cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #c4b196;
+    border: 1px solid rgba(26, 25, 22, 0.08);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.35) inset,
+      0 14px 32px rgba(26, 25, 22, 0.14),
+      0 2px 6px rgba(26, 25, 22, 0.06);
+  }
+
+  .autumn-issue__kicker {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-burgundy);
+    margin: 0 0 0.45rem;
+  }
+
+  .autumn-issue__title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin: 0 0 0.6rem;
+  }
+
+  .autumn-issue__note {
+    font-family: var(--font-serif-body);
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--color-ink-secondary);
+    margin: 0 0 1.15rem;
+  }
+
+  .autumn-issue__read {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-ink);
+  }
+
+  .autumn-issue__read:hover {
+    color: var(--color-burgundy);
+    border-bottom-color: var(--color-burgundy);
   }
 
   .issue-block {
@@ -268,6 +348,15 @@ function articleHref(a: { collection: string; slug: string }) {
   }
 
   @media (max-width: 768px) {
+    .autumn-issue {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .autumn-issue__cover {
+      max-width: 11rem;
+    }
+
     .issue-cover-editorial {
       grid-template-columns: 1fr;
     }

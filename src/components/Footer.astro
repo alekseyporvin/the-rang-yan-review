@@ -28,6 +28,7 @@ const isHome = Astro.url.pathname === '/';
         <div class="footer-nav-col">
           <span class="footer-nav-heading">Sections</span>
           <ul role="list">
+            <li><a href="/archive/">ISSUES</a></li>
             <li><a href="/essays/">Essays and Philosophy</a></li>
             <li><a href="/poetry/">Poetry</a></li>
             <li><a href="/prose/">Prose</a></li>
@@ -39,11 +40,10 @@ const isHome = Astro.url.pathname === '/';
         <div class="footer-nav-col">
           <span class="footer-nav-heading">Journal</span>
           <ul role="list">
-            <li><a href="/archive/">Archive</a></li>
             <li><a href="/authors/">Authors</a></li>
-            <li><a href="/editorial-board/">Editorial Board</a></li>
             <li><a href="/about/">About</a></li>
-            <li><a href="/submit-to-the-inaugural-issue/">Submit to the Inaugural Issue</a></li>
+            <li><a href="/editorial-board/">Editorial Board</a></li>
+            <li><a href="/submit-to-the-inaugural-issue/">SUBMIT</a></li>
           </ul>
         </div>
         <div class="footer-nav-col">
@@ -164,7 +164,7 @@ const isHome = Astro.url.pathname === '/';
 
   .footer-nav a {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: calc(0.875rem * 1.3);
     color: var(--color-ink-secondary);
     text-decoration: none;
   }

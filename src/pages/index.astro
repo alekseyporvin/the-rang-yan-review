@@ -109,7 +109,7 @@ function articleHref(a: { collection: string; slug: string }) {
 
 <Layout
   title="The Rang Yan Review — Literature, Philosophy, Solidarity"
-  description="The Rang Yan Review is a literary and philosophical journal of critical thought, culture, and human solidarity. Issue 01, Autumn 2026, is currently in preparation."
+  description="The Autumn 2026 Issue of The Rang Yan Review Is Out."
   ogTitle="The Rang Yan Review"
   ogDescription="Literature · Philosophy · Solidarity"
   ogImage="https://therangyanreview.org/images/og-home.jpg"
@@ -134,6 +134,13 @@ function articleHref(a: { collection: string; slug: string }) {
 
     <hr class="section-divider" />
 
+    <section class="issue-now" aria-label="The Autumn 2026 Issue">
+      <div class="container">
+        <p class="issue-now__lead">The Autumn 2026 Issue of The Rang Yan Review Is Out.</p>
+        <a class="issue-now__read" href="/fall-2026/">READ THE ISSUE</a>
+      </div>
+    </section>
+
     <section class="inaugural-cover" aria-labelledby="inaugural-cover-heading">
       <div class="container">
         <header class="inaugural-cover__masthead">
@@ -144,23 +151,17 @@ function articleHref(a: { collection: string; slug: string }) {
         </header>
 
         <figure class="inaugural-cover__figure">
-          <img
-            src="/images/issue-01-cover.jpg"
-            alt="Cover of The Rang Yan Review, Issue 01, Autumn 2026: a Paris street in autumn light, an open newspaper on a stone ledge"
-            width="1024"
-            height="1024"
-            fetchpriority="high"
-            decoding="async"
-          />
+          <a class="inaugural-cover__link" href="/fall-2026/">
+            <img
+              src="/images/issue-01-cover.jpg"
+              alt="Cover of The Rang Yan Review, Issue 01, Autumn 2026: a Paris street in autumn light, an open newspaper on a stone ledge"
+              width="1024"
+              height="1024"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </a>
         </figure>
-
-        <div class="inaugural-cover__status">
-          <p class="inaugural-cover__lead">
-            Our inaugural issue<br />
-            is currently in preparation.
-          </p>
-          <p class="inaugural-cover__coming">Coming this autumn.</p>
-        </div>
       </div>
     </section>
 
@@ -421,13 +422,15 @@ function articleHref(a: { collection: string; slug: string }) {
 
     <section class="home-colophon" aria-label="The Rang Yan Review">
       <div class="container">
-        <img
-          src="/images/logo-rang-yan-review.png?v=3"
-          alt="The Rang Yan Review — Solidarity Before Certainty"
-          class="home-colophon__mark"
-          width="640"
-          height="640"
-        />
+        <a class="home-colophon__link" href="/about/">
+          <img
+            src="/images/logo-rang-yan-review.png?v=3"
+            alt="The Rang Yan Review — Solidarity Before Certainty"
+            class="home-colophon__mark"
+            width="640"
+            height="640"
+          />
+        </a>
       </div>
     </section>
 
@@ -577,8 +580,13 @@ function articleHref(a: { collection: string; slug: string }) {
   }
 
   .inaugural-cover__figure {
-    margin: 0 auto 2.85rem;
+    margin: 0 auto;
     max-width: min(100%, 34rem);
+  }
+
+  .inaugural-cover__link {
+    display: block;
+    text-decoration: none;
   }
 
   .inaugural-cover__figure img {
@@ -593,29 +601,42 @@ function articleHref(a: { collection: string; slug: string }) {
       0 3px 10px rgba(26, 25, 22, 0.07);
   }
 
-  .inaugural-cover__status {
-    margin: 0 auto;
-    max-width: 28rem;
+  .issue-now {
+    padding: 3.25rem 0 3.5rem;
+    text-align: center;
   }
 
-  .inaugural-cover__lead {
+  .issue-now__lead {
     font-family: var(--font-serif);
     font-size: clamp(1.4rem, 2.6vw, 1.9rem);
     font-weight: 500;
     line-height: 1.28;
     letter-spacing: -0.018em;
     color: var(--color-ink);
-    margin: 0 0 1.2rem;
+    margin: 0 auto 1.2rem;
+    max-width: 40rem;
   }
 
-  .inaugural-cover__coming {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--color-burgundy);
-    margin: 0;
+  .issue-now__read {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    font-weight: 500;
+    line-height: 1.28;
+    letter-spacing: -0.018em;
+    color: var(--color-ink);
+    background: #c8efd0;
+    border: 6px solid #ffffff;
+    border-radius: 3px;
+    padding: 0.45rem 1.05rem;
+    text-decoration: none;
+  }
+
+  .issue-now__read:hover {
+    background: #b7e6c2;
+    border-color: #ffffff;
+    color: var(--color-ink);
   }
 
   /* Buttons */
@@ -938,7 +959,7 @@ function articleHref(a: { collection: string; slug: string }) {
     }
 
     .inaugural-cover__figure {
-      margin-bottom: 2.15rem;
+      margin-bottom: 0;
     }
 
     .articles-grid--3 {
@@ -965,6 +986,11 @@ function articleHref(a: { collection: string; slug: string }) {
 
   .home-colophon {
     padding: 2.5rem 0 0;
+  }
+
+  .home-colophon__link {
+    display: block;
+    text-decoration: none;
   }
 
   .home-colophon__mark {

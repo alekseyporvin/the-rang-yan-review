@@ -1,22 +1,17 @@
 ---
-const navLeft = [
+const navLinks = [
+  { href: '/archive/', label: 'ISSUES' },
   { href: '/essays/', label: 'Essays and Philosophy' },
   { href: '/poetry/', label: 'Poetry' },
   { href: '/prose/', label: 'Prose' },
   { href: '/interviews/', label: 'Interviews' },
   { href: '/conversation-with/', label: 'Conversation With' },
   { href: '/criticism/', label: 'Criticism' },
-];
-
-const navRight = [
-  { href: '/archive/', label: 'Archive' },
   { href: '/authors/', label: 'Authors' },
-  { href: '/editorial-board/', label: 'Editorial Board' },
   { href: '/about/', label: 'About' },
-  { href: '/submit-to-the-inaugural-issue/', label: 'Submit to the Inaugural Issue' },
+  { href: '/editorial-board/', label: 'Editorial Board' },
+  { href: '/submit-to-the-inaugural-issue/', label: 'SUBMIT' },
 ];
-
-const navLinks = [...navLeft, ...navRight];
 const pathname = Astro.url.pathname;
 ---
 
@@ -280,7 +275,7 @@ const pathname = Astro.url.pathname;
 
   .nav-link {
     font-family: var(--font-sans);
-    font-size: 0.76rem;
+    font-size: calc(0.76rem * 1.3);
     font-weight: 500;
     color: var(--color-ink-secondary);
     -webkit-text-fill-color: currentColor;
@@ -365,7 +360,7 @@ const pathname = Astro.url.pathname;
   .mobile-nav-link {
     display: block;
     font-family: var(--font-sans);
-    font-size: 1.235rem;
+    font-size: calc(1.235rem * 1.3);
     font-weight: 500;
     color: var(--color-ink-secondary);
     text-decoration: none;
