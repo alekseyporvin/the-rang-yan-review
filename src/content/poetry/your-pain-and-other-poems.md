@@ -95,5 +95,5 @@ In my dreams there’s a trick to it.
 <span class="armantrout-keep">slimy sensation on my bare feet from my last crossing and feel encouraged</span>
 
 as if time
-<span class="armantrout-shift"><span class="armantrout-pad" aria-hidden="true">as if time </span>were a gentle</span>
+<span class="armantrout-shift"><span class="armantrout-pad" aria-hidden="true">as if time        </span>were a gentle</span>
 push forward.</pre>
