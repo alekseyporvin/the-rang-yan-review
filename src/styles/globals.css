@@ -1033,6 +1033,23 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   color: inherit;
 }
+/* Rae Armantrout: section stars sit mid-line; two words are set off to the right. */
+.prose-poetry .poem-lines--armantrout .armantrout-star {
+  display: block;
+  text-align: center;
+}
+.prose-poetry .poem-lines--armantrout .armantrout-num {
+  display: inline-block;
+  padding-left: 1.5em;
+}
+.prose-poetry .poem-lines--armantrout .armantrout-shift {
+  display: inline-block;
+  padding-left: 3.4em;
+}
+.prose-poetry .poem-lines--armantrout .armantrout-far {
+  display: inline-block;
+  padding-left: 7.5em;
+}
 /* Largo Afternoon: Word first-line indent of 0.5in on one line. */
 .prose-poetry .poem-lines .deangelis-in {
   padding-left: 0.5in;
