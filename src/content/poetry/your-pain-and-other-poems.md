@@ -61,7 +61,7 @@ wince in sync
 
 A game of freeze tag
 between subatomic
-<span class="armantrout-far"><span class="armantrout-pad" aria-hidden="true">between subatomic </span>pixels</span>
+<span class="armantrout-far"><span class="armantrout-pad" aria-hidden="true">between subatomic    </span>pixels</span>
 
 and observers
 who don’t know they’re playing.</pre>
