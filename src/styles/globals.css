@@ -1045,6 +1045,9 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-lines--armantrout .armantrout-shift {
   display: inline-block;
 }
+.prose-poetry .poem-lines--armantrout {
+  overflow-x: visible;
+}
 .prose-poetry .poem-lines--armantrout .armantrout-keep {
   display: inline-block;
   white-space: nowrap;
