@@ -1048,7 +1048,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .prose-poetry .poem-lines--armantrout .armantrout-far {
   display: inline-block;
-  padding-left: 7.5em;
+}
+.prose-poetry .poem-lines--armantrout .armantrout-pad {
+  visibility: hidden;
 }
 /* Largo Afternoon: Word first-line indent of 0.5in on one line. */
 .prose-poetry .poem-lines .deangelis-in {
