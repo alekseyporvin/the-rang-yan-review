@@ -1044,7 +1044,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 .prose-poetry .poem-lines--armantrout .armantrout-shift {
   display: inline-block;
-  padding-left: 3.4em;
+}
+.prose-poetry .poem-lines--armantrout .armantrout-keep {
+  display: inline-block;
+  white-space: nowrap;
 }
 .prose-poetry .poem-lines--armantrout .armantrout-far {
   display: inline-block;

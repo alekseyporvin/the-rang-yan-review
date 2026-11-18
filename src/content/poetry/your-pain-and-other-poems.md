@@ -90,9 +90,10 @@ beginning.
 
 In my dreams there’s a trick to it.
 
-At some point I realize that I have done what I am now doing on a previous occasion—
-in this case walking across an estuary on a mat of leaves and twigs, unsure that it will hold my weight. I remember the slimy sensation on my bare feet from my last crossing and feel encouraged
+<span class="armantrout-keep">At some point I realize that I have done what I am now doing on a previous occasion—</span>
+<span class="armantrout-keep">in this case walking across an estuary on a mat of leaves and twigs, unsure that it will hold my weight. I remember the</span>
+<span class="armantrout-keep">slimy sensation on my bare feet from my last crossing and feel encouraged</span>
 
 as if time
-<span class="armantrout-shift">were a gentle</span>
+<span class="armantrout-shift"><span class="armantrout-pad" aria-hidden="true">as if time </span>were a gentle</span>
 push forward.</pre>
