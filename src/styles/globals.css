@@ -1058,6 +1058,71 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-lines--armantrout .armantrout-pad {
   visibility: hidden;
 }
+/* Bob Black: Times and half-inch default tabs, as in the manuscript. Size matches the poetry measure. */
+.article-body.container:has(.poem-lines--black) {
+  max-width: calc(7in + 4rem);
+}
+.prose-poetry .poem-lines--black {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  tab-size: 0.5in;
+  -moz-tab-size: 0.5in;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+.prose-poetry .poem-lines--black em {
+  font-style: italic;
+}
+.prose-poetry .poem-lines--black .black-num {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0.5in;
+  padding-left: 0.22in;
+}
+/* An Argument with the Birds: two aligned columns, a third on two lines only. */
+.article-body.container:has(.black-arg) {
+  max-width: min(100%, 76rem);
+}
+.prose-poetry .black-arg {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  overflow: visible;
+}
+.prose-poetry .black-arg-mark {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  margin: 0;
+}
+.prose-poetry .black-arg-blank {
+  height: 1.35em;
+}
+.prose-poetry .black-line {
+  display: grid;
+  grid-template-columns: 21em minmax(0, 1fr);
+  column-gap: 0.85rem;
+  align-items: start;
+}
+.prose-poetry .black-line:has(> span:nth-child(3)) {
+  grid-template-columns: 21em minmax(0, 1fr) 19em;
+}
+@media (max-width: 900px) {
+  .prose-poetry .black-line,
+  .prose-poetry .black-line:has(> span:nth-child(3)) {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+  }
+  .prose-poetry .black-line:has(> span:nth-child(3)) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 0.9fr);
+  }
+}
+.prose-poetry .black-line > span {
+  min-width: 0;
+}
+.prose-poetry .black-arg em {
+  font-style: italic;
+}
 /* Largo Afternoon: Word first-line indent of 0.5in on one line. */
 .prose-poetry .poem-lines .deangelis-in {
   padding-left: 0.5in;

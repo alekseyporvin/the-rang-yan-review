@@ -1,0 +1,4 @@
+---
+name: "Black, Bob"
+shortBio: "Bob Black is an award-winning poet, essayist, and fiction writer whose work has appeared in literary journals and publications across Canada, Australia, Russia, France, Japan, and the United States. A two-time finalist for the CBC National Poetry Award, he has received literary recognition in both North America and Europe. His writing explores the intersections of intimacy, memory, displacement, language, and the fragile architectures of human experience, often moving between lyrical intensity, philosophical inquiry, and an attentive engagement with the contradictions of everyday life. His poetry collection, *鬼故事: A Love Story, Vol. 1*, reflects his interest in the complex emotional landscapes through which personal histories and the possibilities of connection unfold."
+---

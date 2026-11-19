@@ -12,6 +12,8 @@ const articleFields = z.object({
   tags: z.array(z.string()).default([]),
   category: z.string().optional(),
   issue: z.string().optional(),
+  /** Rolling work reserved for a later issue. Omitted from any earlier issue's contents. */
+  scheduledIssue: z.string().optional(),
   featured: z.boolean().default(false),
   draft: z.boolean().default(false),
   coverImage: z.string().optional(),

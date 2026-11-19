@@ -13,13 +13,16 @@ const sectionOrder = [
   { key: 'conversation-with', title: 'Conversation With' },
 ] as const;
 
+const inThisIssue = (entry: { data: { draft?: boolean; scheduledIssue?: string } }) =>
+  !entry.data.draft && !entry.data.scheduledIssue;
+
 const [poetry, prose, criticism, essays, interviews, conversations] = await Promise.all([
-  getCollection('poetry', entry => !entry.data.draft),
-  getCollection('prose', entry => !entry.data.draft),
-  getCollection('criticism', entry => !entry.data.draft),
-  getCollection('essays', entry => !entry.data.draft),
-  getCollection('interviews', entry => !entry.data.draft),
-  getCollection('conversation-with', entry => !entry.data.draft),
+  getCollection('poetry', inThisIssue),
+  getCollection('prose', inThisIssue),
+  getCollection('criticism', inThisIssue),
+  getCollection('essays', inThisIssue),
+  getCollection('interviews', inThisIssue),
+  getCollection('conversation-with', inThisIssue),
 ]);
 
 const byGenre = {
