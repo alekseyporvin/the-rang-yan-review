@@ -16,6 +16,8 @@ relatedAuthorSlugs:
   - william-lessard
 ---
 
+<p class="review-imprint"><em>/face</em> by William Lessard. 16,00 $ KERNPUNKT PRESS</p>
+
 Earlier this year, actress Q’orianka Kilcher sued James Cameron and the Walt Disney Company, alleging that her facial features had been used without her consent in the design of Neytiri, a character in the *Avatar* franchise. Kilcher, who is of Indigenous South American descent, learned of the unauthorized use of her likeness from an interview with Cameron, where he is recorded as saying: “There’s a young actress named Q’orianka Kilcher who played Pocahontas in *The New World*. This is actually her lower face. She had a very interesting face.”
 
 This story uncannily resembles William Lessard’s */face*, a poetry collection haunted by some of the dystopian qualities of our era of facial capture and facial recognition technology. The book is a collage of Google patents, digital surveillance, coding, jargon, workplace emails, face meshes, charts, templates, digital monetization, and more, all of which create a feeling of impending peril. It’s like being trapped in a machine that no longer wants to be a machine. Lessard’s poems ask what becomes of lyric subjectivity once the face is searchable and monetized.

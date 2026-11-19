@@ -40,6 +40,9 @@ const latestPoetry = (await getCollection('poetry', e => !e.data.draft))
 const latestProse = (await getCollection('prose', e => !e.data.draft))
   .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
   .slice(0, 2);
+const latestCriticism = (await getCollection('criticism', e => !e.data.draft))
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
+  .slice(0, 2);
 const latestInterviews = (await getCollection('interviews', e => !e.data.draft))
   .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
   .slice(0, 2);
@@ -65,6 +68,12 @@ const latestSections = [
     href: '/prose/',
     more: 'All prose →',
     items: latestProse,
+  },
+  {
+    title: 'Criticism',
+    href: '/criticism/',
+    more: 'All criticism →',
+    items: latestCriticism,
   },
   {
     title: 'Interviews',
