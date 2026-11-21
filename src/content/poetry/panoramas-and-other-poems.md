@@ -3,7 +3,7 @@ title: "Panoramas and Other Poems"
 author: "Frank Báez"
 authorSlug: "frank-baez"
 date: 2026-11-21T20:00:00.000Z
-excerpt: "*The aging body, the estrangement of memory, and the absurd encounters of urban existence converge in a portrait of ordinary life where the pressures of contemporary social life inscribe themselves upon physical vulnerability, social perception, and the objects through which identity is remembered, while the poems' shifts between irony, tenderness, and mythological allusion expose the precarious boundary between human dignity and obsolescence.*"
+excerpt: "The aging body, the estrangement of memory, and the absurd encounters of urban existence converge in a portrait of ordinary life where the pressures of contemporary social life inscribe themselves upon physical vulnerability, social perception, and the objects through which identity is remembered, while the poems' shifts between irony, tenderness, and mythological allusion expose the precarious boundary between human dignity and obsolescence."
 sourceNote: "From *Desarmando la biblioteca de mi padre* (Fondo de Cultura Económica, 2024).\n\nTranslated from the Spanish by Anthony Seidman."
 tags:
   - poetry
