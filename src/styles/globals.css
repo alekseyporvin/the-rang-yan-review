@@ -1029,16 +1029,22 @@ h1, h2, h3, h4, h5, h6 {
   white-space: pre;
   overflow-x: auto;
 }
-.prose-poetry .baker-columns {
+.prose-poetry .baker-saint {
   font-family: Georgia, "Palatino Linotype", Palatino, serif;
   font-size: 1.1rem;
   line-height: 1.9;
+  overflow-x: auto;
 }
-.prose-poetry .baker-columns p {
-  display: grid;
-  grid-template-columns: 13.5em minmax(0, 1fr);
-  column-gap: 1.75em;
+.prose-poetry .baker-saint p {
   margin: 0;
+  white-space: nowrap;
+}
+.prose-poetry .baker-saint__mid {
+  padding-left: 6em;
+}
+.prose-poetry .baker-saint__pair {
+  display: grid;
+  grid-template-columns: 12em minmax(max-content, 1fr);
 }
 .prose-poetry .poem-verse p {
   margin-bottom: 1.85em;

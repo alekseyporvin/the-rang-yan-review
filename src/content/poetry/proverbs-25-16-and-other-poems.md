@@ -84,23 +84,23 @@ freon god</pre>
 
 <p class="baker-title baker-title--room">Sinner/Saint</p>
 
-<div class="baker-columns">
-<p><span></span><span>trolley switch</span></p>
-<p><span></span><span>chosen path</span></p>
-<p><span>ethics glitch</span><span>virtue myth</span></p>
-<p><span>falsehood craft</span><span>middle mast</span></p>
-<p><span></span><span>aftermath</span></p>
-<p><span></span><span>inner ghost</span></p>
-<p><span>sidelong glance</span><span>welcome mat</span></p>
-<p><span>house and hoax</span><span>gracious host</span></p>
-<p><span></span><span>wheel of spokes</span></p>
-<p><span></span><span>outer turn</span></p>
-<p><span>grandiose</span><span>diagnose</span></p>
-<p><span>astroturf</span><span>salted burn</span></p>
-<p><span></span><span>just desserts</span></p>
-<p><span></span><span>membership</span></p>
-<p><span>truth averse</span><span>unrehearsed</span></p>
-<p><span>reason rich</span><span>perfect pitch</span></p>
-<p><span></span><span>trolley switch</span></p>
-<p><span></span><span>chosen path</span></p>
+<div class="baker-saint">
+<p class="baker-saint__mid">trolley switch</p>
+<p class="baker-saint__mid">chosen path</p>
+<p class="baker-saint__pair"><span>ethics glitch</span><span>virtue myth</span></p>
+<p class="baker-saint__pair"><span>falsehood craft</span><span>middle mast</span></p>
+<p class="baker-saint__mid">aftermath</p>
+<p class="baker-saint__mid">inner ghost</p>
+<p class="baker-saint__pair"><span>sidelong glance</span><span>welcome mat</span></p>
+<p class="baker-saint__pair"><span>house and hoax</span><span>gracious host</span></p>
+<p class="baker-saint__mid">wheel of spokes</p>
+<p class="baker-saint__mid">outer turn</p>
+<p class="baker-saint__pair"><span>grandiose</span><span>diagnose</span></p>
+<p class="baker-saint__pair"><span>astroturf</span><span>salted burn</span></p>
+<p class="baker-saint__mid">just desserts</p>
+<p class="baker-saint__mid">membership</p>
+<p class="baker-saint__pair"><span>truth averse</span><span>unrehearsed</span></p>
+<p class="baker-saint__pair"><span>reason rich</span><span>perfect pitch</span></p>
+<p class="baker-saint__mid">trolley switch</p>
+<p class="baker-saint__mid">chosen path</p>
 </div>
