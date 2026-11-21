@@ -3,7 +3,7 @@ title: "*A Violence* by Paula Bohince"
 author: "Joseph Porter-Bolger"
 authorSlug: "joseph-porter-bolger"
 date: 2026-11-19
-excerpt: "In A Violence, Paula Bohince examines trauma as an intimate manifestation of larger structures of abandonment, inherited vulnerability, and the social organisation of care, tracing how the languages of childhood, motherhood, memory, and therapeutic culture both conceal and reproduce the conditions of psychic injury. Through its fractured geographies, recurring material symbols, and unstable negotiations between private suffering and collective reality, the collection interrogates the political economy of healing, exposing the limits of individualised recovery while searching for forms of relation capable of resisting the isolation imposed by violence."
+excerpt: "In *A Violence*, Paula Bohince examines trauma as an intimate manifestation of larger structures of abandonment, inherited vulnerability, and the social organisation of care, tracing how the languages of childhood, motherhood, memory, and therapeutic culture both conceal and reproduce the conditions of psychic injury. Through its fractured geographies, recurring material symbols, and unstable negotiations between private suffering and collective reality, the collection interrogates the political economy of healing, exposing the limits of individualised recovery while searching for forms of relation capable of resisting the isolation imposed by violence."
 coverImage: "/images/a-violence-cover.jpg"
 previewImage: "/images/a-violence-cover.jpg"
 tags:

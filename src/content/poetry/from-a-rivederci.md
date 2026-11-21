@@ -39,7 +39,7 @@ alive
 
 *
 in the middle of silence
-she looses the pearl
+she loses the pearl
 entirely closing in it
 
 *
@@ -62,7 +62,7 @@ of hours without fever
 gestures leaning forward
 
 where has he been tomorrow
-all of a jealousy
+all out of jealousy
 
 *
 sleep noise
