@@ -1,0 +1,4 @@
+---
+name: "Arai, Takako"
+shortBio: "Takako Arai (新井高子) is a Japanese poet, literary critic, editor, and professor at Saitama University. Born in 1966 in Kiryū, Gunma Prefecture, she grew up in a family involved in the textile industry, an experience that profoundly informs her socially engaged poetry. Her work explores the lives of working women, industrial decline, globalization, regional memory, and the aftermath of the 2011 Tōhoku earthquake and tsunami. Her poetry collections include *Soul Dance* (2007), *Beds and Looms* (2013), and *Oshirakosama-kibun* (2024). Her English-language collection *Factory Girls* (2019), translated by Jeffrey Angles, was a finalist for the Sarah Maguire Prize in 2020. Arai received the Oguma Hideo Poetry Prize (2008) and the Ooka Makoto Prize (2025). She is also the editor of the poetry journal *Mi’Te*."
+---

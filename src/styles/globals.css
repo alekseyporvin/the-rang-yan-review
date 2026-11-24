@@ -1166,6 +1166,11 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   color: inherit;
 }
+/* Takako Arai: indented lines keep their inset when they wrap. */
+@media (max-width: 640px) {
+  .prose-poetry .poem-lines--arai .poem-shift { padding-left: 1.25rem; }
+  .prose-poetry .poem-lines--arai .poem-shift-2 { padding-left: 2rem; }
+}
 /* Rae Armantrout: section stars sit mid-line; two words are set off to the right. */
 .prose-poetry .poem-lines--armantrout .armantrout-star {
   display: block;

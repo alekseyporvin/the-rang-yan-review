@@ -1,0 +1,4 @@
+---
+name: "Angles, Jeffrey"
+shortBio: "Jeffrey Angles (born 1971) is an American poet, translator, and professor of Japanese at Western Michigan University. He has translated numerous works of modern and contemporary Japanese literature, with a particular commitment to socially engaged, feminist, and queer writing. His translations include *The Book of the Dead* by Orikuchi Shinobu, *Forest of Eyes: Selected Poems of Tada Chimako*, *Killing Kanoko* and *The Thorn Puller* by Hiromi Itō, and *Only Yesterday* by Mutsuo Takahashi. His work has received the Japan–U.S. Friendship Commission Prize for the Translation of Japanese Literature, the Harold Morton Landon Translation Award, and the MLA’s Scaglione Prize. Angles is also an accomplished poet writing in Japanese; his collection *Watashi no hizukehenkōsen* (*My International Date Line*, 2016) received the prestigious Yomiuri Prize for Literature."
+---
