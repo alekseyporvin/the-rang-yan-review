@@ -1068,6 +1068,20 @@ h1, h2, h3, h4, h5, h6 {
 .prose-poetry .poem-shift-2 { padding-left: 1in; }
 .prose-poetry .poem-shift-3 { padding-left: 1.5in; }
 .prose-poetry .poem-shift-4 { padding-left: 2in; }
+/* Clara Burghelea: second lines sit an inch in; the spaced pair keeps Word tab stops. */
+.prose-poetry .burghelea p {
+  margin: 0;
+}
+.prose-poetry .burghelea .burghelea-in {
+  padding-left: 1in;
+}
+.prose-poetry .burghelea pre {
+  margin: 0;
+  font: inherit;
+  line-height: inherit;
+  white-space: pre-wrap;
+  tab-size: 0.5in;
+}
 .prose-poetry .poem-preface {
   margin-bottom: 2.4em;
 }
